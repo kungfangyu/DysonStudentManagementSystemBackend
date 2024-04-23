@@ -17,6 +17,7 @@ import java.time.LocalDate;
 @Table(name = "PreviousQualification")
 @IdClass(PreviousQualificationCompositeKey.class)
 public class PreviousQualification {
+
     @Id
     @Column(name = "UserID", length = 8)
     private String userID;

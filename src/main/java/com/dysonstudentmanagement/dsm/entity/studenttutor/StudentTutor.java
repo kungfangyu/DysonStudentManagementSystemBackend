@@ -15,6 +15,7 @@ import lombok.*;
 @Table(name = "StudentTutor")
 @IdClass(StudentTutorCompositeKey.class)
 public class StudentTutor{
+
     @Id
     @Column(name = "StudentID", length = 8)
     private String studentID;

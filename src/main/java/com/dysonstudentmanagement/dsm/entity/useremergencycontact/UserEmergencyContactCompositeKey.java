@@ -16,6 +16,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserEmergencyContactCompositeKey implements Serializable {
+
     @Id
     @Column(name = "UserID", length = 8)
     private String userID;

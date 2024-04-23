@@ -15,6 +15,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StudentTutorCompositeKey implements Serializable {
+
     @Id
     @Column(name = "StudentID", length = 8)
     private String studentID;
