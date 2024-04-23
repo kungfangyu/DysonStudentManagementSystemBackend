@@ -14,7 +14,7 @@ import lombok.*;
 @Table(name = "UserEmergencyContact")
 @IdClass(UserEmergencyContactCompositeKey.class)
 public class UserEmergencyContact {
-
+    @Id
     @Column(name = "UserID", length = 8)
     private String userID;
     @Id
