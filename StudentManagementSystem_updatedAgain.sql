@@ -315,7 +315,7 @@ Stores student’s coursework, including submitted coursework files, and whether
 Original Author: Billy Peters 24/03/2024
 Modifying Author: Billy Peters 29/03/2024  - Altered StudentID to reference User table, to reflect the merge of Student and StaffMember tables
 */
-CREATE TABLE `StudentCoursework` (
+CREATE TABLE `StudentCourseworkGrade` (
 `ModuleID` VARCHAR(12),
 `CourseworkID` INT,
 `StudentID` VARCHAR(8),
@@ -345,7 +345,7 @@ CREATE TABLE `CourseworkExtensionRequest` (
 `Status` ENUM('Submitted', 'Accepted', 'Rejected'),
 `AdjustedDeadline` DATETIME,
 PRIMARY KEY (`StudentID`,`ModuleID`,`CourseworkID`,`RequestNumber`),
-CONSTRAINT `CourseworkExtensionRequest_FK_Coursework` FOREIGN KEY (`StudentID`,`ModuleID`,`CourseworkID`) REFERENCES `StudentCoursework`(`StudentID`,`ModuleID`,`CourseworkID`) ON UPDATE CASCADE ON DELETE CASCADE
+CONSTRAINT `CourseworkExtensionRequest_FK_Coursework` FOREIGN KEY (`StudentID`,`ModuleID`,`CourseworkID`) REFERENCES `StudentCourseworkGrade`(`StudentID`,`ModuleID`,`CourseworkID`) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 /*
