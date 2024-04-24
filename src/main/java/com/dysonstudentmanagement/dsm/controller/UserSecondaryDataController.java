@@ -32,7 +32,7 @@ public class UserSecondaryDataController {
         return ResponseEntity.ok(savedData);
     }
 
-    @DeleteMapping({"id"})
+    @DeleteMapping("{id}")
     public ResponseEntity<String> deleteUserSecondaryData(@PathVariable("id") String userID){
         userSecondaryDataService.deleteEmployee(userID);
         return ResponseEntity.ok(userID+" Secondary Data deleted successfully");

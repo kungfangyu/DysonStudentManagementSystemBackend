@@ -21,23 +21,20 @@ public class UserEmergencyContactCompositeKey implements Serializable {
     @Column(name = "UserID", length = 8)
     private String userID;
     @Id
-    @Column(name = "FirstName", length = 70)
-    private String firstName;
-    @Id
-    @Column(name = "LastName", length = 70)
-    private String lastName;
+    @Column(name = "ContactPriority") //describes order in which emergency contacts should be contacted
+    private int contactPriority;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserEmergencyContactCompositeKey that = (UserEmergencyContactCompositeKey) o;
-        return Objects.equals(getUserID(), that.getUserID()) && Objects.equals(getFirstName(), that.getFirstName()) && Objects.equals(getLastName(), that.getLastName());
+        return getContactPriority() == that.getContactPriority() && Objects.equals(getUserID(), that.getUserID());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUserID(), getFirstName(), getLastName());
+        return Objects.hash(getUserID(), getContactPriority());
     }
 }
 

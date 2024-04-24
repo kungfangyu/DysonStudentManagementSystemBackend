@@ -37,4 +37,6 @@ public class PreviousQualificationCompositeKey implements Serializable {
     public int hashCode() {
         return Objects.hash(getUserID(), getQualificationLevel(), getSubject());
     }
+
+
 }

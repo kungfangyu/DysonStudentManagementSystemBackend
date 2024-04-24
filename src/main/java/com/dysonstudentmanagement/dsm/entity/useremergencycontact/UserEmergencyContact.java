@@ -19,9 +19,10 @@ public class UserEmergencyContact {
     @Column(name = "UserID", length = 8)
     private String userID;
     @Id
+    @Column(name = "ContactPriority") //describes order in which emergency contacts should be contacted
+    private int contactPriority;
     @Column(name = "FirstName", length = 70)
     private String firstName;
-    @Id
     @Column(name = "LastName", length = 70)
     private String lastName;
     @Column(name = "Title", length = 70)

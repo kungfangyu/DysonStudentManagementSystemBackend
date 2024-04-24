@@ -10,13 +10,13 @@ Modifying Author: Billy Peters 16/04/2024 - Split User table into Primary and Se
 */
 CREATE TABLE `UserPrimaryData` (
 `UserID` VARCHAR(8),
-`UserType` ENUM('student', 'teacher', 'admin'),
-`FirstName` VARCHAR(70),
-`LastName` VARCHAR(70),
-`DOB` DATE,
-`PersonalEmail` VARCHAR(254),
-`DysonEmail` VARCHAR(254),
-`Phone` VARCHAR(15),
+`UserType` ENUM('student', 'teacher', 'admin') NOT NUll,
+`FirstName` VARCHAR(70) NOT NUll,
+`LastName` VARCHAR(70) NOT NUll,
+`DOB` DATE NOT NUll,
+`PersonalEmail` VARCHAR(254) NOT NUll,
+`DysonEmail` VARCHAR(254) NOT NUll,
+`Phone` VARCHAR(15) NOT NUll,
 PRIMARY KEY(`UserID`)
 );
 
@@ -71,6 +71,7 @@ Modifying Author: Billy Peters 29/03/2024 – Merged StaffEmergencyContact and S
 */
 CREATE TABLE `UserEmergencyContact` (
 `UserID` VARCHAR(8),
+`ContactPriority` INT, -- Order in which to contact emergency contacts.
 `FirstName` VARCHAR(70),
 `LastName` VARCHAR(70),
 `Title` VARCHAR(70),
@@ -79,7 +80,7 @@ CREATE TABLE `UserEmergencyContact` (
 `Relation` VARCHAR(20),
 `Address` VARCHAR(120),-- Lines of Address should by maked by a comma.
 `Postcode` VARCHAR(8),
-PRIMARY KEY(`UserID`,`FirstName`,`LastName`),
+PRIMARY KEY(`UserID`,`ContactPriority`),
 CONSTRAINT `UserEmergencyContact_FK_StudentID` FOREIGN KEY (`UserID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -171,39 +172,27 @@ Create StudentProgrammeEnrolment table
 Stores which students have been enrolled on a programme, the status of their enrolment, and if completed their final grade
 Original Author: Billy Peters 11/03/2024
 Modifying Author: Billy Peters 29/03/2024  - Altered StudentID to reference User table, to reflect the merge of Student and StaffMember tables
-Modifying Author: Billy Peters 16/04/2024  - Split into two tables (StudentProgrammeEnrolment and StudentProgrammeGrade) to adhere to database normalisation requirements
 **/
 CREATE TABLE `StudentProgrammeEnrolment` (
 `StudentID` VARCHAR(8),
 `ProgrammeID` VARCHAR(12),
 `Status` ENUM('enrolled','suspended','withdrawn','completed'),
 `DateEnrolled` DATE,
+`DateCompleted` DATE,
+`FinalGrade` FLOAT,
 PRIMARY KEY (`StudentID`,`ProgrammeID`),
 CONSTRAINT `StudentProgrammeEnrolment_FK_StudentID` FOREIGN KEY (`StudentID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE,
 CONSTRAINT `StudentProgrammeEnrolment_FK_ProgrammeID` FOREIGN KEY (`ProgrammeID`) REFERENCES `Programme`(`ProgrammeID`) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
-/*
-Create StudentProgrammeGrade table
-Stores which student's date completing programme, grade, and grade classification
-Original Author: Billy Peters 16/04/2024
-*/
-CREATE TABLE `StudentProgrammeGrade` (
-`StudentID` VARCHAR(8),
-`ProgrammeID` VARCHAR(12),
-`DateCompleted` DATE,
-`FinalGrade` FLOAT,
-PRIMARY KEY (`StudentID`,`ProgrammeID`),
-CONSTRAINT `StudentProgrammeEnrolment_FK_StudentProgrammeEnrolment` FOREIGN KEY (`StudentID`,`ProgrammeID`) REFERENCES `StudentProgrammeEnrolment`(`StudentID`,`ProgrammeID`) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
 
 /*
-Create Module table
+Create ModuleDetails table
 Stores module details including name, and how many credits it is worth
 Original Author: Billy Peters 11/03/2024
+Modifying Author: Billy Peters 24/04/2024 Changed name from Module to ModuleDetails, as module is already used in java/spring.
 */
-CREATE TABLE `Module` (
+CREATE TABLE `ModuleDetails` (
 `ModuleID` VARCHAR(12),
 `ModuleName` VARCHAR(100),
 `ModulePhoto` VARCHAR(256),
@@ -222,7 +211,7 @@ CREATE TABLE `ProgrammeModules` (
 `ModuleID` VARCHAR(12),
 `ProgrammeID` VARCHAR(12),
 PRIMARY KEY (`ModuleID`,`ProgrammeID`),
-CONSTRAINT `ProgrammeModules_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `Module`(`ModuleID`) ON UPDATE CASCADE ON DELETE RESTRICT,
+CONSTRAINT `ProgrammeModules_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `ModuleDetails`(`ModuleID`) ON UPDATE CASCADE ON DELETE RESTRICT,
 CONSTRAINT `ProgrammeModules_FK_ProgrammeID` FOREIGN KEY (`ProgrammeID`) REFERENCES `Programme`(`ProgrammeID`) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -236,7 +225,7 @@ CREATE TABLE `ModuleStaff` (
 `ModuleID` VARCHAR(12),
 `StaffID` VARCHAR(8),
 PRIMARY KEY(`ModuleID`,`StaffID`),
-CONSTRAINT `ModuleStaff_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `Module`(`ModuleID`) ON UPDATE CASCADE ON DELETE CASCADE,
+CONSTRAINT `ModuleStaff_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `ModuleDetails`(`ModuleID`) ON UPDATE CASCADE ON DELETE CASCADE,
 CONSTRAINT `ModuleStaff_FK_StaffID` FOREIGN KEY (`StaffID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -253,7 +242,7 @@ CREATE TABLE `Lesson` (
 `EndTime` DATETIME,
 `isAttendanceRequired` BOOL,
 PRIMARY KEY (`ModuleID`,`LessonID`),
-CONSTRAINT `Lesson_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `Module`(`ModuleID`) ON UPDATE CASCADE ON DELETE CASCADE 
+CONSTRAINT `Lesson_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `ModuleDetails`(`ModuleID`) ON UPDATE CASCADE ON DELETE CASCADE 
 );
 
 /*
@@ -300,7 +289,7 @@ CREATE TABLE `StudentModuleGrade` (
 `PercentageAttendance` FLOAT, -- Should be calculated from lesson attendances
 PRIMARY KEY (`StudentID`,`ModuleID`),
 CONSTRAINT `StudentModuleGrade_FK_StudentID` FOREIGN KEY (`StudentID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE, 
-CONSTRAINT `StudentModuleGrade_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `Module`(`ModuleID`) ON UPDATE CASCADE ON DELETE RESTRICT
+CONSTRAINT `StudentModuleGrade_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `ModuleDetails`(`ModuleID`) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 /*
@@ -317,7 +306,7 @@ CREATE TABLE `Coursework` (
 `isCourseworkPublished` BOOL,
 `isGradePublished` BOOL,
 PRIMARY KEY (`ModuleID`,`CourseworkID`),
-CONSTRAINT `Coursework_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `Module`(`ModuleID`) ON UPDATE CASCADE ON DELETE CASCADE
+CONSTRAINT `Coursework_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `ModuleDetails`(`ModuleID`) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 /*
@@ -350,11 +339,12 @@ CREATE TABLE `CourseworkExtensionRequest` (
 `StudentID` VARCHAR(8),
 `ModuleID` VARCHAR(12),
 `CourseworkID` INT,
+`RequestNumber` INT,
 `RequestDate` DATETIME,
 `RequestReason` TEXT,
 `Status` ENUM('Submitted', 'Accepted', 'Rejected'),
 `AdjustedDeadline` DATETIME,
-PRIMARY KEY (`StudentID`,`ModuleID`,`CourseworkID`,`RequestDate`),
+PRIMARY KEY (`StudentID`,`ModuleID`,`CourseworkID`,`RequestNumber`),
 CONSTRAINT `CourseworkExtensionRequest_FK_Coursework` FOREIGN KEY (`StudentID`,`ModuleID`,`CourseworkID`) REFERENCES `StudentCoursework`(`StudentID`,`ModuleID`,`CourseworkID`) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -370,7 +360,7 @@ CREATE TABLE `Exam` (
 `EndTime` DATETIME,
 `PercentageOfModule` FLOAT,
 PRIMARY KEY (`ModuleID`,`ExamID`),
-CONSTRAINT `Exam_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `Module`(`ModuleID`) ON UPDATE CASCADE ON DELETE CASCADE
+CONSTRAINT `Exam_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `ModuleDetails`(`ModuleID`) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 /*
@@ -422,7 +412,7 @@ CREATE TABLE `ModuleAnnouncement` (
 `Description` TEXT,
 `DatePosted` DATETIME,
 PRIMARY KEY (`ModuleID`,`AnnouncementID`),
-CONSTRAINT `ModuleAnnouncement_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `Module`(`ModuleID`) ON UPDATE CASCADE ON DELETE CASCADE,
+CONSTRAINT `ModuleAnnouncement_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `ModuleDetails`(`ModuleID`) ON UPDATE CASCADE ON DELETE CASCADE,
 CONSTRAINT `ModuleAnnouncement_FK_StaffID` FOREIGN KEY (`StaffID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
@@ -438,7 +428,7 @@ CREATE TABLE `ModuleMaterial` (
 `Description` TEXT,
 `isPublished` BOOL,
 PRIMARY KEY (`ModuleID`,`MaterialNumber`),
-CONSTRAINT `ModuleMaterial_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `Module`(`ModuleID`) ON UPDATE CASCADE ON DELETE CASCADE
+CONSTRAINT `ModuleMaterial_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `ModuleDetails`(`ModuleID`) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 /*

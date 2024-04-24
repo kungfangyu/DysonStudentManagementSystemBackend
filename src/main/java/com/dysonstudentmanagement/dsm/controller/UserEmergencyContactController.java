@@ -29,22 +29,20 @@ public class UserEmergencyContactController {
         return ResponseEntity.ok(userEmergencyContactDtos);
     }
 
-    @PutMapping("{userID}/{previousFirstName}/{previousLastName}")
+    @PutMapping("{userID}/{contactPriority}")
     public ResponseEntity<UserEmergencyContactDto> updateUserEmergencyContact(@PathVariable("userID") String userID,
-                                                                              @PathVariable("previousFirstName") String firstName,
-                                                                              @PathVariable("previousLastName") String lastName,
+                                                                              @PathVariable("contactPriority") int contactPriority,
                                                                               @RequestBody UserEmergencyContactDto updatedContact){
-        UserEmergencyContactCompositeKey targetKey = new UserEmergencyContactCompositeKey(userID, firstName, lastName);
+        UserEmergencyContactCompositeKey targetKey = new UserEmergencyContactCompositeKey(userID, contactPriority);
         UserEmergencyContactDto savedContact = userEmergencyContactService.updateUserEmergencyContact(targetKey, updatedContact);
         return ResponseEntity.ok(savedContact);
     }
 
-    @DeleteMapping("{userID}/{firstName}/{lastName}")
+    @DeleteMapping("{userID}/{contactPriority}")
     public ResponseEntity<String> deleteUserEmergencyContact(@PathVariable("userID") String userID,
-                                                             @PathVariable("firstName") String firstName,
-                                                             @PathVariable("lastName") String lastName){
-        UserEmergencyContactCompositeKey targetKey = new UserEmergencyContactCompositeKey(userID, firstName, lastName);
+                                                             @PathVariable("contactPriority") int contactPriority){
+        UserEmergencyContactCompositeKey targetKey = new UserEmergencyContactCompositeKey(userID, contactPriority);
         userEmergencyContactService.deleteUserEmergencyContact(targetKey);
-        return ResponseEntity.ok(userID+ " "+ firstName+ " "+lastName+": Emergency contact deleted successfully");
+        return ResponseEntity.ok(userID+": Emergency contact "+contactPriority+" deleted successfully");
     }
 }

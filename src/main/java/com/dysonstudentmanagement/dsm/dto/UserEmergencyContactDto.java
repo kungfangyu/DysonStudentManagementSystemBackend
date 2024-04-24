@@ -10,6 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserEmergencyContactDto {
     private String userID;
+    private int contactPriority;
     private String firstName;
     private String lastName;
     private String title;

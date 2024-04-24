@@ -8,6 +8,7 @@ public class UserEmergencyContactMapper {
     public static UserEmergencyContactDto mapToUserEmergencyContactDto(UserEmergencyContact userEmergencyContact){
         return new UserEmergencyContactDto(
           userEmergencyContact.getUserID(),
+          userEmergencyContact.getContactPriority(),
           userEmergencyContact.getFirstName(),
           userEmergencyContact.getLastName(),
           userEmergencyContact.getTitle(),
@@ -22,6 +23,7 @@ public class UserEmergencyContactMapper {
     public static UserEmergencyContact mapToUserEmergencyContact(UserEmergencyContactDto userEmergencyContactDto){
         UserEmergencyContact userEmergencyContact = UserEmergencyContact.builder()
                 .userID(userEmergencyContactDto.getUserID())
+                .contactPriority(userEmergencyContactDto.getContactPriority())
                 .firstName(userEmergencyContactDto.getFirstName())
                 .lastName(userEmergencyContactDto.getLastName())
                 .title(userEmergencyContactDto.getTitle())

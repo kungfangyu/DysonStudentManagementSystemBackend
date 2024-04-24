@@ -26,8 +26,7 @@ public class UserEmergencyContactServiceImpl implements UserEmergencyContactServ
     public UserEmergencyContactDto createUserEmergencyContact(UserEmergencyContactDto userEmergencyContactDto) {
         UserEmergencyContact userEmergencyContact = UserEmergencyContactMapper.mapToUserEmergencyContact(userEmergencyContactDto);
         UserEmergencyContactCompositeKey userEmergencyContactCompositeKey = new UserEmergencyContactCompositeKey(userEmergencyContact.getUserID(),
-                userEmergencyContact.getFirstName(),
-                userEmergencyContact.getLastName()
+                userEmergencyContact.getContactPriority()
         );
 
         UserPrimaryData userPrimaryData = userPrimaryDataRepo.findById(userEmergencyContactDto.getUserID())
@@ -59,8 +58,7 @@ public class UserEmergencyContactServiceImpl implements UserEmergencyContactServ
 
         UserEmergencyContact updatedContact = UserEmergencyContactMapper.mapToUserEmergencyContact(updatedContactDto);
         updatedContact.setUserID(userEmergencyContact.getUserID());
-
-        userEmergencyContactRepo.deleteById(targetCompositeKey); //have to delete original record, as cannot update pk. TODO: Consider adding a rollback mechanism to prevent deletion of record of following save fails. One example would be using Hibernate sessionFactory transactions?
+        updatedContact.setContactPriority(userEmergencyContact.getContactPriority());
         UserEmergencyContact savedEmergencyContact = userEmergencyContactRepo.save(updatedContact);
         return UserEmergencyContactMapper.mapToUserEmergencyContactDto(savedEmergencyContact);
     }

@@ -31,7 +31,7 @@ public class ModuleIDGenerator implements IdentifierGenerator {
                 proposedId = proposedId + word.substring(0,(nonRandomContribution-proposedId.length() < wordContributionToId)?(int)Math.ceil(wordContributionToId): nonRandomContribution-proposedId.length());
             }
             proposedId = proposedId + generateRandomString(true,4);
-            idExists = session.createQuery("SELECT COUNT(u) FROM Module u WHERE u.moduleID = :id", Long.class).setParameter("id", proposedId).setMaxResults(1).getSingleResult() > 0;
+            idExists = session.createQuery("SELECT COUNT(u) FROM ModuleDetails u WHERE u.moduleID = :id", Long.class).setParameter("id", proposedId).setMaxResults(1).getSingleResult() > 0;
 
             if (!idExists) {
                 return proposedId;

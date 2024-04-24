@@ -1,4 +1,4 @@
-package com.dysonstudentmanagement.dsm.entity;
+package com.dysonstudentmanagement.dsm.entity.moduledetails;
 
 import com.dysonstudentmanagement.dsm.idgenerator.ModuleIDGenerator;
 import jakarta.persistence.*;
@@ -14,21 +14,21 @@ import java.time.LocalDate;
 @Builder
 @ToString
 @Entity
-@Table(name = "Module")
-public class Module {
+@Table(name = "ModuleDetails")
+public class ModuleDetails {
     @Id
     @GeneratedValue(generator = "customUserIdGenerator")
     @GenericGenerator(name = "customUserIdGenerator", type = ModuleIDGenerator.class)
     @Column(name="ModuleID",length=12)
-    String moduleID;
+    private String moduleID;
     @Column(name = "ModuleName",length=100)
-    String moduleName;
+    private String moduleName;
     @Column(name = "ModulePhoto", length=256)
-    String modulePhoto;
+    private String modulePhoto;
     @Column(name = "StartDate")
-    LocalDate startDate;
+    private LocalDate startDate;
     @Column(name = "EndDate")
-    LocalDate endDate;
+    private LocalDate endDate;
     @Column(name = "ModuleCredits")
-    int moduleCredits;
+    private int moduleCredits;
 }
