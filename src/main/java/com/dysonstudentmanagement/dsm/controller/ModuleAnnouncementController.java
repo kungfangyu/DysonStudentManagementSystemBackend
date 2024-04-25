@@ -1,7 +1,6 @@
 package com.dysonstudentmanagement.dsm.controller;
 
 import com.dysonstudentmanagement.dsm.dto.ModuleAnnouncementDto;
-import com.dysonstudentmanagement.dsm.entity.moduleannouncement.ModuleAnnouncement;
 import com.dysonstudentmanagement.dsm.entity.moduleannouncement.ModuleAnnouncementCompositeKey;
 import com.dysonstudentmanagement.dsm.service.ModuleAnnouncementService;
 import lombok.AllArgsConstructor;
@@ -36,7 +35,7 @@ public class ModuleAnnouncementController {
         return ResponseEntity.ok(announcementDto);
     }
 
-    @PutMapping("{userID}/{qualificationLevel}/{subject}")
+    @PutMapping("{moduleID}/{announcementID}")
     public ResponseEntity<ModuleAnnouncementDto> updateModuleAnnouncement(@PathVariable("moduleID") String moduleID,
                                                                                 @PathVariable("announcementID") int announcementID,
                                                                                 @RequestBody ModuleAnnouncementDto updateDto) {
@@ -45,7 +44,7 @@ public class ModuleAnnouncementController {
         return ResponseEntity.ok(announcementDto);
     }
 
-    @DeleteMapping("{userID}/{qualificationLevel}/{subject}")
+    @DeleteMapping("{moduleID}/{announcementID}")
     public ResponseEntity<String> deletePreviousQualification(@PathVariable("moduleID") String moduleID,
                                                               @PathVariable("announcementID") int announcementID) {
         ModuleAnnouncementCompositeKey newAnnouncementCompositeKey = new ModuleAnnouncementCompositeKey(moduleID, announcementID);
