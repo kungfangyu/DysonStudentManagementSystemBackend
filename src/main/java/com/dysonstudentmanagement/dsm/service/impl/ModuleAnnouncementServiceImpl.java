@@ -16,7 +16,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 /*
@@ -39,10 +38,7 @@ public class ModuleAnnouncementServiceImpl implements ModuleAnnouncementService 
     @Override
     public ModuleAnnouncementDto createModuleAnnouncement(ModuleAnnouncementDto moduleDetailsDto) {
         ModuleAnnouncement moduleAnnouncement = ModuleAnnouncementMapper.mapToModuleAnnouncement(moduleDetailsDto);
-        ModuleAnnouncementCompositeKey newAnnouncementCompositeKey = new ModuleAnnouncementCompositeKey(
-                moduleAnnouncement.getModuleID(),
-                moduleAnnouncement.getAnnouncementID()
-        );
+
 
         //checks for valid foreign keys
         ModuleDetails moduleDetails = moduleDetailsRepo.findById(moduleAnnouncement.getModuleID())
@@ -52,14 +48,18 @@ public class ModuleAnnouncementServiceImpl implements ModuleAnnouncementService 
                 .orElseThrow(() -> new DataIntegrityViolationException("Failed... StaffID does not exist in target table UserPrimaryDataRepository")
                 );
 
+        /* Commented out when announcement ID was set to autoincrement.
         Optional<ModuleAnnouncement> moduleAnnouncementExists = moduleAnnouncementRepo.findById(newAnnouncementCompositeKey);
         if(moduleAnnouncementExists.isPresent()){
             throw new DataIntegrityViolationException("Failed...Record already exists for given primary key");
         }else{
-            moduleAnnouncement.setUserPrimaryData(userPrimaryData);
-            ModuleAnnouncement savedData = moduleAnnouncementRepo.save(moduleAnnouncement);
-            return ModuleAnnouncementMapper.mapToModuleAnnouncementDto(savedData);
-        }
+
+         */
+        moduleAnnouncement.setModuleDetails(moduleDetails);
+        moduleAnnouncement.setUserPrimaryData(userPrimaryData);
+        ModuleAnnouncement savedData = moduleAnnouncementRepo.save(moduleAnnouncement);
+        return ModuleAnnouncementMapper.mapToModuleAnnouncementDto(savedData);
+
     }
 
     @Override
