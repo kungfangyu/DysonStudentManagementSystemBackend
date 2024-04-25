@@ -12,11 +12,8 @@ import com.dysonstudentmanagement.dsm.service.StudentTutorService;
 import lombok.AllArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
@@ -28,11 +25,6 @@ public class StudentTutorServiceImpl implements StudentTutorService {
     @Override
     public StudentTutorDto createStudentTutor(StudentTutorDto studentTutorDto) {
         StudentTutor studentTutor = StudentTutorMapper.mapToStudentTutor(studentTutorDto);
-
-        StudentTutorCompositeKey studentTutorCompositeKey = new StudentTutorCompositeKey(
-                studentTutor.getStudentID(),
-                studentTutor.getStaffID()
-        );
 
         UserPrimaryData studentData = userPrimaryDataRepo.findById(studentTutor.getStudentID())
                 .orElseThrow(() -> new DataIntegrityViolationException("Failed...StudentID does not exist in foreign key table 'UserPrimaryData'") //TODO: consider making custom @ResponseStatus exception (as with other custom made exception to better describe exception to api caller.
@@ -61,13 +53,14 @@ public class StudentTutorServiceImpl implements StudentTutorService {
     public StudentTutorDto createStudentTutorRandomAssign(String studentID) {
         StudentTutor studentTutor = new StudentTutor();
         studentTutor.setStudentID(studentID);
+
         List<UserPrimaryData> tutors = userPrimaryDataRepo.findByUserTypeIsNot(UserPrimaryData.UserType.student);
-        List<UserPrimaryData> hasLessThan15AssignedStudents;
         int numAssignedStudents;
         for(UserPrimaryData tutor:tutors){
             numAssignedStudents = studentTutorRepo.findByStaffID(tutor.getUserID()).size();
             if(numAssignedStudents < 15){
                 studentTutor.setStaffID(tutor.getUserID());
+                studentTutor.setStaffPrimaryData(tutor);
                 break;
             }
         }
@@ -75,6 +68,12 @@ public class StudentTutorServiceImpl implements StudentTutorService {
         if(studentTutor.getStaffID() == null){
             throw new ResourceNotFoundException("No staff members are available to be assigned a new student");
         }
+
+        UserPrimaryData studentData = userPrimaryDataRepo.findById(studentTutor.getStudentID())
+                .orElseThrow(() -> new DataIntegrityViolationException("Failed...StudentID does not exist in foreign key table 'UserPrimaryData'") //TODO: consider making custom @ResponseStatus exception (as with other custom made exception to better describe exception to api caller.
+                );
+
+        studentTutor.setStudentPrimaryData(studentData);
 
         //Optional<StudentTutor> studentTutorExists = studentTutorRepo.findById(studentTutorCompositeKey);
         //if(studentTutorExists.isPresent()){
@@ -115,10 +114,24 @@ public class StudentTutorServiceImpl implements StudentTutorService {
 
         StudentTutor updatedStudentTutor = StudentTutorMapper.mapToStudentTutor(updatedStudentTutorDto);
         updatedStudentTutor.setStudentID(targetKey.getStudentID());
+        UserPrimaryData studentData = userPrimaryDataRepo.findById(studentTutor.getStudentID())
+                .orElseThrow(() -> new DataIntegrityViolationException("Failed...StudentID does not exist in foreign key table 'UserPrimaryData'") //TODO: consider making custom @ResponseStatus exception (as with other custom made exception to better describe exception to api caller.
+                );
+
+        studentTutor.setStudentPrimaryData(studentData);
+
+        UserPrimaryData staffData = userPrimaryDataRepo.findById(studentTutor.getStaffID())
+                .orElseThrow(() -> new DataIntegrityViolationException("Failed...StaffID does not exist in foreign key table 'UserPrimaryData'") //TODO: consider making custom @ResponseStatus exception (as with other custom made exception to better describe exception to api caller.
+                );
+
+        studentTutor.setStaffPrimaryData(staffData);
+
         List<StudentTutor> studentsAssignedToStaff = studentTutorRepo.findByStaffID(updatedStudentTutor.getStaffID());
         if(!(studentsAssignedToStaff.size() < 15)){
             throw new ResourceNotFoundException(studentTutor.getStaffID()+ ": Staff member has maximum number of assigned students, cannot assign new student");
         }
+
+
 
         studentTutorRepo.deleteById(targetKey);
         StudentTutor savedData = studentTutorRepo.save(updatedStudentTutor);
