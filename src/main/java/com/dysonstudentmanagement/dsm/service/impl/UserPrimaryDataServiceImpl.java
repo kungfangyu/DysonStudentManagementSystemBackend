@@ -58,7 +58,8 @@ public class UserPrimaryDataServiceImpl implements UserPrimaryDataService {
     }
 
     @Override
-    public UserPrimaryDataDto updateUserPrimaryData(String userID, UserPrimaryDataDto updatedPrimaryData) {
+    public UserPrimaryDataDto updateUserPrimaryData(String userID, UserPrimaryDataDto updatedPrimaryDataDto) {
+        UserPrimaryData updatedPrimaryData = UserPrimaryDataMapper.mapToUserPrimaryData(updatedPrimaryDataDto);
         UserPrimaryData userPrimaryData = userPrimaryDataRepo.findById(userID)
                 .orElseThrow(() -> new ResourceNotFoundException("UserPrimaryData record not found with ID: " + userID)
                 );

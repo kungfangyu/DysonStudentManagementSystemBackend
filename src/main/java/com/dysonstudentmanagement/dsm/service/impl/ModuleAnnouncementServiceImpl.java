@@ -48,13 +48,11 @@ public class ModuleAnnouncementServiceImpl implements ModuleAnnouncementService 
                 .orElseThrow(() -> new DataIntegrityViolationException("Failed... StaffID does not exist in target table UserPrimaryDataRepository")
                 );
 
-        /* Commented out when announcement ID was set to autoincrement.
-        Optional<ModuleAnnouncement> moduleAnnouncementExists = moduleAnnouncementRepo.findById(newAnnouncementCompositeKey);
-        if(moduleAnnouncementExists.isPresent()){
-            throw new DataIntegrityViolationException("Failed...Record already exists for given primary key");
-        }else{
-
-         */
+//        Commented out when announcement ID was set to autoincrement.
+//        Optional<ModuleAnnouncement> moduleAnnouncementExists = moduleAnnouncementRepo.findById(newAnnouncementCompositeKey);
+//        if(moduleAnnouncementExists.isPresent()){
+//            throw new DataIntegrityViolationException("Failed...Record already exists for given primary key");
+//        }else{
         moduleAnnouncement.setModuleDetails(moduleDetails);
         moduleAnnouncement.setUserPrimaryData(userPrimaryData);
         ModuleAnnouncement savedData = moduleAnnouncementRepo.save(moduleAnnouncement);
@@ -79,12 +77,13 @@ public class ModuleAnnouncementServiceImpl implements ModuleAnnouncementService 
 
     @Override
     public ModuleAnnouncementDto updateModuleAnnouncement(ModuleAnnouncementCompositeKey targetKey, ModuleAnnouncementDto updatedAnnouncementDto) {
+        ModuleAnnouncement updatedAnnouncement = ModuleAnnouncementMapper.mapToModuleAnnouncement(updatedAnnouncementDto);
         ModuleAnnouncement moduleAnnouncement = moduleAnnouncementRepo.findById(targetKey)
                 .orElseThrow(() -> new ResourceNotFoundException("Module Announcement record not found with primary key provided")
                 );
-        moduleAnnouncement.setTitle(updatedAnnouncementDto.getTitle());
-        moduleAnnouncement.setDescription(moduleAnnouncement.getDescription());
-        moduleAnnouncement.setDatePosted(updatedAnnouncementDto.getDatePosted());
+        moduleAnnouncement.setTitle(updatedAnnouncement.getTitle());
+        moduleAnnouncement.setDescription(updatedAnnouncement.getDescription());
+        moduleAnnouncement.setDatePosted(updatedAnnouncement.getDatePosted());
         ModuleAnnouncement savedData = moduleAnnouncementRepo.save(moduleAnnouncement);
         return ModuleAnnouncementMapper.mapToModuleAnnouncementDto(savedData);
     }

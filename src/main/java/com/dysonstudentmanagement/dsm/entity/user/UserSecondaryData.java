@@ -13,6 +13,7 @@ import lombok.*;
 @Table(name = "UserSecondaryData")
 public class UserSecondaryData {
     @Id
+    @Column(name="UserID")
     private String userID;
     @Column(name = "IdPhoto",length = 256)
     private String idPhoto;
