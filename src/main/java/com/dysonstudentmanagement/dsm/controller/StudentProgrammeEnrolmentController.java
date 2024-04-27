@@ -1,7 +1,7 @@
 package com.dysonstudentmanagement.dsm.controller;
 
 import com.dysonstudentmanagement.dsm.dto.StudentProgrammeEnrolmentDto;
-import com.dysonstudentmanagement.dsm.entity.StudentProgrammeEnrolment.StudentProgrammeEnrolmentCompositeKey;
+import com.dysonstudentmanagement.dsm.entity.studentprogrammeenrolment.StudentProgrammeEnrolmentCompositeKey;
 import com.dysonstudentmanagement.dsm.service.StudentProgrammeEnrolmentService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

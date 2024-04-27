@@ -1,7 +1,7 @@
 package com.dysonstudentmanagement.dsm.controller;
 
 import com.dysonstudentmanagement.dsm.dto.ModuleMaterialDto;
-import com.dysonstudentmanagement.dsm.entity.ModuleMaterial.ModuleMaterialCompositeKey;
+import com.dysonstudentmanagement.dsm.entity.modulematerial.ModuleMaterialCompositeKey;
 import com.dysonstudentmanagement.dsm.service.ModuleMaterialService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

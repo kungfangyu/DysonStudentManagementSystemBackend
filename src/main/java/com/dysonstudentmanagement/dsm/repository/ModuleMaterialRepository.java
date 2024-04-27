@@ -1,7 +1,7 @@
 package com.dysonstudentmanagement.dsm.repository;
 
-import com.dysonstudentmanagement.dsm.entity.ModuleMaterial.ModuleMaterial;
-import com.dysonstudentmanagement.dsm.entity.ModuleMaterial.ModuleMaterialCompositeKey;
+import com.dysonstudentmanagement.dsm.entity.modulematerial.ModuleMaterial;
+import com.dysonstudentmanagement.dsm.entity.modulematerial.ModuleMaterialCompositeKey;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

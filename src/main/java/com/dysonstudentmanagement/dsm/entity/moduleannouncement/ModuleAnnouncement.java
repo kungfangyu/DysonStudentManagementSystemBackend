@@ -2,6 +2,7 @@ package com.dysonstudentmanagement.dsm.entity.moduleannouncement;
 
 import com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
+import com.dysonstudentmanagement.dsm.entitylistener.ModuleAnnouncementListener;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +22,7 @@ import java.sql.Timestamp;
 @ToString
 @Entity
 @Table(name = "ModuleAnnouncement")
+@EntityListeners(ModuleAnnouncementListener.class)
 @IdClass(ModuleAnnouncementCompositeKey.class)
 public class ModuleAnnouncement {
     @Id

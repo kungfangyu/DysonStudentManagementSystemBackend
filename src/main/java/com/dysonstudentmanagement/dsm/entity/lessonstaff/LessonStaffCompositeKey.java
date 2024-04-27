@@ -1,4 +1,4 @@
-package com.dysonstudentmanagement.dsm.entity.lesson;
+package com.dysonstudentmanagement.dsm.entity.lessonstaff;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
@@ -10,29 +10,31 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.util.Objects;
 
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LessonCompositeKey implements Serializable {
+public class LessonStaffCompositeKey implements Serializable {
     @Id
     @Column(name = "ModuleID", length = 12)
     private String moduleID;
     @Id
     @Column(name = "LessonID")
     private int lessonID;
+    @Id
+    @Column(name = "StaffID", length = 8)
+    private String staffID;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LessonCompositeKey that = (LessonCompositeKey) o;
-        return lessonID == that.lessonID && Objects.equals(moduleID, that.moduleID);
+        LessonStaffCompositeKey that = (LessonStaffCompositeKey) o;
+        return getLessonID() == that.getLessonID() && Objects.equals(getModuleID(), that.getModuleID()) && Objects.equals(getStaffID(), that.getStaffID());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(moduleID, lessonID);
+        return Objects.hash(getModuleID(), getLessonID(), getStaffID());
     }
 }

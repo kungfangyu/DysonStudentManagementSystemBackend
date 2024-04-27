@@ -27,8 +27,8 @@ public class Lesson {
     @Column(name = "ModuleID", length = 12)
     private String moduleID;
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Column(name = "LessonID")
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private int lessonID;
 
     @Enumerated(EnumType.STRING)

@@ -1,6 +1,6 @@
 package com.dysonstudentmanagement.dsm.entity.modulematerilafile;
 
-import com.dysonstudentmanagement.dsm.entity.ModuleMaterial.ModuleMaterial;
+import com.dysonstudentmanagement.dsm.entity.modulematerial.ModuleMaterial;
 import jakarta.persistence.*;
 import lombok.*;
 

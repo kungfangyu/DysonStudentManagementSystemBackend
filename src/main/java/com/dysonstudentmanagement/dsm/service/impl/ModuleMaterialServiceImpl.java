@@ -1,8 +1,8 @@
 package com.dysonstudentmanagement.dsm.service.impl;
 
 import com.dysonstudentmanagement.dsm.dto.ModuleMaterialDto;
-import com.dysonstudentmanagement.dsm.entity.ModuleMaterial.ModuleMaterial;
-import com.dysonstudentmanagement.dsm.entity.ModuleMaterial.ModuleMaterialCompositeKey;
+import com.dysonstudentmanagement.dsm.entity.modulematerial.ModuleMaterial;
+import com.dysonstudentmanagement.dsm.entity.modulematerial.ModuleMaterialCompositeKey;
 import com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails;
 import com.dysonstudentmanagement.dsm.mapper.ModuleMaterialMapper;
 import com.dysonstudentmanagement.dsm.repository.ModuleDetailsRepository;

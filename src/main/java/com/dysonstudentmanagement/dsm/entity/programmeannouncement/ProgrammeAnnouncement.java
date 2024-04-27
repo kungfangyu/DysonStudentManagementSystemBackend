@@ -1,5 +1,6 @@
 package com.dysonstudentmanagement.dsm.entity.programmeannouncement;
 
+import com.dysonstudentmanagement.dsm.entity.programme.Programme;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 import jakarta.persistence.*;
 import lombok.*;

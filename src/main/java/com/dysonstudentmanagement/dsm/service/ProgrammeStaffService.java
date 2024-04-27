@@ -1,23 +1,23 @@
 package com.dysonstudentmanagement.dsm.service;
 
-import com.dysonstudentmanagement.dsm.dto.programmeStaffDto;
-import com.dysonstudentmanagement.dsm.entity.ProgrammeStaff.programmeStaffCompositeKey;
+import com.dysonstudentmanagement.dsm.dto.ProgrammeStaffDto;
+import com.dysonstudentmanagement.dsm.entity.ProgrammeStaff.ProgrammeStaffCompositeKey;
 
 import java.util.List;
 
 public interface ProgrammeStaffService {
 
-        programmeStaffDto createProgrammeStaff(programmeStaffDto programmeStaffDto);
+        ProgrammeStaffDto createProgrammeStaff(ProgrammeStaffDto programmeStaffDto);
 
-        List<programmeStaffDto> getAllProgrammesStaff();
+        List<ProgrammeStaffDto> getAllProgrammesStaff();
 
-        programmeStaffDto getProgrammeStaff(programmeStaffCompositeKey targetKey);
+        ProgrammeStaffDto getProgrammeStaff(ProgrammeStaffCompositeKey targetKey);
 
-        List<programmeStaffDto> getProgrammeStaffByStaffID(String staffID);
+        List<ProgrammeStaffDto> getProgrammeStaffByStaffID(String staffID);
 
-        List<programmeStaffDto> getProgrammeStaffDtoByProgrammeID(String ProgrammeID);
+        List<ProgrammeStaffDto> getProgrammeStaffDtoByProgrammeID(String ProgrammeID);
 
-        programmeStaffDto updateProgrammeStaff(programmeStaffCompositeKey targetKey, programmeStaffDto updatedProgrammeStaffDto);
+        ProgrammeStaffDto updateProgrammeStaff(ProgrammeStaffCompositeKey targetKey, ProgrammeStaffDto updatedProgrammeStaffDto);
 
-        void deleteProgrammeStaff(programmeStaffCompositeKey targetKey);
+        void deleteProgrammeStaff(ProgrammeStaffCompositeKey targetKey);
 }

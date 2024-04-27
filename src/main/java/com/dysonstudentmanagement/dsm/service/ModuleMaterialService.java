@@ -1,7 +1,7 @@
 package com.dysonstudentmanagement.dsm.service;
 
 import com.dysonstudentmanagement.dsm.dto.ModuleMaterialDto;
-import com.dysonstudentmanagement.dsm.entity.ModuleMaterial.ModuleMaterialCompositeKey;
+import com.dysonstudentmanagement.dsm.entity.modulematerial.ModuleMaterialCompositeKey;
 
 import java.util.List;
 

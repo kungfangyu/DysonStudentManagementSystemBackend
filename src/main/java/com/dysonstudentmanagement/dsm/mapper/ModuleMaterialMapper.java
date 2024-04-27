@@ -1,7 +1,7 @@
 package com.dysonstudentmanagement.dsm.mapper;
 
 import com.dysonstudentmanagement.dsm.dto.ModuleMaterialDto;
-import com.dysonstudentmanagement.dsm.entity.ModuleMaterial.ModuleMaterial;
+import com.dysonstudentmanagement.dsm.entity.modulematerial.ModuleMaterial;
 
 public class ModuleMaterialMapper {
     public static ModuleMaterialDto mapToModuleMaterialDto(ModuleMaterial moduleMaterial) {

@@ -1,12 +1,14 @@
 package com.dysonstudentmanagement.dsm.service.impl;
 
 import com.dysonstudentmanagement.dsm.dto.ProgrammeAnnouncementDto;
+import com.dysonstudentmanagement.dsm.entity.programme.Programme;
 import com.dysonstudentmanagement.dsm.entity.programmeannouncement.ProgrammeAnnouncement;
 import com.dysonstudentmanagement.dsm.entity.programmeannouncement.ProgrammeAnnouncementCompositeKey;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 import com.dysonstudentmanagement.dsm.exception.ResourceNotFoundException;
 import com.dysonstudentmanagement.dsm.mapper.ProgrammeAnnouncementMapper;
 import com.dysonstudentmanagement.dsm.repository.ProgrammeAnnouncementRepository;
+import com.dysonstudentmanagement.dsm.repository.ProgrammeRepository;
 import com.dysonstudentmanagement.dsm.repository.UserPrimaryDataRepository;
 import com.dysonstudentmanagement.dsm.service.ProgrammeAnnouncementService;
 import lombok.AllArgsConstructor;

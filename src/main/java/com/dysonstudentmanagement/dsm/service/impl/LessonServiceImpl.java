@@ -10,14 +10,15 @@ import com.dysonstudentmanagement.dsm.repository.LessonRepository;
 import com.dysonstudentmanagement.dsm.repository.ModuleDetailsRepository;
 import com.dysonstudentmanagement.dsm.service.LessonService;
 import lombok.AllArgsConstructor;
-import lombok.Setter;
+
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
-@Setter
+@Service
 public class LessonServiceImpl implements LessonService {
     private ModuleDetailsRepository moduleDetailsRepo;
     private LessonRepository lessonRepo;
