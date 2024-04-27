@@ -1,4 +1,4 @@
-package com.dysonstudentmanagement.dsm.entity.ProgrammeStaff;
+package com.dysonstudentmanagement.dsm.entity.programmestaff;
 
 import com.dysonstudentmanagement.dsm.entity.programme.Programme;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;

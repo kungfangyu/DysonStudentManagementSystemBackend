@@ -2,8 +2,8 @@ package com.dysonstudentmanagement.dsm.service.impl;
 
 import com.dysonstudentmanagement.dsm.dto.ProgrammeStaffDto;
 import com.dysonstudentmanagement.dsm.entity.programme.Programme;
-import com.dysonstudentmanagement.dsm.entity.ProgrammeStaff.ProgrammeStaff;
-import com.dysonstudentmanagement.dsm.entity.ProgrammeStaff.ProgrammeStaffCompositeKey;
+import com.dysonstudentmanagement.dsm.entity.programmestaff.ProgrammeStaff;
+import com.dysonstudentmanagement.dsm.entity.programmestaff.ProgrammeStaffCompositeKey;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 import com.dysonstudentmanagement.dsm.exception.ResourceNotFoundException;
 import com.dysonstudentmanagement.dsm.mapper.ProgrammeStaffMapper;

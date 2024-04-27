@@ -1,7 +1,7 @@
 package com.dysonstudentmanagement.dsm.mapper;
 
 import com.dysonstudentmanagement.dsm.dto.ProgrammeStaffDto;
-import com.dysonstudentmanagement.dsm.entity.ProgrammeStaff.ProgrammeStaff;
+import com.dysonstudentmanagement.dsm.entity.programmestaff.ProgrammeStaff;
 
 
 public class ProgrammeStaffMapper {

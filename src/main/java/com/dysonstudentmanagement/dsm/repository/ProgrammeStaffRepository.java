@@ -1,7 +1,7 @@
 package com.dysonstudentmanagement.dsm.repository;
 
-import com.dysonstudentmanagement.dsm.entity.ProgrammeStaff.ProgrammeStaff;
-import com.dysonstudentmanagement.dsm.entity.ProgrammeStaff.ProgrammeStaffCompositeKey;
+import com.dysonstudentmanagement.dsm.entity.programmestaff.ProgrammeStaff;
+import com.dysonstudentmanagement.dsm.entity.programmestaff.ProgrammeStaffCompositeKey;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

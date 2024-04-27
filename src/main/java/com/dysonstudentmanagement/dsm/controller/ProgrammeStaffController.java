@@ -1,7 +1,7 @@
 package com.dysonstudentmanagement.dsm.controller;
 
 import com.dysonstudentmanagement.dsm.dto.ProgrammeStaffDto;
-import com.dysonstudentmanagement.dsm.entity.ProgrammeStaff.ProgrammeStaffCompositeKey;
+import com.dysonstudentmanagement.dsm.entity.programmestaff.ProgrammeStaffCompositeKey;
 import com.dysonstudentmanagement.dsm.service.ProgrammeStaffService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

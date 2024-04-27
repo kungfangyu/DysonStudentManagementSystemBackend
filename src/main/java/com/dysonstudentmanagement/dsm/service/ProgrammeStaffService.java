@@ -1,7 +1,7 @@
 package com.dysonstudentmanagement.dsm.service;
 
 import com.dysonstudentmanagement.dsm.dto.ProgrammeStaffDto;
-import com.dysonstudentmanagement.dsm.entity.ProgrammeStaff.ProgrammeStaffCompositeKey;
+import com.dysonstudentmanagement.dsm.entity.programmestaff.ProgrammeStaffCompositeKey;
 
 import java.util.List;
 
