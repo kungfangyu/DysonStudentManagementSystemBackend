@@ -39,7 +39,6 @@ public class ModuleAnnouncementServiceImpl implements ModuleAnnouncementService 
     public ModuleAnnouncementDto createModuleAnnouncement(ModuleAnnouncementDto moduleDetailsDto) {
         ModuleAnnouncement moduleAnnouncement = ModuleAnnouncementMapper.mapToModuleAnnouncement(moduleDetailsDto);
 
-
         //checks for valid foreign keys
         ModuleDetails moduleDetails = moduleDetailsRepo.findById(moduleAnnouncement.getModuleID())
                 .orElseThrow(() -> new DataIntegrityViolationException("Failed... ModuleID does not exist in target table ModuleDetails")
@@ -48,11 +47,6 @@ public class ModuleAnnouncementServiceImpl implements ModuleAnnouncementService 
                 .orElseThrow(() -> new DataIntegrityViolationException("Failed... StaffID does not exist in target table UserPrimaryDataRepository")
                 );
 
-//        Commented out when announcement ID was set to autoincrement.
-//        Optional<ModuleAnnouncement> moduleAnnouncementExists = moduleAnnouncementRepo.findById(newAnnouncementCompositeKey);
-//        if(moduleAnnouncementExists.isPresent()){
-//            throw new DataIntegrityViolationException("Failed...Record already exists for given primary key");
-//        }else{
         moduleAnnouncement.setModuleDetails(moduleDetails);
         moduleAnnouncement.setUserPrimaryData(userPrimaryData);
         ModuleAnnouncement savedData = moduleAnnouncementRepo.save(moduleAnnouncement);
