@@ -1,6 +1,5 @@
 package com.dysonstudentmanagement.dsm.controller;
 
-
 import com.dysonstudentmanagement.dsm.dto.StudentTutorDto;
 import com.dysonstudentmanagement.dsm.entity.studenttutor.StudentTutorCompositeKey;
 import com.dysonstudentmanagement.dsm.service.StudentTutorService;
@@ -29,7 +28,7 @@ public class StudentTutorController {
         return new ResponseEntity<>(savedTutor, HttpStatus.CREATED);
     }
 
-    @GetMapping("{studentID}/{staffID")
+    @GetMapping("{studentID}/{staffID}")
     public ResponseEntity<StudentTutorDto> getStudentTutor(@PathVariable("studentID") String studentID, @PathVariable("staffID") String staffID){
         StudentTutorCompositeKey targetKey = new StudentTutorCompositeKey(studentID,staffID);
         StudentTutorDto studentTutorDto = studentTutorService.getStudentTutor(targetKey);

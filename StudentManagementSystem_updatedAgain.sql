@@ -137,7 +137,7 @@ CONSTRAINT `TutorStudentMeeting_FK_StudentID` FOREIGN KEY (`StudentID`) REFERENC
 );
 
 /*
-Create Programme table
+Create programme table
 Stores programme details, including name, length and the total number of credits
 Original Author: Billy Peters 11/03/2024
 */
@@ -153,7 +153,7 @@ PRIMARY KEY(`ProgrammeID`)
 );
 
 /*
-Create ProgrammeStaff table
+Create programmeStaff table
 Stores which staff members are assigned to the programme, including being able to make announcements
 Original Author: Billy Peters 11/03/2024
 Modifying Author: Billy Peters 29/03/2024  - Altered StaffID to reference User table, to reflect the merge of Student and StaffMember tables
