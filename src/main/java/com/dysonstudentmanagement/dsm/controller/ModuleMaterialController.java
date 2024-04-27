@@ -35,6 +35,15 @@ public class ModuleMaterialController {
     }
 
     @PutMapping("{moduleID}/{materialNumber}")
+    public ResponseEntity<ModuleMaterialDto> updateModuleMaterial(@PathVariable("moduleID") String moduleID,
+                                                                  @PathVariable("materialNumber") int materialNumber,
+                                                                  @RequestBody ModuleMaterialDto moduleMaterialDto) {
+        ModuleMaterialCompositeKey pk = new ModuleMaterialCompositeKey(moduleID, materialNumber);
+        ModuleMaterialDto savedMaterial = moduleMaterialService.updateModuleMaterial(pk, moduleMaterialDto);
+        return ResponseEntity.ok(savedMaterial);
+    }
+
+    @DeleteMapping("{moduleID}/{materialNumber}")
     public ResponseEntity<String> deleteModuleMaterial(@PathVariable("moduleID") String moduleId,
                                                        @PathVariable("materialNumber") int materialNumber){
         ModuleMaterialCompositeKey pk = new ModuleMaterialCompositeKey(moduleId, materialNumber);
