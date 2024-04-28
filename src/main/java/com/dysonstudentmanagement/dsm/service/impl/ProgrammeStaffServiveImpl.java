@@ -34,7 +34,7 @@ public class ProgrammeStaffServiveImpl implements ProgrammeStaffService {
         ProgrammeStaff programmeStaff = ProgrammeStaffMapper.mapToProgrammeStaff(programmeStaffDto);
 
         UserPrimaryData staffData = userPrimaryDataRepo.findById(programmeStaff.getStaffID())
-                .orElseThrow(() -> new DataIntegrityViolationException("Failed...StudentID does not exist in foreign key table 'UserPrimaryData'"));
+                .orElseThrow(() -> new DataIntegrityViolationException("Failed...StaffID does not exist in foreign key table 'UserPrimaryData'"));
         programmeStaff.setStaffPrimaryData(staffData);
 
         Programme programme = programmeRepo.findById(programmeStaff.getProgrammeID())
@@ -55,7 +55,7 @@ public class ProgrammeStaffServiveImpl implements ProgrammeStaffService {
 
 
     @Override
-    public List<ProgrammeStaffDto> getAllProgrammesStaff() {
+    public List<ProgrammeStaffDto> getAllProgrammeStaff() {
         List<ProgrammeStaff> programmes = programmeStaffRepository.findAll();
         return programmes.stream()
                 .map(ProgrammeStaffMapper::mapToProgrammeStaffDto)

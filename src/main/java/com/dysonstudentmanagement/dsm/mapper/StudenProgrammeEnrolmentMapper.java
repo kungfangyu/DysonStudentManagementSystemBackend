@@ -5,7 +5,7 @@ import com.dysonstudentmanagement.dsm.entity.studentprogrammeenrolment.StudentPr
 
 public class StudenProgrammeEnrolmentMapper {
 
-    public static StudentProgrammeEnrolmentDto studentProgrammeEnrolmentDto(StudentProgrammeEnrolment studentProgrammeEnrolment){
+    public static StudentProgrammeEnrolmentDto mapToStudentProgrammeEnrolmentDto(StudentProgrammeEnrolment studentProgrammeEnrolment){
         return new StudentProgrammeEnrolmentDto(
                 studentProgrammeEnrolment.getStudentID(),
                 studentProgrammeEnrolment.getProgrammeID(),

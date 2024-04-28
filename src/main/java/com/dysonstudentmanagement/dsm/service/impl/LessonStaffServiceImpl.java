@@ -5,8 +5,8 @@ import com.dysonstudentmanagement.dsm.entity.lesson.Lesson;
 import com.dysonstudentmanagement.dsm.entity.lesson.LessonCompositeKey;
 import com.dysonstudentmanagement.dsm.entity.lessonstaff.LessonStaff;
 import com.dysonstudentmanagement.dsm.entity.lessonstaff.LessonStaffCompositeKey;
-import com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
+import com.dysonstudentmanagement.dsm.exception.ResourceNotFoundException;
 import com.dysonstudentmanagement.dsm.mapper.LessonStaffMapper;
 import com.dysonstudentmanagement.dsm.repository.LessonRepository;
 import com.dysonstudentmanagement.dsm.repository.LessonStaffRepository;
@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -52,21 +53,26 @@ public class LessonStaffServiceImpl implements LessonStaffService {
 
     @Override
     public List<LessonStaffDto> getLessonStaffByModuleID(String moduleID) {
-        return null;
+        List<LessonStaff> lessonStaffs = lessonStaffRepo.findByModuleID(moduleID);
+        return lessonStaffs.stream().map(LessonStaffMapper::mapToLessonStaffDto).collect(Collectors.toList());
     }
 
     @Override
-    public List<LessonStaffDto> getLessonStaffByStaffID(String StaffID) {
-        return null;
+    public List<LessonStaffDto> getLessonStaffByStaffID(String staffID) {
+        List<LessonStaff> lessonStaffs = lessonStaffRepo.findByStaffID(staffID);
+        return lessonStaffs.stream().map(LessonStaffMapper::mapToLessonStaffDto).collect(Collectors.toList());
     }
 
     @Override
-    public LessonStaffDto updateLessonStaff(LessonStaffCompositeKey targetKey, LessonStaffDto updatedLessonStaffDto) {
-        return null;
+    public List<LessonStaffDto> getLessonStaffByModuleIDAndLectureID(String moduleID, int lectureID) {
+        List<LessonStaff> lessonStaffs = lessonStaffRepo.findByModuleIDAndLessonID(moduleID, lectureID);
+        return lessonStaffs.stream().map(LessonStaffMapper::mapToLessonStaffDto).collect(Collectors.toList());
     }
 
     @Override
     public void deleteLessonStaff(LessonStaffCompositeKey targetKey) {
-
+        LessonStaff lessonStaff = lessonStaffRepo.findById(targetKey)
+                .orElseThrow(() -> new ResourceNotFoundException("LessonStaff record does not exist"));
+        lessonStaffRepo.deleteById(targetKey);
     }
 }

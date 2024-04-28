@@ -9,7 +9,7 @@ public interface ProgrammeStaffService {
 
         ProgrammeStaffDto createProgrammeStaff(ProgrammeStaffDto programmeStaffDto);
 
-        List<ProgrammeStaffDto> getAllProgrammesStaff();
+        List<ProgrammeStaffDto> getAllProgrammeStaff();
 
         ProgrammeStaffDto getProgrammeStaff(ProgrammeStaffCompositeKey targetKey);
 

@@ -26,7 +26,7 @@ public class ProgrammeStaffController {
 
     @GetMapping
     public ResponseEntity<List<ProgrammeStaffDto>> getAllProgrammeStaff() {
-        List<ProgrammeStaffDto> programmesStaff = programmeStaffService.getAllProgrammesStaff();
+        List<ProgrammeStaffDto> programmesStaff = programmeStaffService.getAllProgrammeStaff();
         return ResponseEntity.ok(programmesStaff);
     }
 

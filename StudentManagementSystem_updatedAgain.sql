@@ -270,7 +270,7 @@ CREATE TABLE `StudentLessonAllocation` (
 `ModuleID` VARCHAR(12),
 `LessonID` INT,
 `StudentID` VARCHAR(8),
-`isAttended` ENUM('true','false','permitted absesence'),
+`isAttended` ENUM('yes','no','permittedAbsent'),
 PRIMARY KEY (`ModuleID`,`LessonID`,`StudentID`),
 CONSTRAINT `StudentLesson_FK_Lesson` FOREIGN KEY (`ModuleID`,`LessonID`) REFERENCES `Lesson`(`ModuleID`,`LessonID`) ON UPDATE CASCADE ON DELETE CASCADE,
 CONSTRAINT `StudentLesson_FK_StudentID` FOREIGN KEY (`StudentID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE

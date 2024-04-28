@@ -10,4 +10,6 @@ public interface LessonStaffRepository extends JpaRepository<LessonStaff, Lesson
     List<LessonStaff> findByModuleID(String moduleID);
 
     List<LessonStaff> findByStaffID(String staffID);
+
+    List<LessonStaff> findByModuleIDAndLessonID(String moduleID, int lessonID);
 }

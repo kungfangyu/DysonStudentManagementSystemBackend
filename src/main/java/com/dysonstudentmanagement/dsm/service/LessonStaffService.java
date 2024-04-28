@@ -8,8 +8,9 @@ import java.util.List;
 public interface LessonStaffService {
     LessonStaffDto createLessonStaff(LessonStaffDto lessonStaffDto);
     List<LessonStaffDto> getLessonStaffByModuleID(String moduleID);
-    List<LessonStaffDto> getLessonStaffByStaffID(String StaffID);
-    LessonStaffDto updateLessonStaff(LessonStaffCompositeKey targetKey, LessonStaffDto updatedLessonStaffDto);
+    List<LessonStaffDto> getLessonStaffByStaffID(String staffID);
+
+    List<LessonStaffDto> getLessonStaffByModuleIDAndLectureID(String moduleID, int lectureID);
     void deleteLessonStaff(LessonStaffCompositeKey targetKey);
 
 
