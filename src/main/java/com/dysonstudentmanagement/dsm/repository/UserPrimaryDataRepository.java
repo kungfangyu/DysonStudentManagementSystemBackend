@@ -14,7 +14,6 @@ Original Author: Billy Peters
  */
 public interface UserPrimaryDataRepository extends JpaRepository<UserPrimaryData,String> {
 
-
     List<UserPrimaryData> findByUserType(UserPrimaryData.UserType userType);
     List<UserPrimaryData> findByUserTypeIsNot(UserPrimaryData.UserType userType);
 }

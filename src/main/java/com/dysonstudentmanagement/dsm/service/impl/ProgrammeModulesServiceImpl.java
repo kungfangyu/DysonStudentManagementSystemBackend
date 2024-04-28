@@ -1,8 +1,8 @@
 package com.dysonstudentmanagement.dsm.service.impl;
 
 import com.dysonstudentmanagement.dsm.dto.ProgrammeModulesDto;
-import com.dysonstudentmanagement.dsm.entity.programmmodules.ProgrammeModules;
-import com.dysonstudentmanagement.dsm.entity.programmmodules.ProgrammeModulesCompositeKey;
+import com.dysonstudentmanagement.dsm.entity.programmemodules.ProgrammeModules;
+import com.dysonstudentmanagement.dsm.entity.programmemodules.ProgrammeModulesCompositeKey;
 import com.dysonstudentmanagement.dsm.entity.programme.Programme;
 import com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails;
 import com.dysonstudentmanagement.dsm.exception.ResourceNotFoundException;

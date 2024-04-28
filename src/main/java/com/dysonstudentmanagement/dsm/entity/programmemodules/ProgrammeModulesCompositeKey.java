@@ -1,4 +1,4 @@
-package com.dysonstudentmanagement.dsm.entity.programmmodules;
+package com.dysonstudentmanagement.dsm.entity.programmemodules;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;

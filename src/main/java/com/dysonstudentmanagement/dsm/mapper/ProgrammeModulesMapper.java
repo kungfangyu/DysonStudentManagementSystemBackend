@@ -1,7 +1,7 @@
 package com.dysonstudentmanagement.dsm.mapper;
 
 import com.dysonstudentmanagement.dsm.dto.ProgrammeModulesDto;
-import com.dysonstudentmanagement.dsm.entity.programmmodules.ProgrammeModules;
+import com.dysonstudentmanagement.dsm.entity.programmemodules.ProgrammeModules;
 
 public class ProgrammeModulesMapper {
     public static ProgrammeModulesDto mapToProgrammeModulesDto(ProgrammeModules programmeModules) {

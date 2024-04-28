@@ -1,6 +1,6 @@
 package com.dysonstudentmanagement.dsm.service;
 import com.dysonstudentmanagement.dsm.dto.ProgrammeModulesDto;
-import com.dysonstudentmanagement.dsm.entity.programmmodules.ProgrammeModulesCompositeKey;
+import com.dysonstudentmanagement.dsm.entity.programmemodules.ProgrammeModulesCompositeKey;
 
 import java.util.List;
 

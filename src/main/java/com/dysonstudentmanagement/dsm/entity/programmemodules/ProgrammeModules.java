@@ -1,4 +1,4 @@
-package com.dysonstudentmanagement.dsm.entity.programmmodules;
+package com.dysonstudentmanagement.dsm.entity.programmemodules;
 
 import com.dysonstudentmanagement.dsm.entity.programme.Programme;
 import jakarta.persistence.*;
