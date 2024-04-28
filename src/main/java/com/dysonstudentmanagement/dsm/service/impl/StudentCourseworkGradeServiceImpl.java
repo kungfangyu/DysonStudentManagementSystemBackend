@@ -17,6 +17,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @AllArgsConstructor
 @Service
 public class StudentCourseworkGradeServiceImpl implements StudentCourseworkGradeService {
@@ -50,6 +53,12 @@ public class StudentCourseworkGradeServiceImpl implements StudentCourseworkGrade
                 .orElseThrow(() -> new ResourceNotFoundException("StudentsCourseworkGrade record not found with primary key provided")
                 );
         return StudentCourseworkGradeMapper.mapToStudentCourseworkGradeDto(studentCourseworkGrade);
+    }
+
+    @Override
+    public List<StudentCourseworkGradeDto> getStudentCourseGradeByModuleIdAndCourseworkID(String moduleID, int courseworkID) {
+        List<StudentCourseworkGrade> studentCourseworkGrades = studentCourseworkGradeRepo.findByModuleIDAndCourseworkID(moduleID,courseworkID);
+        return studentCourseworkGrades.stream().map(StudentCourseworkGradeMapper::mapToStudentCourseworkGradeDto).collect(Collectors.toList());
     }
 
     @Override

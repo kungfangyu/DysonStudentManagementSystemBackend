@@ -11,7 +11,7 @@ import java.util.List;
 public interface StudentExamGradeService {
 
     StudentExamGradeDto createStudentExamGrade( StudentExamGradeDto studentExamGradeDto);
-    StudentExamGradeDto getStudentExamGrade(StudentExamGradeCompositeKey id);
+    StudentExamGradeDto getStudentExamGrade(StudentExamGradeCompositeKey targetKey);
     List<StudentExamGradeDto> getStudentExamGradeByModuleIDAndExamID(String moduleID,int examID);
     StudentExamGradeDto updateStudentExamGrade(StudentExamGradeCompositeKey studentExamGradeCompositeKey, StudentExamGradeDto studentExamGradeDto);
     void deleteStudentExamGrade(StudentExamGradeCompositeKey studentExamGradeID);

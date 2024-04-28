@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/StudentCourseworkGrade")
@@ -27,6 +29,13 @@ public class StudentCourseworkGradeController {
         StudentCourseworkGradeCompositeKey newCourseworkGradeCompositeKey = new StudentCourseworkGradeCompositeKey(studentID, courseworkID, moduleID);
         StudentCourseworkGradeDto studentCourseworkGradeDto = studentCourseworkGradeService.getStudentCourseworkGrade(newCourseworkGradeCompositeKey);
         return ResponseEntity.ok(studentCourseworkGradeDto);
+    }
+
+    @GetMapping("{moduleID}/{courseworkID}")
+    public ResponseEntity<List<StudentCourseworkGradeDto>> getCourseworkByModuleIDAndCourseworkID(@PathVariable("moduleID") String moduleID,
+                                                                                                  @PathVariable("courseworkID") int courseworkID){
+        List<StudentCourseworkGradeDto> studentCourseworkGradeDtos = studentCourseworkGradeService.getStudentCourseGradeByModuleIdAndCourseworkID(moduleID,courseworkID);
+        return ResponseEntity.ok(studentCourseworkGradeDtos);
     }
 
     @PutMapping("{studentID}/{moduleID}/{courseworkID}")

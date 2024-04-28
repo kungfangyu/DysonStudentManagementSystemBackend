@@ -12,8 +12,9 @@ public interface StudentCourseworkGradeService {
 
     StudentCourseworkGradeDto getStudentCourseworkGrade(StudentCourseworkGradeCompositeKey targetKey);
 
-    StudentCourseworkGradeDto updateStudentCourseworkGrade(StudentCourseworkGradeCompositeKey targetKey, StudentCourseworkGradeDto
-            studentCourseworkGradeDto);
+    List<StudentCourseworkGradeDto> getStudentCourseGradeByModuleIdAndCourseworkID(String moduleID, int courseworkID);
+
+    StudentCourseworkGradeDto updateStudentCourseworkGrade(StudentCourseworkGradeCompositeKey targetKey, StudentCourseworkGradeDto studentCourseworkGradeDto);
 
     void deleteStudentCourseworkGrade(StudentCourseworkGradeCompositeKey targetKey);
 }
