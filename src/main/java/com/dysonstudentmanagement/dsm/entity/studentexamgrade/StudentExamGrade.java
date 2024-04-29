@@ -17,7 +17,7 @@ import lombok.*;
 @Entity
 @ToString
 @Table(name = "StudentExamGrade")
-@IdClass(StudentExamGrade.class)
+@IdClass(StudentExamGradeCompositeKey.class)
 public class StudentExamGrade {
 
     @Id
