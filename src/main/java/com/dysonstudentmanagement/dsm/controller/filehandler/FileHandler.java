@@ -21,7 +21,7 @@ import java.nio.file.Paths;
 @RequestMapping("/api/file")
 public class FileHandler {
 
-    private static final String workingDirectory = "src/main/dsmFiles/";
+    private static final String workingDirectory = "/dsmFiles";
     @PostMapping(value = "{filepath}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> storeFile(@RequestParam("file")MultipartFile file,@PathVariable("filepath") String filepath) throws IOException {
         filepath = filepath.replace("%","/");
