@@ -1,13 +1,11 @@
 package com.dysonstudentmanagement.dsm.service.impl;
 
 import com.dysonstudentmanagement.dsm.dto.StudentCourseworkGradeDto;
-import com.dysonstudentmanagement.dsm.entity.moduleannouncement.ModuleAnnouncement;
 import com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails;
 import com.dysonstudentmanagement.dsm.entity.studentcourseworkgrade.StudentCourseworkGrade;
 import com.dysonstudentmanagement.dsm.entity.studentcourseworkgrade.StudentCourseworkGradeCompositeKey;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 import com.dysonstudentmanagement.dsm.exception.ResourceNotFoundException;
-import com.dysonstudentmanagement.dsm.mapper.ModuleAnnouncementMapper;
 import com.dysonstudentmanagement.dsm.mapper.StudentCourseworkGradeMapper;
 import com.dysonstudentmanagement.dsm.repository.ModuleDetailsRepository;
 import com.dysonstudentmanagement.dsm.repository.StudentCourseworkGradeRepository;
