@@ -24,6 +24,7 @@ public class StudentModuleGradeServiceImpl implements StudentModuleGradeService 
     private ModuleDetailsRepository moduleDetailsRepository;
     private StudentModuleGradeRepository studentModuleGradeRepository;
     private UserPrimaryDataRepository primaryDataRepository;
+
     @Override
     public StudentModuleGradeDto createStudentModuleGrade(StudentModuleGradeDto studentModuleGradeDto) {
         StudentModuleGrade studentModuleGrade = StudentModuleGradeMapper.mapToStudentModuleGrade(studentModuleGradeDto);
