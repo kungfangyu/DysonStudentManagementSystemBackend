@@ -1,5 +1,6 @@
 package com.dysonstudentmanagement.dsm.service.impl;
 
+
 import com.dysonstudentmanagement.dsm.dto.ProgrammeDto;
 import com.dysonstudentmanagement.dsm.entity.programme.Programme;
 import com.dysonstudentmanagement.dsm.exception.ResourceNotFoundException;
@@ -51,12 +52,15 @@ public class ProgrammeServiceImpl implements ProgrammeService {
         existingProgramme.setTotalCredits(updatedProgrammeDto.getTotalCredits());
         existingProgramme.setGradesReleased(updatedProgrammeDto.isGradesReleased());
 
+
         Programme savedProgramme = programmeRepository.save(existingProgramme);
         return ProgrammeMapper.mapToProgrammesDto(savedProgramme);
+
     }
 
     @Override
     public void deleteProgramme(String programmeID) {
+
         Programme programme = programmeRepository.findById(programmeID)
                 .orElseThrow(() -> new ResourceNotFoundException("programme not found with ID: " + programmeID));
         programmeRepository.delete(programme);

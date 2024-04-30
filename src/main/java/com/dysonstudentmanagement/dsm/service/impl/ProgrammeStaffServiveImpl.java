@@ -1,5 +1,6 @@
 package com.dysonstudentmanagement.dsm.service.impl;
 
+
 import com.dysonstudentmanagement.dsm.dto.ProgrammeStaffDto;
 import com.dysonstudentmanagement.dsm.entity.programme.Programme;
 import com.dysonstudentmanagement.dsm.entity.programmestaff.ProgrammeStaff;
@@ -22,9 +23,11 @@ import java.util.stream.Collectors;
 @Service
 public class ProgrammeStaffServiveImpl implements ProgrammeStaffService {
 
+
     private ProgrammeStaffRepository programmeStaffRepository;
 
     private ProgrammeRepository programmeRepo;
+
 
     private UserPrimaryDataRepository userPrimaryDataRepo;
 
@@ -50,11 +53,13 @@ public class ProgrammeStaffServiveImpl implements ProgrammeStaffService {
         } else {
             ProgrammeStaff savedData = programmeStaffRepository.save(programmeStaff);
             return ProgrammeStaffMapper.mapToProgrammeStaffDto(savedData);
+
         }
     }
 
 
     @Override
+
     public List<ProgrammeStaffDto> getAllProgrammeStaff() {
         List<ProgrammeStaff> programmes = programmeStaffRepository.findAll();
         return programmes.stream()
@@ -93,6 +98,7 @@ public class ProgrammeStaffServiveImpl implements ProgrammeStaffService {
                 .orElseThrow(() -> new ResourceNotFoundException("programmeStaff record not found with provided key"));
 
         programmeStaffRepository.delete(programmeStaff);
+
 
         ProgrammeStaff newProgramStaff = new ProgrammeStaff();
         // Update the fields of the existing programmeStaff entity with the data from the DTO
