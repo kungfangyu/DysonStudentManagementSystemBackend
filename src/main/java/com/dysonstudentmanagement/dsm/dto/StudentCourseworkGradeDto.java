@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -14,7 +14,7 @@ public class StudentCourseworkGradeDto {
     private int courseworkID;
     private String studentID;
     private String submissionFilePath;
-    private Timestamp submissionTime;
+    private LocalDateTime submissionTime;
     private boolean isOnTime;
     private Double grade;
     private String feedback;

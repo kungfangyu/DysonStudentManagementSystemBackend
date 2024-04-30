@@ -4,7 +4,7 @@ import com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -35,9 +35,9 @@ public class Lesson {
     @Column(name = "LessonType")
     private LessonType lessonType;
     @Column(name= "StartTime")
-    private Timestamp startTime;
+    private LocalDateTime startTime;
     @Column(name = "EndTime")
-    private Timestamp endTime;
+    private LocalDateTime endTime;
     @Column(name = "isAttendanceRequired")
     private boolean isAttendanceRequired;
 

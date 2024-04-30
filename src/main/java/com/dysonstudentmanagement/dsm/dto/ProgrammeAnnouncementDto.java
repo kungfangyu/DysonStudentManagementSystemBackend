@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -17,5 +17,5 @@ public class ProgrammeAnnouncementDto {
     private String staffID;
     private String title;
     private String description;
-    private Timestamp datePosted;
+    private LocalDateTime datePosted;
 }

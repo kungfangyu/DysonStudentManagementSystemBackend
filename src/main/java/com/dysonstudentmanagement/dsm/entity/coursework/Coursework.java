@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Type;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -27,7 +27,7 @@ public class Coursework {
     @Column(name = "Description")
     private String description;
     @Column(name = "Deadline")
-    private Timestamp deadline;
+    private LocalDateTime deadline;
     @Column(name = "PercentageOfModule")
     private Double percentageOfModule;
     @Column(name = "isCourseworkPublished",columnDefinition = "TINYINT", length = 1)

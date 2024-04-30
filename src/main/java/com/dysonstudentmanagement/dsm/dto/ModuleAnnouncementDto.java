@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -17,5 +17,5 @@ public class ModuleAnnouncementDto {
     private String staffID;
     private String title;
     private String description;
-    private Timestamp datePosted;
+    private LocalDateTime datePosted;
 }

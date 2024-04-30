@@ -4,7 +4,7 @@ import com.dysonstudentmanagement.dsm.entity.studentcourseworkgrade.StudentCours
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -29,14 +29,14 @@ public class CourseworkExtensionRequest {
     @Column(name = "RequestNumber")
     private int requestNumber;
     @Column(name = "RequestDate")
-    private Timestamp requestDate;
+    private LocalDateTime requestDate;
     @Column(name = "RequestReason")
     private String requestReason;
     @Enumerated(EnumType.STRING)
     @Column(name = "Status")
     private RequestStatus status;
     @Column(name = "AdjustedDeadline")
-    private Timestamp adjustedDeadline;
+    private LocalDateTime adjustedDeadline;
 
     @MapsId
     @ManyToOne
