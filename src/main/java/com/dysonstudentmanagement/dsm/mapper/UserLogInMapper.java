@@ -4,7 +4,6 @@ import com.dysonstudentmanagement.dsm.dto.UserLogInDto;
 import com.dysonstudentmanagement.dsm.entity.userlogin.UserLogIn;
 import org.springframework.stereotype.Component;
 
-@Component
 public class UserLogInMapper {
 
     public static UserLogIn mapToUserLogIn(UserLogInDto userLoginDto) {

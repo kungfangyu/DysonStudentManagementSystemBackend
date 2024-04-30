@@ -6,6 +6,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface UserLogInRepository extends JpaRepository<UserLogIn, String> {
 
     UserLogIn findByUserIDAndPassword(String userID, String password);
-
-    UserLogIn findByUserID(String userID);
 }

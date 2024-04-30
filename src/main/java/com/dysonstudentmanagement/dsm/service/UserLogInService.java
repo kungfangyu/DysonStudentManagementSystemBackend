@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface UserLogInService{
-    UserLogIn createUserLogIn(UserLogInDto userLoginDto);
+    String createUserLogIn(UserLogInDto userLoginDto);
 
     UserLogIn getUserByUserIDAndPassword(String userID, String password);
 
-
+    String updateUserPassword(UserLogInDto userLogInDto);
 }

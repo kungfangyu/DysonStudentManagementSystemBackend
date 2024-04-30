@@ -10,17 +10,15 @@ import com.dysonstudentmanagement.dsm.repository.UserPrimaryDataRepository;
 import com.dysonstudentmanagement.dsm.service.UserLogInService;
 import com.dysonstudentmanagement.dsm.security.JwtUtils;
 import com.dysonstudentmanagement.dsm.service.UserPrimaryDataService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@AllArgsConstructor
 public class UserLogInController {
     private final UserLogInService userLogInService;
 
@@ -28,18 +26,17 @@ public class UserLogInController {
 
     private final JwtUtils jwtUtils;
 
-    public UserLogInController(UserLogInService userLogInService, JwtUtils jwtUtils,
-                               UserPrimaryDataService userPrimaryDataService
-                               ) {
-        this.userLogInService = userLogInService;
-        this.jwtUtils = jwtUtils;
-        this.userPrimaryDataService = userPrimaryDataService;
+
+    @PostMapping("/api/createPassword")
+    public ResponseEntity<String> createUserLogin(@RequestBody UserLogInDto userLogInDto){
+        String savedUser = userLogInService.createUserLogIn(userLogInDto);
+        return new ResponseEntity<>(savedUser,HttpStatus.CREATED);
     }
 
     @CrossOrigin(origins = "http://localhost:3000/")
-    @PostMapping("/login")
+    @PostMapping("/api/login")
 
-    public ResponseEntity<?> createUserLogin(@RequestBody UserLogInDto userLoginDto) {
+    public ResponseEntity<?> getUserLogin(@RequestBody UserLogInDto userLoginDto) {
 
         try {
             if(userLoginDto.getUserID() == null || userLoginDto.getPassword() == null) {
@@ -63,6 +60,11 @@ public class UserLogInController {
         } catch (InvalidUserTypeException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
+    }
+    @PutMapping("/api/createPassword")
+    public ResponseEntity<String> updateUserPassword(@RequestBody UserLogInDto updateDto){
+        String updated = userLogInService.updateUserPassword(updateDto);
+        return ResponseEntity.ok(updated);
     }
 
 
