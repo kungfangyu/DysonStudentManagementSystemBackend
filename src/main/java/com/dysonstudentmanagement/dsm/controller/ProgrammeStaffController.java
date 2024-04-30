@@ -64,7 +64,7 @@ public class ProgrammeStaffController {
 
     @DeleteMapping("/{programmeID}/{staffID}")
     public ResponseEntity<String> deleteProgrammeStaff(@PathVariable("programmeID") String programmeID, @PathVariable("staffID") String staffID){
-        ProgrammeStaffCompositeKey targetKey = new ProgrammeStaffCompositeKey(programmeID, staffID);
+       ProgrammeStaffCompositeKey targetKey = new ProgrammeStaffCompositeKey(programmeID, staffID);
         programmeStaffService.deleteProgrammeStaff(targetKey);
         return ResponseEntity.ok("programmeStaff record deleted successfully");
     }

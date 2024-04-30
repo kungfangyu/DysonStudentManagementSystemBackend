@@ -26,6 +26,7 @@ public class ModuleIDGenerator implements IdentifierGenerator {
         String firstIdComponent = "";
         String proposedId;
         boolean idExists = true;
+
         for(String word:nameWords){
             firstIdComponent = firstIdComponent + word.substring(0,(nonRandomContribution-firstIdComponent.length() < wordContributionToId)?(int)Math.ceil(wordContributionToId): nonRandomContribution-firstIdComponent.length());
         }

@@ -1,12 +1,11 @@
 package com.dysonstudentmanagement.dsm.mapper;
 
 import com.dysonstudentmanagement.dsm.dto.StudentProgrammeEnrolmentDto;
-import com.dysonstudentmanagement.dsm.entity.StudentProgrammeEnrolment.StudentProgrammeEnrolment;
-import org.hibernate.engine.spi.Status;
+import com.dysonstudentmanagement.dsm.entity.studentprogrammeenrolment.StudentProgrammeEnrolment;
 
-public class studenProgrammeEnrolmentMapper {
+public class StudentProgrammeEnrolmentMapper {
 
-    public static StudentProgrammeEnrolmentDto studentProgrammeEnrolmentDto(StudentProgrammeEnrolment studentProgrammeEnrolment){
+    public static StudentProgrammeEnrolmentDto mapToStudentProgrammeEnrolmentDto(StudentProgrammeEnrolment studentProgrammeEnrolment){
         return new StudentProgrammeEnrolmentDto(
                 studentProgrammeEnrolment.getStudentID(),
                 studentProgrammeEnrolment.getProgrammeID(),

@@ -1,6 +1,5 @@
 package com.dysonstudentmanagement.dsm.repository;
 
-import com.dysonstudentmanagement.dsm.entity.ProgrammeStaff.programmeStaff;
 import com.dysonstudentmanagement.dsm.entity.studentprogrammeenrolment.StudentProgrammeEnrolment;
 import com.dysonstudentmanagement.dsm.entity.studentprogrammeenrolment.StudentProgrammeEnrolmentCompositeKey;
 

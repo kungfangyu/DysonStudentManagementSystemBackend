@@ -1,5 +1,6 @@
 package com.dysonstudentmanagement.dsm.entity.programmemodules;
 
+import com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails;
 import com.dysonstudentmanagement.dsm.entity.programme.Programme;
 import jakarta.persistence.*;
 import lombok.*;
@@ -31,7 +32,7 @@ public class ProgrammeModules {
     @MapsId
     @ManyToOne
     @JoinColumn(name = "ModuleID", referencedColumnName = "ModuleID")
-    private com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails moduleDetails;
+    private ModuleDetails moduleDetails;
 
 
 

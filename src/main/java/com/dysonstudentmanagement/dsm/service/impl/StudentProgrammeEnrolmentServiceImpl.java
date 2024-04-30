@@ -5,6 +5,7 @@ import com.dysonstudentmanagement.dsm.entity.studentprogrammeenrolment.StudentPr
 import com.dysonstudentmanagement.dsm.entity.studentprogrammeenrolment.StudentProgrammeEnrolmentCompositeKey;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 import com.dysonstudentmanagement.dsm.exception.ResourceNotFoundException;
+import com.dysonstudentmanagement.dsm.mapper.StudentProgrammeEnrolmentMapper;
 import com.dysonstudentmanagement.dsm.repository.StudentProgrammeEnrolmentRepository;
 import com.dysonstudentmanagement.dsm.repository.UserPrimaryDataRepository;
 import com.dysonstudentmanagement.dsm.repository.ProgrammeRepository;
@@ -13,7 +14,6 @@ import com.dysonstudentmanagement.dsm.entity.programme.*;
 import lombok.AllArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-import com.dysonstudentmanagement.dsm.mapper.StudenProgrammeEnrolmentMapper;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,7 +34,7 @@ public class StudentProgrammeEnrolmentServiceImpl implements StudentProgrammeEnr
     @Override
     public StudentProgrammeEnrolmentDto createStudentProgrammeEnrolment(StudentProgrammeEnrolmentDto studentProgrammeEnrolmentDto) {
 
-        StudentProgrammeEnrolment enrolment = StudenProgrammeEnrolmentMapper.mapToStudentProgrammeEnrolment(studentProgrammeEnrolmentDto);
+        StudentProgrammeEnrolment enrolment = StudentProgrammeEnrolmentMapper.mapToStudentProgrammeEnrolment(studentProgrammeEnrolmentDto);
 
         // Check if StudentID exists
         UserPrimaryData studentData = userPrimaryDataRepo.findById(enrolment.getStudentID())
@@ -57,14 +57,14 @@ public class StudentProgrammeEnrolmentServiceImpl implements StudentProgrammeEnr
         StudentProgrammeEnrolment savedEnrolment = studentProgrammeEnrolmentRepository.save(enrolment);
 
         // Mapping the saved enrolment back to DTO and returning it
-        return StudenProgrammeEnrolmentMapper.mapToStudentProgrammeEnrolmentDto(savedEnrolment);
+        return StudentProgrammeEnrolmentMapper.mapToStudentProgrammeEnrolmentDto(savedEnrolment);
     }
 
     @Override
     public List<StudentProgrammeEnrolmentDto> getAllStudentProgrammeEnrolment() {
         List<StudentProgrammeEnrolment> studentProgrammes = studentProgrammeEnrolmentRepository.findAll();
         return studentProgrammes.stream()
-                .map(StudenProgrammeEnrolmentMapper::mapToStudentProgrammeEnrolmentDto) // Fixed method reference
+                .map(StudentProgrammeEnrolmentMapper::mapToStudentProgrammeEnrolmentDto) // Fixed method reference
                 .collect(Collectors.toList());
     }
 
@@ -72,7 +72,7 @@ public class StudentProgrammeEnrolmentServiceImpl implements StudentProgrammeEnr
     public StudentProgrammeEnrolmentDto getStudentProgrammeEnrolmentDto(StudentProgrammeEnrolmentCompositeKey targetKey) {
         Optional<StudentProgrammeEnrolment> studentProgrammeOptional = studentProgrammeEnrolmentRepository.findById(targetKey);
         if (studentProgrammeOptional.isPresent()) {
-            return StudenProgrammeEnrolmentMapper.mapToStudentProgrammeEnrolmentDto(studentProgrammeOptional.get());
+            return StudentProgrammeEnrolmentMapper.mapToStudentProgrammeEnrolmentDto(studentProgrammeOptional.get());
         } else {
             throw new ResourceNotFoundException("Student Programme Enrolment not found with provided key");
         }
@@ -83,7 +83,7 @@ public class StudentProgrammeEnrolmentServiceImpl implements StudentProgrammeEnr
     public List<StudentProgrammeEnrolmentDto> getStudentProgrammeEnrolmentDtoByStudentID(String studentID) {
         List<StudentProgrammeEnrolment> StudentIDList = studentProgrammeEnrolmentRepository.findByStudentID(studentID);
         return StudentIDList.stream()
-                .map(StudenProgrammeEnrolmentMapper::mapToStudentProgrammeEnrolmentDto)
+                .map(StudentProgrammeEnrolmentMapper::mapToStudentProgrammeEnrolmentDto)
                 .collect(Collectors.toList());
     }
 
@@ -91,7 +91,7 @@ public class StudentProgrammeEnrolmentServiceImpl implements StudentProgrammeEnr
     public List<StudentProgrammeEnrolmentDto> getStudentProgrammeEnrolmentDtoByProgrammeID(String programmeID) {
         List<StudentProgrammeEnrolment> StudentProgrammeIDList = studentProgrammeEnrolmentRepository.findByProgrammeID(programmeID);
         return StudentProgrammeIDList.stream()
-                .map(StudenProgrammeEnrolmentMapper::mapToStudentProgrammeEnrolmentDto)
+                .map(StudentProgrammeEnrolmentMapper::mapToStudentProgrammeEnrolmentDto)
                 .collect(Collectors.toList());
     }
 
@@ -121,7 +121,7 @@ public class StudentProgrammeEnrolmentServiceImpl implements StudentProgrammeEnr
 
         StudentProgrammeEnrolment savedData = studentProgrammeEnrolmentRepository.save(NewStudentProgrammeEnrolment);
 
-        return StudenProgrammeEnrolmentMapper.mapToStudentProgrammeEnrolmentDto(savedData);
+        return StudentProgrammeEnrolmentMapper.mapToStudentProgrammeEnrolmentDto(savedData);
     }
 
 

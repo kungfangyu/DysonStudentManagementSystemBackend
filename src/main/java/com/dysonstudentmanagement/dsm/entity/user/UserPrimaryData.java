@@ -1,6 +1,5 @@
 package com.dysonstudentmanagement.dsm.entity.user;
 
-import com.dysonstudentmanagement.dsm.entity.useremergencycontact.UserEmergencyContact;
 import com.dysonstudentmanagement.dsm.entitylistener.UserPrimaryDataListener;
 import com.dysonstudentmanagement.dsm.idgenerator.UserIDGenerator;
 import jakarta.persistence.*;
