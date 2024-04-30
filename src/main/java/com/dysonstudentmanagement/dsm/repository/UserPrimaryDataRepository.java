@@ -6,7 +6,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+
+/*
+UserPrimaryDataRepository
+
+Interface provides methods that access/alter the UserPrimaryData table
+
+Original Author: Billy Peters
+ */
+
 public interface UserPrimaryDataRepository extends JpaRepository<UserPrimaryData,String> {
 
     List<UserPrimaryData> findByUserType(UserPrimaryData.UserType userType);

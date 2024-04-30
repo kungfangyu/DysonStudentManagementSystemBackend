@@ -17,8 +17,8 @@ import java.time.LocalDate;
 @Table(name = "ModuleDetails")
 public class ModuleDetails {
     @Id
-    @GeneratedValue(generator = "customUserIdGenerator")
-    @GenericGenerator(name = "customUserIdGenerator", type = ModuleIDGenerator.class)
+    @GeneratedValue(generator = "customModuleIdGenerator")
+    @GenericGenerator(name = "customModuleIdGenerator", type = ModuleIDGenerator.class)
     @Column(name="ModuleID",length=12)
     private String moduleID;
     @Column(name = "ModuleName",length=100)

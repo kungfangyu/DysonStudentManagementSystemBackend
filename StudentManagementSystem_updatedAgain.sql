@@ -129,15 +129,16 @@ Modifying Author: Billy Peters 29/03/2024  - Altered StudentID and StaffID to re
 CREATE TABLE `TutorStudentMeeting` (
 `StaffID` VARCHAR(8),
 `StudentID` VARCHAR(8),
+`MeetingNum` INT,
 `MeetingTime` DATETIME,
 `Notes` TEXT,
-PRIMARY KEY (`StaffID`,`StudentID`,`MeetingTime`),
+PRIMARY KEY (`StaffID`,`StudentID`,`MeetingNum`),
 CONSTRAINT `TutorStudentMeeting_FK_StaffID` FOREIGN KEY (`StaffID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE,
 CONSTRAINT `TutorStudentMeeting_FK_StudentID` FOREIGN KEY (`StudentID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 /*
-Create Programme table
+Create programme table
 Stores programme details, including name, length and the total number of credits
 Original Author: Billy Peters 11/03/2024
 */
@@ -153,7 +154,7 @@ PRIMARY KEY(`ProgrammeID`)
 );
 
 /*
-Create ProgrammeStaff table
+Create programmeStaff table
 Stores which staff members are assigned to the programme, including being able to make announcements
 Original Author: Billy Peters 11/03/2024
 Modifying Author: Billy Peters 29/03/2024  - Altered StaffID to reference User table, to reflect the merge of Student and StaffMember tables
@@ -270,7 +271,7 @@ CREATE TABLE `StudentLessonAllocation` (
 `ModuleID` VARCHAR(12),
 `LessonID` INT,
 `StudentID` VARCHAR(8),
-`isAttended` ENUM('true','false','permitted absesence'),
+`isAttended` ENUM('yes','no','permittedAbsent'),
 PRIMARY KEY (`ModuleID`,`LessonID`,`StudentID`),
 CONSTRAINT `StudentLesson_FK_Lesson` FOREIGN KEY (`ModuleID`,`LessonID`) REFERENCES `Lesson`(`ModuleID`,`LessonID`) ON UPDATE CASCADE ON DELETE CASCADE,
 CONSTRAINT `StudentLesson_FK_StudentID` FOREIGN KEY (`StudentID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE
