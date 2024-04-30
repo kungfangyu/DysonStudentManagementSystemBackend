@@ -129,9 +129,10 @@ Modifying Author: Billy Peters 29/03/2024  - Altered StudentID and StaffID to re
 CREATE TABLE `TutorStudentMeeting` (
 `StaffID` VARCHAR(8),
 `StudentID` VARCHAR(8),
+`MeetingNum` INT,
 `MeetingTime` DATETIME,
 `Notes` TEXT,
-PRIMARY KEY (`StaffID`,`StudentID`,`MeetingTime`),
+PRIMARY KEY (`StaffID`,`StudentID`,`MeetingNum`),
 CONSTRAINT `TutorStudentMeeting_FK_StaffID` FOREIGN KEY (`StaffID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE,
 CONSTRAINT `TutorStudentMeeting_FK_StudentID` FOREIGN KEY (`StudentID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -270,7 +271,7 @@ CREATE TABLE `StudentLessonAllocation` (
 `ModuleID` VARCHAR(12),
 `LessonID` INT,
 `StudentID` VARCHAR(8),
-`isAttended` ENUM('true','false','permitted absesence'),
+`isAttended` ENUM('yes','no','permittedAbsent'),
 PRIMARY KEY (`ModuleID`,`LessonID`,`StudentID`),
 CONSTRAINT `StudentLesson_FK_Lesson` FOREIGN KEY (`ModuleID`,`LessonID`) REFERENCES `Lesson`(`ModuleID`,`LessonID`) ON UPDATE CASCADE ON DELETE CASCADE,
 CONSTRAINT `StudentLesson_FK_StudentID` FOREIGN KEY (`StudentID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE

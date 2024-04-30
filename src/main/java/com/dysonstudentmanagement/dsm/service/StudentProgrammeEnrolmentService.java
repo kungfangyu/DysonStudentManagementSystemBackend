@@ -1,7 +1,8 @@
 package com.dysonstudentmanagement.dsm.service;
 
 import com.dysonstudentmanagement.dsm.dto.StudentProgrammeEnrolmentDto;
-import com.dysonstudentmanagement.dsm.entity.StudentProgrammeEnrolment.StudentProgrammeEnrolmentCompositeKey;
+
+import com.dysonstudentmanagement.dsm.entity.studentprogrammeenrolment.StudentProgrammeEnrolmentCompositeKey;
 
 import java.util.List;
 

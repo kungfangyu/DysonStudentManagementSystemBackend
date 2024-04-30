@@ -1,26 +1,29 @@
 package com.dysonstudentmanagement.dsm.service;
-import com.dysonstudentmanagement.dsm.dto.programmeModulesDto;
-import com.dysonstudentmanagement.dsm.entity.ProgrammModules.programmeModulesCompositeKey;
+
 import org.springframework.stereotype.Service;
+
+import com.dysonstudentmanagement.dsm.dto.ProgrammeModulesDto;
+import com.dysonstudentmanagement.dsm.entity.programmemodules.ProgrammeModulesCompositeKey;
+
 
 import java.util.List;
 
 public interface ProgrammeModulesService {
 
-      programmeModulesDto createProgrammeModules(programmeModulesDto programmeModulesDto);
+      ProgrammeModulesDto createProgrammeModules(ProgrammeModulesDto programmeModulesDto);
 
-      List<programmeModulesDto> getAllProgrammeModules();
+      List<ProgrammeModulesDto> getAllProgrammeModules();
 
-      programmeModulesDto getProgrammeModules(programmeModulesCompositeKey targetKey);
+      ProgrammeModulesDto getProgrammeModules(ProgrammeModulesCompositeKey targetKey);
 
-      List<programmeModulesDto> getProgrammeModulesDtoByModulesID(String ModulesID);
+      List<ProgrammeModulesDto> getProgrammeModulesDtoByModulesID(String ModulesID);
 
-      List<programmeModulesDto> getProgrammeModulesDtoByProgrammeID(String ProgrammeID);
+      List<ProgrammeModulesDto> getProgrammeModulesDtoByProgrammeID(String ProgrammeID);
 
 
-      programmeModulesDto updateProgrammeModules(programmeModulesCompositeKey targetKey,
-                                                 programmeModulesDto updatedProgrammeModulesDto);
+      ProgrammeModulesDto updateProgrammeModules(ProgrammeModulesCompositeKey targetKey,
+                                                 ProgrammeModulesDto updatedProgrammeModulesDto);
 
-      void deleteProgrammeModules(programmeModulesCompositeKey targetKey);
+      void deleteProgrammeModules(ProgrammeModulesCompositeKey targetKey);
 }
 

@@ -51,7 +51,8 @@ public class UserSecondaryDataServiceImpl implements UserSecondaryDataService {
     }
 
     @Override
-    public UserSecondaryDataDto updateUserSecondaryData(String userID, UserSecondaryDataDto updatedSecondaryData) {
+    public UserSecondaryDataDto updateUserSecondaryData(String userID, UserSecondaryDataDto updatedSecondaryDataDto) {
+        UserSecondaryData updatedSecondaryData = UserSecondaryDataMapper.mapToUserSecondaryData(updatedSecondaryDataDto);
         UserSecondaryData userSecondaryData = userSecondaryDataRepo.findById(userID)
                 .orElseThrow(() -> new ResourceNotFoundException("UserSecondaryData record not found with ID: " + userID)
                 );

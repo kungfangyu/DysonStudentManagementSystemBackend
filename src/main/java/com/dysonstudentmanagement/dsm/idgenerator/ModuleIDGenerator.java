@@ -23,20 +23,19 @@ public class ModuleIDGenerator implements IdentifierGenerator {
         float wordContributionToId = 8/nameWords.length;
 
         Session session = (Session) sharedSessionContractImplementor.getSession();
-        String proposedId = "";
+        String firstIdComponent = "";
+        String proposedId;
         boolean idExists = true;
+        for(String word:nameWords){
+            firstIdComponent = firstIdComponent + word.substring(0,(nonRandomContribution-firstIdComponent.length() < wordContributionToId)?(int)Math.ceil(wordContributionToId): nonRandomContribution-firstIdComponent.length());
+        }
+        for(int i = 0; i < 1000; i++){
 
-        for(int i = 0; i < 10; i++){
-            for(String word:nameWords){
-                proposedId = proposedId + word.substring(0,(nonRandomContribution-proposedId.length() < wordContributionToId)?(int)Math.ceil(wordContributionToId): nonRandomContribution-proposedId.length());
-            }
-            proposedId = proposedId + generateRandomString(true,4);
+            proposedId = firstIdComponent + generateRandomString(true,4);
             idExists = session.createQuery("SELECT COUNT(u) FROM ModuleDetails u WHERE u.moduleID = :id", Long.class).setParameter("id", proposedId).setMaxResults(1).getSingleResult() > 0;
 
             if (!idExists) {
                 return proposedId;
-            }else{
-                proposedId = "";
             }
         }
         throw new NonUniqueResultException("Could not generate unique ID for user");

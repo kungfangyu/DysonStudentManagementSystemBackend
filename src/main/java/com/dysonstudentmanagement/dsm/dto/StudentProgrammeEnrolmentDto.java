@@ -5,8 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import com.dysonstudentmanagement.dsm.entity.StudentProgrammeEnrolment.StudentProgrammeEnrolment.*;
+import com.dysonstudentmanagement.dsm.entity.studentprogrammeenrolment.StudentProgrammeEnrolment.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -14,13 +15,10 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 public class StudentProgrammeEnrolmentDto {
-
     private String studentID;
-
     private String programmeID;
-
-    private Date dateEnrolled;
-    private Date dateCompleted;
+    private LocalDate dateEnrolled;
+    private LocalDate dateCompleted;
 
     private float finalGrade;
 

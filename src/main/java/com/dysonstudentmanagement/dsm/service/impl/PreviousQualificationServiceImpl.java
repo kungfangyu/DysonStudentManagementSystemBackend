@@ -61,12 +61,13 @@ public class PreviousQualificationServiceImpl implements PreviousQualificationSe
 
     @Override
     public PreviousQualificationDto updatePreviousQualification(PreviousQualificationCompositeKey targetKey, PreviousQualificationDto updatedQualificationDto) {
+        PreviousQualification updatedQualification = PreviousQualificationMapper.mapToPreviousQualification(updatedQualificationDto);
         PreviousQualification qualification = previousQualificationRepo.findById(targetKey)
                 .orElseThrow(() -> new ResourceNotFoundException("Previous Qualification record not found with primary key provided")
                 );
-        qualification.setGrade(updatedQualificationDto.getGrade());
-        qualification.setDateAchieved(updatedQualificationDto.getDateAchieved());
-        qualification.setInstitution(updatedQualificationDto.getInstitution());
+        qualification.setGrade(updatedQualification.getGrade());
+        qualification.setDateAchieved(updatedQualification.getDateAchieved());
+        qualification.setInstitution(updatedQualification.getInstitution());
         PreviousQualification savedData = previousQualificationRepo.save(qualification);
         return PreviousQualificationMapper.mapToPreviousQualificationDto(savedData);
     }

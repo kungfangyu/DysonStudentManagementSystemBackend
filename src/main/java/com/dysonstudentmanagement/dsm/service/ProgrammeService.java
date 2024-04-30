@@ -1,17 +1,18 @@
 package com.dysonstudentmanagement.dsm.service;
 
-import com.dysonstudentmanagement.dsm.dto.programmeDto;
+import com.dysonstudentmanagement.dsm.dto.ProgrammeDto;
+
 
 import java.util.List;
 
 public interface ProgrammeService {
-    programmeDto createProgramme(programmeDto programmeDto);
+    ProgrammeDto createProgramme(ProgrammeDto programmeDto);
 
-    programmeDto getProgramme(String programmeID);
+    ProgrammeDto getProgramme(String programmeID);
 
-    List<programmeDto> getAllProgrammes();
+    List<ProgrammeDto> getAllProgrammes();
 
-    programmeDto updateProgramme(String programmeID, programmeDto updatedProgrammeDto);
+    ProgrammeDto updateProgramme(String programmeID, ProgrammeDto updatedProgrammeDto);
 
     void deleteProgramme(String programmeID);
 }
