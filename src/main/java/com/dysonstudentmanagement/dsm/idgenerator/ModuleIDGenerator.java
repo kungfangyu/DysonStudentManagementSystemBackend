@@ -1,5 +1,6 @@
 package com.dysonstudentmanagement.dsm.idgenerator;
 
+import com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails;
 import jakarta.persistence.NonUniqueResultException;
 import org.hibernate.Session;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
@@ -10,26 +11,31 @@ import java.util.Random;
 public class ModuleIDGenerator implements IdentifierGenerator {
     @Override
     public Object generate(SharedSessionContractImplementor sharedSessionContractImplementor, Object o) {
-        Module module = (Module) o;
+        ModuleDetails module = (ModuleDetails) o;
         String name;
-        if (module.getName() == null){
+        if (module.getModuleName() == null){
             name = generateRandomString(true,50);
         }else{
-            name = module.getName();
+            name = module.getModuleName();
         }
         String[] nameWords = name.split(" ",4);
 
         int nonRandomContribution = 8;
-        float wordContributionToId = 8/nameWords.length;
+        float wordContributionToId = 8.0f/nameWords.length;
 
         Session session = (Session) sharedSessionContractImplementor.getSession();
-        String firstIdComponent = "";
-        String proposedId;
-        boolean idExists = true;
+        StringBuilder firstIdComponent = new StringBuilder();
 
-        for(String word:nameWords){
-            firstIdComponent = firstIdComponent + word.substring(0,(nonRandomContribution-firstIdComponent.length() < wordContributionToId)?(int)Math.ceil(wordContributionToId): nonRandomContribution-firstIdComponent.length());
+        for(String word:nameWords) {
+            int contribution = Math.min((int) Math.ceil(wordContributionToId), word.length());
+            firstIdComponent.append(word.substring(0, contribution));
+            if (firstIdComponent.length() >= nonRandomContribution) {
+                break;
+            }
         }
+        String proposedId;
+        boolean idExists;
+
         for(int i = 0; i < 1000; i++){
 
             proposedId = firstIdComponent + generateRandomString(true,4);

@@ -21,13 +21,8 @@ public class ModuleDetailsServiceImpl implements ModuleDetailsService {
     @Override
     public ModuleDetailsDto createModuleDetails(ModuleDetailsDto moduleDetailsDto) {
         ModuleDetails moduleDetails = ModuleDetailsMapper.mapToModuleDetails(moduleDetailsDto);
-        Optional<ModuleDetails> optionalModuleDetails = moduleDetailsRepository.findById(moduleDetails.getModuleID());
-        if (optionalModuleDetails.isPresent()) {
-            throw new DataIntegrityViolationException("Module already exists");
-        }else {
-            moduleDetailsRepository.save(moduleDetails);
-            return ModuleDetailsMapper.mapToModuleDetailsDto(moduleDetails);
-        }
+        moduleDetailsRepository.save(moduleDetails);
+        return ModuleDetailsMapper.mapToModuleDetailsDto(moduleDetails);
     }
 
     @Override
