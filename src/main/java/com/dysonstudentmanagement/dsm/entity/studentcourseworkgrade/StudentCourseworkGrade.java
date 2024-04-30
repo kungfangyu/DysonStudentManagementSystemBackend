@@ -7,7 +7,7 @@ import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 /*
     Class: StudentCourseworkGrade
@@ -38,7 +38,7 @@ public class StudentCourseworkGrade {
     @Column(name = "SubmissionFilePath")
     private String submissionFilePath;
     @Column(name = "SubmissionTime")
-    private Timestamp submissionTime;
+    private LocalDateTime submissionTime;
     @Column(name = "isOnTime")
     private boolean isOnTime;
     @Column(name = "Grade")

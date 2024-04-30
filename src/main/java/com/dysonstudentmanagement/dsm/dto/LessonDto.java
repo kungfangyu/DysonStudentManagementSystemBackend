@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -14,7 +16,7 @@ public class LessonDto {
     private String moduleID;
     private int lessonID;
     private Lesson.LessonType lessonType;
-    private Timestamp startTime;
-    private Timestamp endTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
     private boolean isAttendanceRequired;
 }

@@ -5,7 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -15,8 +16,8 @@ public class CourseworkExtensionRequestDto {
     private String moduleID;
     private int courseworkID;
     private int requestNumber;
-    private Timestamp requestDate;
+    private LocalDateTime requestDate;
     private String requestReason;
     private CourseworkExtensionRequest.RequestStatus status;
-    private Timestamp adjustedDeadline;
+    private LocalDateTime adjustedDeadline;
 }

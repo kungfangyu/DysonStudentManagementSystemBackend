@@ -6,7 +6,7 @@ import com.dysonstudentmanagement.dsm.entitylistener.ModuleAnnouncementListener;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 /*
     Class: ModuleAnnouncement
@@ -40,7 +40,7 @@ public class ModuleAnnouncement {
     @Column(name = "Description")
     private String description;
     @Column(name = "DatePosted")
-    private Timestamp datePosted;
+    private LocalDateTime datePosted;
 
     @MapsId
     @ManyToOne

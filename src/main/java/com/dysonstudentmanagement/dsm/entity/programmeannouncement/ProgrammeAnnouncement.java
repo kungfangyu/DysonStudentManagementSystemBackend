@@ -5,7 +5,7 @@ import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -33,7 +33,7 @@ public class ProgrammeAnnouncement {
     @Column(name = "Description")
     private String description;
     @Column(name = "DatePosted")
-    private Timestamp datePosted;
+    private LocalDateTime datePosted;
 
     @MapsId
     @ManyToOne
