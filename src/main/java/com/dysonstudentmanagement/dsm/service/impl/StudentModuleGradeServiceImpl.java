@@ -1,10 +1,12 @@
 package com.dysonstudentmanagement.dsm.service.impl;
 
+import com.dysonstudentmanagement.dsm.dto.ModuleDetailsDto;
 import com.dysonstudentmanagement.dsm.dto.StudentModuleGradeDto;
 import com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails;
 import com.dysonstudentmanagement.dsm.entity.studentmodulegrade.StudentModuleGrade;
 import com.dysonstudentmanagement.dsm.entity.studentmodulegrade.StudentModuleGradeCompositeKey;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
+import com.dysonstudentmanagement.dsm.mapper.ModuleDetailsMapper;
 import com.dysonstudentmanagement.dsm.mapper.StudentModuleGradeMapper;
 import com.dysonstudentmanagement.dsm.repository.ModuleDetailsRepository;
 import com.dysonstudentmanagement.dsm.repository.StudentModuleGradeRepository;
@@ -14,6 +16,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -57,6 +60,18 @@ public class StudentModuleGradeServiceImpl implements StudentModuleGradeService 
     public List<StudentModuleGradeDto> getStudentModuleGradeByModuleID(String moduleID) {
         List<StudentModuleGrade> moduleGradeList = studentModuleGradeRepository.findByModuleID(moduleID);
         return moduleGradeList.stream().map(StudentModuleGradeMapper::mapToStudentModuleGradeDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ModuleDetailsDto> getModuleDetailsByStudentID(String studentID) {
+        List<StudentModuleGrade> studentModuleGrades = studentModuleGradeRepository.findByStudentID(studentID);
+        List<ModuleDetails> moduleDetailsList = new LinkedList<>();
+        for(StudentModuleGrade studentModuleGrade:studentModuleGrades){
+            moduleDetailsList.add(studentModuleGrade.getModuleDetails());
+        }
+
+        return moduleDetailsList.stream().map(ModuleDetailsMapper::mapToModuleDetailsDto).collect(Collectors.toList());
+
     }
 
     @Override

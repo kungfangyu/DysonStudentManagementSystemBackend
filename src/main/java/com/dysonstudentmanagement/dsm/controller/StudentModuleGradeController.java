@@ -1,5 +1,6 @@
 package com.dysonstudentmanagement.dsm.controller;
 
+import com.dysonstudentmanagement.dsm.dto.ModuleDetailsDto;
 import com.dysonstudentmanagement.dsm.dto.StudentModuleGradeDto;
 import com.dysonstudentmanagement.dsm.entity.studentmodulegrade.StudentModuleGradeCompositeKey;
 import com.dysonstudentmanagement.dsm.service.StudentModuleGradeService;
@@ -34,6 +35,10 @@ public class StudentModuleGradeController {
         return ResponseEntity.ok(studentModuleGradeService.getStudentModuleGradeByModuleID(moduleID));
     }
 
+    @GetMapping("/getModuledDetailsByStudentID/{studentID}")
+    public ResponseEntity<List<ModuleDetailsDto>> getModuleDetailsByStudentID(@PathVariable("studentID") String studentID) {
+        return ResponseEntity.ok(studentModuleGradeService.getModuleDetailsByStudentID(studentID));
+    }
     @GetMapping("student/{studentID}")
     public ResponseEntity<List<StudentModuleGradeDto>> getStudentModuleGradesByStudentID(@PathVariable("studentID") String studentID) {
         return ResponseEntity.ok(studentModuleGradeService.getStudentModuleGradeByStudentID(studentID));
