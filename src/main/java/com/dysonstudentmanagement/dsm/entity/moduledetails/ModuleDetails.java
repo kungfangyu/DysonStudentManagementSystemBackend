@@ -23,7 +23,7 @@ public class ModuleDetails {
     private String moduleID;
     @Column(name = "ModuleName",length=100)
     private String moduleName;
-    @Column(name = "ModulePhoto", length=256)
+    @Column(name = "ModulePhoto", length=500)
     private String modulePhoto;
     @Column(name = "StartDate")
     private LocalDate startDate;
