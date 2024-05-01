@@ -35,7 +35,7 @@ public class StudentModuleGradeController {
         return ResponseEntity.ok(studentModuleGradeService.getStudentModuleGradeByModuleID(moduleID));
     }
 
-    @GetMapping("/getModuledDetailsByStudentID/{studentID}")
+    @GetMapping("/getModulesDetailsByStudentID/{studentID}")
     public ResponseEntity<List<ModuleDetailsDto>> getModuleDetailsByStudentID(@PathVariable("studentID") String studentID) {
         return ResponseEntity.ok(studentModuleGradeService.getModuleDetailsByStudentID(studentID));
     }
