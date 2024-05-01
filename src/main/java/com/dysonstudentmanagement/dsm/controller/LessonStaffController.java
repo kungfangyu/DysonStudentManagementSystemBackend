@@ -50,7 +50,7 @@ public class LessonStaffController {
 
     @DeleteMapping("{moduleID}/{lessonID}/{staffID}")
     public ResponseEntity<String> deleteLessonStaff(@PathVariable("moduleID") String moduleID,
-                                                    @PathVariable("lectureID") int lectureID,
+                                                    @PathVariable("lessonID") int lectureID,
                                                     @PathVariable("staffID") String staffID){
         LessonStaffCompositeKey targetKey = new LessonStaffCompositeKey(moduleID,lectureID,staffID);
         lessonStaffService.deleteLessonStaff(targetKey);
