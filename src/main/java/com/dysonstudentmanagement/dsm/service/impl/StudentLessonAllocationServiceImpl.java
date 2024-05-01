@@ -1,5 +1,6 @@
 package com.dysonstudentmanagement.dsm.service.impl;
 
+import com.dysonstudentmanagement.dsm.dto.LessonDto;
 import com.dysonstudentmanagement.dsm.dto.StudentLessonAllocationDto;
 import com.dysonstudentmanagement.dsm.entity.lesson.Lesson;
 import com.dysonstudentmanagement.dsm.entity.lesson.LessonCompositeKey;
@@ -7,6 +8,7 @@ import com.dysonstudentmanagement.dsm.entity.studentlessonallocation.StudentLess
 import com.dysonstudentmanagement.dsm.entity.studentlessonallocation.StudentLessonAllocationCompositeKey;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 import com.dysonstudentmanagement.dsm.exception.ResourceNotFoundException;
+import com.dysonstudentmanagement.dsm.mapper.LessonMapper;
 import com.dysonstudentmanagement.dsm.mapper.StudentLessonAllocationMapper;
 import com.dysonstudentmanagement.dsm.repository.LessonRepository;
 import com.dysonstudentmanagement.dsm.repository.StudentLessonAllocationRepository;
@@ -16,6 +18,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -71,6 +74,16 @@ public class StudentLessonAllocationServiceImpl implements StudentLessonAllocati
     public List<StudentLessonAllocationDto> getStudentLessonAllocationByModuleIDAndLessonID(String moduleID, int lessonID) {
         List<StudentLessonAllocation> studentLessonAllocations = studentLessonAllocationRepo.findByModuleIDAndLessonID(moduleID, lessonID);
         return studentLessonAllocations.stream().map(StudentLessonAllocationMapper::mapToStudentLessonAllocationDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<LessonDto> getLessonInformationByStudentID(String studentID) {
+        List<StudentLessonAllocation> studentLessonAllocations = studentLessonAllocationRepo.findByStudentID(studentID);
+        List<Lesson> lessonList = new ArrayList<>();
+        for(StudentLessonAllocation studentLessonAllocation:studentLessonAllocations){
+            lessonList.add(studentLessonAllocation.getLesson());
+        }
+        return lessonList.stream().map(LessonMapper::mapToLessonDto).collect(Collectors.toList());
     }
 
     @Override

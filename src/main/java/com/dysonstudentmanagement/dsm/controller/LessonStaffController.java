@@ -1,5 +1,6 @@
 package com.dysonstudentmanagement.dsm.controller;
 
+import com.dysonstudentmanagement.dsm.dto.LessonDto;
 import com.dysonstudentmanagement.dsm.dto.LessonStaffDto;
 import com.dysonstudentmanagement.dsm.entity.lessonstaff.LessonStaffCompositeKey;
 import com.dysonstudentmanagement.dsm.service.LessonStaffService;
@@ -39,6 +40,12 @@ public class LessonStaffController {
     public ResponseEntity<List<LessonStaffDto>> getLessonStaffByModuleIDAndLectureID(@PathVariable("moduleID") String moduleID,@PathVariable("lectureID") int lectureID){
         List<LessonStaffDto> lessonStaffDtos = lessonStaffService.getLessonStaffByModuleIDAndLectureID(moduleID,lectureID);
         return ResponseEntity.ok(lessonStaffDtos);
+    }
+
+    @GetMapping("/lessonInfo-by-staffID/{staffID}")
+    public ResponseEntity<List<LessonDto>> getLessonInfoByStaffID(@PathVariable("staffID") String staffID){
+        List<LessonDto> lessonDtos = lessonStaffService.getLessonInfoByStaffID(staffID);
+        return ResponseEntity.ok(lessonDtos);
     }
 
     @DeleteMapping("{moduleID}/{lessonID}/{staffID}")

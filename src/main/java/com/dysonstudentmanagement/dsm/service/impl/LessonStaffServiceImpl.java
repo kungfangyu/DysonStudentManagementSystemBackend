@@ -1,5 +1,6 @@
 package com.dysonstudentmanagement.dsm.service.impl;
 
+import com.dysonstudentmanagement.dsm.dto.LessonDto;
 import com.dysonstudentmanagement.dsm.dto.LessonStaffDto;
 import com.dysonstudentmanagement.dsm.entity.lesson.Lesson;
 import com.dysonstudentmanagement.dsm.entity.lesson.LessonCompositeKey;
@@ -7,6 +8,7 @@ import com.dysonstudentmanagement.dsm.entity.lessonstaff.LessonStaff;
 import com.dysonstudentmanagement.dsm.entity.lessonstaff.LessonStaffCompositeKey;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 import com.dysonstudentmanagement.dsm.exception.ResourceNotFoundException;
+import com.dysonstudentmanagement.dsm.mapper.LessonMapper;
 import com.dysonstudentmanagement.dsm.mapper.LessonStaffMapper;
 import com.dysonstudentmanagement.dsm.repository.LessonRepository;
 import com.dysonstudentmanagement.dsm.repository.LessonStaffRepository;
@@ -16,6 +18,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -67,6 +70,16 @@ public class LessonStaffServiceImpl implements LessonStaffService {
     public List<LessonStaffDto> getLessonStaffByModuleIDAndLectureID(String moduleID, int lectureID) {
         List<LessonStaff> lessonStaffs = lessonStaffRepo.findByModuleIDAndLessonID(moduleID, lectureID);
         return lessonStaffs.stream().map(LessonStaffMapper::mapToLessonStaffDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<LessonDto> getLessonInfoByStaffID(String staffID) {
+        List<LessonStaff> lessonStaffs = lessonStaffRepo.findByStaffID(staffID);
+        List<Lesson> lessons = new ArrayList<>();
+        for(LessonStaff lessonStaff:lessonStaffs){
+            lessons.add(lessonStaff.getLesson());
+        }
+        return lessons.stream().map(LessonMapper::mapToLessonDto).collect(Collectors.toList());
     }
 
     @Override

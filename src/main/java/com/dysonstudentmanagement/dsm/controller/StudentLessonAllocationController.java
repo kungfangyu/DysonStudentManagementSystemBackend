@@ -1,5 +1,6 @@
 package com.dysonstudentmanagement.dsm.controller;
 
+import com.dysonstudentmanagement.dsm.dto.LessonDto;
 import com.dysonstudentmanagement.dsm.dto.StudentLessonAllocationDto;
 import com.dysonstudentmanagement.dsm.entity.studentlessonallocation.StudentLessonAllocationCompositeKey;
 import com.dysonstudentmanagement.dsm.service.StudentLessonAllocationService;
@@ -44,6 +45,12 @@ public class StudentLessonAllocationController {
     public ResponseEntity<List<StudentLessonAllocationDto>> getStudentLessonAllocationByModuleIDAndLessonID(@PathVariable("moduleID") String moduleID,@PathVariable("lessonID") int lessonID){
         List<StudentLessonAllocationDto> studentLessonAllocationDtos = studentLessonAllocationService.getStudentLessonAllocationByModuleIDAndLessonID(moduleID,lessonID);
         return ResponseEntity.ok(studentLessonAllocationDtos);
+    }
+
+    @GetMapping("/lessonInfo-by-studentID/{studentID}")
+    public ResponseEntity<List<LessonDto>> getLessonInfoByStudentID(@PathVariable("studentID") String studentID){
+        List<LessonDto> lessonDtos = studentLessonAllocationService.getLessonInformationByStudentID(studentID);
+        return ResponseEntity.ok(lessonDtos);
     }
 
     @PutMapping("/{moduleID}/{lessonID}/{studentID}")
