@@ -2,6 +2,7 @@ package com.dysonstudentmanagement.dsm.entity.studentmodulegrade;
 
 import com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
+import com.dysonstudentmanagement.dsm.entitylistener.StudentModuleGradeListener;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +14,7 @@ import lombok.*;
 @ToString
 @Entity
 @Table(name = "StudentModuleGrade")
+@EntityListeners(StudentModuleGradeListener.class)
 @IdClass(StudentModuleGradeCompositeKey.class)
 public class StudentModuleGrade {
     @Id

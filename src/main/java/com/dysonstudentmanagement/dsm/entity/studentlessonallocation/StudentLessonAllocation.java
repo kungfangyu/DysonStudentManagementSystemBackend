@@ -2,6 +2,7 @@ package com.dysonstudentmanagement.dsm.entity.studentlessonallocation;
 
 import com.dysonstudentmanagement.dsm.entity.lesson.Lesson;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
+import com.dysonstudentmanagement.dsm.entitylistener.StudentLessonAllocationListener;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +14,7 @@ import lombok.*;
 @ToString
 @Entity
 @Table(name = "StudentLessonAllocation")
+@EntityListeners(StudentLessonAllocationListener.class)
 @IdClass(StudentLessonAllocationCompositeKey.class)
 public class StudentLessonAllocation {
     @Id

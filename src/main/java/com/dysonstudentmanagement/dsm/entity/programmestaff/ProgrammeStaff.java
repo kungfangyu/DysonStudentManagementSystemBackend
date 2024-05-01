@@ -2,6 +2,7 @@ package com.dysonstudentmanagement.dsm.entity.programmestaff;
 
 import com.dysonstudentmanagement.dsm.entity.programme.Programme;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
+import com.dysonstudentmanagement.dsm.entitylistener.ProgrammeStaffListener;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +14,7 @@ import lombok.*;
 @ToString
 @Entity
 @Table(name = "programmeStaff")
+@EntityListeners(ProgrammeStaffListener.class)
 @IdClass(ProgrammeStaffCompositeKey.class)
 public class ProgrammeStaff {
 

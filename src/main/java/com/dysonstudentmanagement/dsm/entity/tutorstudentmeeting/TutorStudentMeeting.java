@@ -3,6 +3,7 @@ package com.dysonstudentmanagement.dsm.entity.tutorstudentmeeting;
 import com.dysonstudentmanagement.dsm.entity.coursework.Coursework;
 import com.dysonstudentmanagement.dsm.entity.studentcourseworkgrade.StudentCourseworkGradeCompositeKey;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
+import com.dysonstudentmanagement.dsm.entitylistener.TutorStudentMeetingListener;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,6 +24,7 @@ import java.time.LocalDateTime;
 @ToString
 @Entity
 @Table(name = "TutorStudentMeeting")
+@EntityListeners(TutorStudentMeetingListener.class)
 @IdClass(TutorStudentMeetingCompositeKey.class)
 public class TutorStudentMeeting {
     @Id

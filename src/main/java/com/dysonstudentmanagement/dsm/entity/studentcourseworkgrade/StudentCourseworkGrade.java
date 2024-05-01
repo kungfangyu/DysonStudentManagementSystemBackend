@@ -4,6 +4,7 @@ import com.dysonstudentmanagement.dsm.entity.coursework.Coursework;
 import com.dysonstudentmanagement.dsm.entity.moduleannouncement.ModuleAnnouncementCompositeKey;
 import com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
+import com.dysonstudentmanagement.dsm.entitylistener.StudentCourseworkGradeListener;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,6 +24,7 @@ import java.time.LocalDateTime;
 @ToString
 @Entity
 @Table(name = "StudentCourseworkGrade")
+@EntityListeners(StudentCourseworkGradeListener.class)
 @IdClass(StudentCourseworkGradeCompositeKey.class)
 public class StudentCourseworkGrade {
     @Id

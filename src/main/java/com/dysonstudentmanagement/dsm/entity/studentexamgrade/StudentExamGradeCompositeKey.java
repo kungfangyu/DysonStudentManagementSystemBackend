@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 
@@ -14,7 +15,7 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentExamGradeCompositeKey {
+public class StudentExamGradeCompositeKey implements Serializable {
 
     @Id
     @Column(name="ModuleID",length=12)

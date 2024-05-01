@@ -2,6 +2,7 @@ package com.dysonstudentmanagement.dsm.entity.studentprogrammeenrolment;
 
 import com.dysonstudentmanagement.dsm.entity.programme.Programme;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
+import com.dysonstudentmanagement.dsm.entitylistener.StudentProgrammeEnrolmentListener;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,6 +18,7 @@ import java.util.Date;
 @ToString
 @Entity
 @Table(name = "StudentProgrammeEnrolment")
+@EntityListeners(StudentProgrammeEnrolmentListener.class)
 @IdClass(StudentProgrammeEnrolmentCompositeKey.class)
 public class StudentProgrammeEnrolment {
 

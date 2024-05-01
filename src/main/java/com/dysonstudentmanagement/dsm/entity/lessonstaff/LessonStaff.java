@@ -2,6 +2,7 @@ package com.dysonstudentmanagement.dsm.entity.lessonstaff;
 
 import com.dysonstudentmanagement.dsm.entity.lesson.Lesson;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
+import com.dysonstudentmanagement.dsm.entitylistener.LessonStaffListener;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,6 +15,7 @@ import lombok.*;
 @Entity
 @IdClass(LessonStaffCompositeKey.class)
 @Table(name = "LessonStaff")
+@EntityListeners(LessonStaffListener.class)
 public class LessonStaff {
     @Id
     @Column(name = "ModuleID", length = 12)
