@@ -196,7 +196,7 @@ Modifying Author: Billy Peters 24/04/2024 Changed name from Module to ModuleDeta
 CREATE TABLE `ModuleDetails` (
 `ModuleID` VARCHAR(12),
 `ModuleName` VARCHAR(100),
-`ModulePhoto` VARCHAR(256),
+`ModulePhoto` VARCHAR(500),
 `StartDate` DATE,
 `EndDate` DATE,
 `ModuleCredits` INT,
