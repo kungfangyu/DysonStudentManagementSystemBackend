@@ -1,4 +1,4 @@
-package com.dysonstudentmanagement.dsm.dto.user;
+package com.dysonstudentmanagement.dsm.dto;
 
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 import lombok.*;

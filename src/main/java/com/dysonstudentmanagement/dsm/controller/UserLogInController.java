@@ -2,11 +2,9 @@ package com.dysonstudentmanagement.dsm.controller;
 
 import com.dysonstudentmanagement.dsm.dto.AuthResponseDto;
 import com.dysonstudentmanagement.dsm.dto.UserLogInDto;
-import com.dysonstudentmanagement.dsm.dto.user.UserPrimaryDataDto;
-import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
+import com.dysonstudentmanagement.dsm.dto.UserPrimaryDataDto;
 import com.dysonstudentmanagement.dsm.entity.userlogin.UserLogIn;
 import com.dysonstudentmanagement.dsm.exception.InvalidUserTypeException;
-import com.dysonstudentmanagement.dsm.repository.UserPrimaryDataRepository;
 import com.dysonstudentmanagement.dsm.service.UserLogInService;
 import com.dysonstudentmanagement.dsm.security.JwtUtils;
 import com.dysonstudentmanagement.dsm.service.UserPrimaryDataService;

@@ -1,6 +1,6 @@
 package com.dysonstudentmanagement.dsm.service;
 
-import com.dysonstudentmanagement.dsm.dto.user.UserPrimaryDataDto;
+import com.dysonstudentmanagement.dsm.dto.UserPrimaryDataDto;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 
 import java.util.Collection;

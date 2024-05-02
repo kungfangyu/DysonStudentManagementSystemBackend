@@ -1,6 +1,6 @@
 package com.dysonstudentmanagement.dsm.controller;
 
-import com.dysonstudentmanagement.dsm.dto.user.UserPrimaryDataDto;
+import com.dysonstudentmanagement.dsm.dto.UserPrimaryDataDto;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 import com.dysonstudentmanagement.dsm.service.UserPrimaryDataService;
 

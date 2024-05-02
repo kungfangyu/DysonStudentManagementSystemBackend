@@ -6,7 +6,6 @@ Stores user details required to create an account, including their Unique ID, na
 Original Author: Billy Peters, 11/03/2024
 
 Modifying Author: Billy Peters 29/03/2024 – Merged StaffMember and Student tables to merge the two user tables into one.
-Modifying Author: Billy Peters 16/04/2024 - Split User table into Primary and Secondary Data Tables, to conform to database normalisation requirements (removing null values from tables)
 */
 CREATE TABLE `UserPrimaryData` (
 `UserID` VARCHAR(8),
@@ -26,32 +25,6 @@ CREATE TABLE `UserPrimaryData` (
 `Postcode` VARCHAR(8),
 PRIMARY KEY(`UserID`)
 );
-
-/*
-Create User_SecondaryData Table
-
-Stores user details that are not required to create an account, including their id photo, address
-
-Original Author: Billy Peters, 11/03/2024
-
-Modifying Author: Billy Peters 29/03/2024 – Merged StaffMember and Student tables to merge the two user tables into one.
-Modifying Author: Billy Peters 16/04/2024 - Split User table into Primary and Secondary Data Tables, to conform to database normalisation requirements (removing null values from tables)
-*/
-/*
-CREATE TABLE `UserSecondaryData` (
-`UserID` VARCHAR(8),
-`IdPhoto` VARCHAR(256),
-`Title` VARCHAR(50),
-`MiddleNames` VARCHAR(100),
-`Gender` VARCHAR(50),
-`Ethnicity` VARCHAR(50),
-`Address` VARCHAR(120),
-`Postcode` VARCHAR(8),
-PRIMARY KEY(`UserID`),
-CONSTRAINT `User_SecondaryData_FK_UserID` FOREIGN KEY (`UserID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE
-);
-*/
-
 
 /*
 Create UserLogIn Table

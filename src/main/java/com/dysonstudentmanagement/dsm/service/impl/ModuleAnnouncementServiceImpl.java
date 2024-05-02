@@ -47,6 +47,9 @@ public class ModuleAnnouncementServiceImpl implements ModuleAnnouncementService 
                 .orElseThrow(() -> new DataIntegrityViolationException("Failed... StaffID does not exist in target table UserPrimaryDataRepository")
                 );
 
+        int announcementID = moduleAnnouncementRepo.findByModuleID(moduleAnnouncement.getModuleID()).size()+1;
+        moduleAnnouncement.setAnnouncementID(announcementID); //manual increment announcement id as hibernate does not support autoincrementing of composite key columns
+
         moduleAnnouncement.setModuleDetails(moduleDetails);
         moduleAnnouncement.setUserPrimaryData(userPrimaryData);
         ModuleAnnouncement savedData = moduleAnnouncementRepo.save(moduleAnnouncement);

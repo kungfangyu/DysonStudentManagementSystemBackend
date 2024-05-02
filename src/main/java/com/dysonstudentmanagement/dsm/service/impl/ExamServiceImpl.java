@@ -30,6 +30,9 @@ public class ExamServiceImpl implements ExamService {
         ModuleDetails moduleDetails = moduleDetailsRepo.findById(exam.getModuleID())
                 .orElseThrow(() -> new DataIntegrityViolationException("Failed... ModuleID does not exist in target table ModuleDetails")
                 );
+
+        int examID = examRepository.findByModuleID(exam.getModuleID()).size()+1; // manual incrementing of exam id as hibernate does not support autoincrementing of a single composite key column
+        exam.setExamID(examID);
         exam.setModuleDetails(moduleDetails);
         Exam savedData = examRepository.save(exam);
         return ExamMapper.mapToExamDto(savedData);
