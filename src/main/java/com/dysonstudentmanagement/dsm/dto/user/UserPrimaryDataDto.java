@@ -19,4 +19,11 @@ public class UserPrimaryDataDto {
     private String personalEmail;
     private String dysonEmail;
     private String phone;
+    private String idPhoto;
+    private String title;
+    private String middleNames;
+    private String gender;
+    private String ethnicity;
+    private String address;
+    private String postcode;
 }

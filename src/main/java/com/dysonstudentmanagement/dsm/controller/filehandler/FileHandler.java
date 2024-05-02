@@ -19,6 +19,15 @@ import java.nio.file.Paths;
 
 @RestController
 @RequestMapping("/api/file")
+/*
+FileHandler
+
+A rest api for uploading and retrieving file data. THe directory that files are stored in is declared by workingDirectory field.
+
+Original Author: Billy Peters 02/05/2024.
+
+
+ */
 public class FileHandler {
 
     private static final String workingDirectory = "/dsmFiles";

@@ -30,6 +30,8 @@ public class LessonServiceImpl implements LessonService {
                 .orElseThrow(() -> new DataIntegrityViolationException("Failed... ModuleID does not exist in target table ModuleDetails")
                 );
 
+        int lessonID = lessonRepo.findByModuleID(lesson.getModuleID()).size()+1; // manual handling of autoincrementing, as hibernate does not support autoincrementing for one column of a composite key
+        lesson.setLessonID(lessonID);
         lesson.setModuleDetails(associatedModule);
         Lesson savedLesson = lessonRepo.save(lesson);
         return LessonMapper.mapToLessonDto(savedLesson);
