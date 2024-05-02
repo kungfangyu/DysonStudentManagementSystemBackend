@@ -13,6 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/CourseworkExtensionRequest")
+/*
+CourseworkExtensionRequest Controller
+
+Provides api mappings to access courseworkExtensionRequestService methods.
+
+Original Author: Jack Burnett 26/04/2024
+ */
 public class CourseworkExtensionRequestController {
     private CourseworkExtensionRequestService courseworkExtensionRequestService;
 

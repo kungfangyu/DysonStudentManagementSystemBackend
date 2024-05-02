@@ -13,6 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/moduleStaff")
+/*
+ModuleStaffController
+
+Provides api mappings to access moduleStaffService methods.
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public class ModuleStaffController {
     private ModuelStaffService moduelStaffService;
 

@@ -177,6 +177,7 @@ CREATE TABLE `ModuleDetails` (
 `ModuleID` VARCHAR(12),
 `ModuleName` VARCHAR(100),
 `ModulePhoto` VARCHAR(500),
+`ModuleDescription` TEXT,
 `StartDate` DATE,
 `EndDate` DATE,
 `ModuleCredits` INT,

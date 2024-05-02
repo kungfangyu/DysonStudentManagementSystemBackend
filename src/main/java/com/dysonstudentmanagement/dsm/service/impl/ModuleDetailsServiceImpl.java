@@ -43,6 +43,7 @@ public class ModuleDetailsServiceImpl implements ModuleDetailsService {
         ModuleDetails moduleDetails = moduleDetailsRepository.findById(moduleID)
                 .orElseThrow(() -> new DataIntegrityViolationException("Module does not exist"));
         moduleDetails.setModuleName(updateModuleDetailsDto.getModuleName());
+        moduleDetails.setModuleDescription(updateModuleDetailsDto.getModuleDescription());
         moduleDetails.setModuleCredits(updateModuleDetailsDto.getModuleCredits());
         ModuleDetails savedData = moduleDetailsRepository.save(moduleDetails);
         return ModuleDetailsMapper.mapToModuleDetailsDto(savedData);

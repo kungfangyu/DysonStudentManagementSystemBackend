@@ -12,6 +12,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/programmeStaff")
+/*
+ProgrammeStaffController
+
+Provides api mappings to access programmeStaffService methods.
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class ProgrammeStaffController {
 
     private final ProgrammeStaffService programmeStaffService;

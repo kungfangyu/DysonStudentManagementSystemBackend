@@ -13,6 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/programmeAnnouncement")
+/*
+ProgrammeAnnouncementController
+
+Provides api mappings to access programmeAnnouncementService methods.
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public class ProgrammeAnnouncementController {
     private ProgrammeAnnouncementService programmeAnnouncementService;
 

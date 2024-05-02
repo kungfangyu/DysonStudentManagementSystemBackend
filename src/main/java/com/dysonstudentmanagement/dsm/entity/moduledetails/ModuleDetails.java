@@ -25,6 +25,8 @@ public class ModuleDetails {
     private String moduleName;
     @Column(name = "ModulePhoto", length=500)
     private String modulePhoto;
+    @Column(name = "ModuleDescription")
+    private String moduleDescription;
     @Column(name = "StartDate")
     private LocalDate startDate;
     @Column(name = "EndDate")

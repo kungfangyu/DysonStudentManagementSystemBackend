@@ -14,6 +14,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/moduleMaterialFile")
+/*
+ModuleMaterialFileController
+
+Provides api mappings/handles api requests to access moduleMaterialFileService methods.
+
+Original Author: Grace Liu 25/04/2024
+ */
 public class ModuleMaterialFileController {
     private ModuleMaterialFileService moduleMaterialFileService;
 

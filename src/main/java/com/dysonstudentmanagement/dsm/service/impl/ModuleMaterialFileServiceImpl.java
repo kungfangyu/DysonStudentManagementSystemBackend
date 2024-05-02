@@ -32,17 +32,12 @@ public class ModuleMaterialFileServiceImpl implements ModuleMaterialFileService 
                 .orElseThrow(() -> new DataIntegrityViolationException("Module Material Not Found"));
 
 
-        ModuleMaterialFileCompositeKey pk = new ModuleMaterialFileCompositeKey(moduleMaterialFile.getModuleID(),
-                moduleMaterialFile.getMaterialNumber(),
-                moduleMaterialFile.getFileNumber());
-        Optional<ModuleMaterialFile> moduleMaterialFileOptional = moduleMaterialFileRepository.findById(pk);
-        if (moduleMaterialFileOptional.isPresent()) {
-            throw new DataIntegrityViolationException("Module Material File already exists");
-        }else {
-            moduleMaterialFile.setModuleMaterial(moduleMaterial);
-            ModuleMaterialFile savedModuleMaterialFile = moduleMaterialFileRepository.save(moduleMaterialFile);
-            return ModuleMaterialFileMapper.mapToModuleMaterialFileDto(savedModuleMaterialFile);
-        }
+        int fileNumber = moduleMaterialFileRepository.findByModuleIDAndMaterialNumber(moduleMaterialFile.getModuleID(),moduleMaterialFile.getMaterialNumber()).size()+1;
+        moduleMaterialFile.setFileNumber(fileNumber); //manual assignment of fileNumber as hibernate does not support autoincrementing of a single column in a composite key.
+
+        moduleMaterialFile.setModuleMaterial(moduleMaterial);
+        ModuleMaterialFile savedModuleMaterialFile = moduleMaterialFileRepository.save(moduleMaterialFile);
+        return ModuleMaterialFileMapper.mapToModuleMaterialFileDto(savedModuleMaterialFile);
     }
 
     @Override

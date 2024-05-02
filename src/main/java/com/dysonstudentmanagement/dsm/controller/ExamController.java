@@ -10,8 +10,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Controller class for handling exam-related API endpoints.
+/*
+ExamController
+
+Controller class for handling exam-related API endpoints.
+
+Original Author: Yijie Zhu 27/04/2024
+Modifying Author: Billy Peters 28/04/2024 Implemented exam composite keys
+
  */
 @AllArgsConstructor
 @RestController

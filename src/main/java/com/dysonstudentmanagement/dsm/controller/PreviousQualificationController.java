@@ -13,6 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/previousQualification")
+/*
+PreviousQualificationController
+
+Provides api mappings to access previousQualificationService methods.
+
+Original Author: Billy Peters 23/04/2024
+ */
 public class PreviousQualificationController {
     private PreviousQualificationService previousQualificationService;
 

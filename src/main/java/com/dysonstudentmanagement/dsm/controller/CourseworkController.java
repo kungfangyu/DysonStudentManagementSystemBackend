@@ -15,6 +15,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/Coursework")
+/*
+CourseworkController
+
+Provides api mappings to access courseworkService methods.
+
+Original Author: Jack Burnett 26/04/2024
+ */
 public class CourseworkController {
     private CourseworkService courseworkService;
 

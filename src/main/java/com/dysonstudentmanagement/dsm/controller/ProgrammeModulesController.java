@@ -14,6 +14,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/programmeModule")
+/*
+ProgrammeModulesController
+
+Provides api mappings to access programmeModulesService methods.
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class ProgrammeModulesController {
 
     private ProgrammeModulesService programmeModulesService;

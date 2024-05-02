@@ -9,6 +9,7 @@ public class ModuleDetailsMapper {
                 moduleDetails.getModuleID(),
                 moduleDetails.getModuleName(),
                 moduleDetails.getModulePhoto(),
+                moduleDetails.getModuleDescription(),
                 moduleDetails.getStartDate(),
                 moduleDetails.getEndDate(),
                 moduleDetails.getModuleCredits()
@@ -20,6 +21,7 @@ public class ModuleDetailsMapper {
                 .moduleID(moduleDetailsDto.getModuleID())
                 .moduleName(moduleDetailsDto.getModuleName())
                 .modulePhoto(moduleDetailsDto.getModulePhoto())
+                .moduleDescription(moduleDetailsDto.getModuleDescription())
                 .startDate(moduleDetailsDto.getStartDate())
                 .endDate(moduleDetailsDto.getEndDate())
                 .moduleCredits(moduleDetailsDto.getModuleCredits())

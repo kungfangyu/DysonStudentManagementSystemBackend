@@ -12,6 +12,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/moduleDetails")
+/*
+ModuleDetailsController
+
+Provides api mappings to access moduleDetailsService methods.
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public class ModuleDetailsController {
     private ModuleDetailsService moduleDetailsService;
 

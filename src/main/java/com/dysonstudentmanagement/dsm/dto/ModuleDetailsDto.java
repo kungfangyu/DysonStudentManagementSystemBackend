@@ -17,6 +17,7 @@ public class ModuleDetailsDto {
     private String moduleID;
     private String moduleName;
     private String modulePhoto;
+    private String moduleDescription;
     private LocalDate startDate;
     private LocalDate endDate;
     private int moduleCredits;

@@ -13,6 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/StudentCourseworkGrade")
+/*
+StudentCourseworkGradeController
+
+Provides api mappings to access studentCourseworkGradeService methods.
+
+Original Author: Jack Burnett 27/04/2024
+ */
 public class StudentCourseworkGradeController {
     private StudentCourseworkGradeService studentCourseworkGradeService;
 

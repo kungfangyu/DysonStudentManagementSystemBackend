@@ -13,6 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/lesson")
+/*
+LessonController
+
+Provides api mappings to access lessonService methods.
+
+Original Author: Billy Peters 26/04/2024
+ */
 public class LessonController {
 
     private LessonService lessonService;
