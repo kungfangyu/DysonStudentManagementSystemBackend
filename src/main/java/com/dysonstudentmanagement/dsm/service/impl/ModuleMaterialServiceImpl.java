@@ -28,16 +28,12 @@ public class ModuleMaterialServiceImpl implements ModuleMaterialService {
         ModuleDetails moduleDetails = moduleDetailsRepository.findById(moduleMaterial.getModuleID())
                 .orElseThrow(() -> new DataIntegrityViolationException("Module Details Not Found"));
 
-        ModuleMaterialCompositeKey pk = new ModuleMaterialCompositeKey(moduleMaterial.getModuleID(),
-                moduleMaterial.getMaterialNumber());
-        Optional<ModuleMaterial> moduleMaterialOptional = moduleMaterialRepository.findById(pk);
-        if (moduleMaterialOptional.isPresent()) {
-            throw new DataIntegrityViolationException("Module Material Already Exists");
-        }else {
-            moduleMaterial.setModuleDetails(moduleDetails);
-            ModuleMaterial savedModuleMaterial = moduleMaterialRepository.save(moduleMaterial);
-            return ModuleMaterialMapper.mapToModuleMaterialDto(savedModuleMaterial);
-        }
+        int materialNumber = moduleMaterialRepository.findByModuleID(moduleMaterial.getModuleID()).size()+1;
+        moduleMaterial.setMaterialNumber(materialNumber); // manual incrementing of material number as hibernate does not support autoincrementing of a single composite key column
+
+        moduleMaterial.setModuleDetails(moduleDetails);
+        ModuleMaterial savedModuleMaterial = moduleMaterialRepository.save(moduleMaterial);
+        return ModuleMaterialMapper.mapToModuleMaterialDto(savedModuleMaterial);
     }
 
     @Override

@@ -6,7 +6,6 @@ Stores user details required to create an account, including their Unique ID, na
 Original Author: Billy Peters, 11/03/2024
 
 Modifying Author: Billy Peters 29/03/2024 – Merged StaffMember and Student tables to merge the two user tables into one.
-Modifying Author: Billy Peters 16/04/2024 - Split User table into Primary and Secondary Data Tables, to conform to database normalisation requirements (removing null values from tables)
 */
 CREATE TABLE `UserPrimaryData` (
 `UserID` VARCHAR(8),
@@ -17,21 +16,6 @@ CREATE TABLE `UserPrimaryData` (
 `PersonalEmail` VARCHAR(254) NOT NUll,
 `DysonEmail` VARCHAR(254) NOT NUll,
 `Phone` VARCHAR(15) NOT NUll,
-PRIMARY KEY(`UserID`)
-);
-
-/*
-Create User_SecondaryData Table
-
-Stores user details that are not required to create an account, including their id photo, address
-
-Original Author: Billy Peters, 11/03/2024
-
-Modifying Author: Billy Peters 29/03/2024 – Merged StaffMember and Student tables to merge the two user tables into one.
-Modifying Author: Billy Peters 16/04/2024 - Split User table into Primary and Secondary Data Tables, to conform to database normalisation requirements (removing null values from tables)
-*/
-CREATE TABLE `UserSecondaryData` (
-`UserID` VARCHAR(8),
 `IdPhoto` VARCHAR(256),
 `Title` VARCHAR(50),
 `MiddleNames` VARCHAR(100),
@@ -39,11 +23,8 @@ CREATE TABLE `UserSecondaryData` (
 `Ethnicity` VARCHAR(50),
 `Address` VARCHAR(120),
 `Postcode` VARCHAR(8),
-PRIMARY KEY(`UserID`),
-CONSTRAINT `User_SecondaryData_FK_UserID` FOREIGN KEY (`UserID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE
+PRIMARY KEY(`UserID`)
 );
-
-
 
 /*
 Create UserLogIn Table
@@ -244,7 +225,6 @@ CREATE TABLE `Lesson` (
 PRIMARY KEY (`ModuleID`,`LessonID`),
 CONSTRAINT `Lesson_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `ModuleDetails`(`ModuleID`) ON UPDATE CASCADE ON DELETE CASCADE 
 );
-
 /*
 Create LessonStaff table
 Stores which members of staff are assigned to lead a lesson

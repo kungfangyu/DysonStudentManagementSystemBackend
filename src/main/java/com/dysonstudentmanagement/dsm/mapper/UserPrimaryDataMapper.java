@@ -1,6 +1,6 @@
 package com.dysonstudentmanagement.dsm.mapper;
 
-import com.dysonstudentmanagement.dsm.dto.user.UserPrimaryDataDto;
+import com.dysonstudentmanagement.dsm.dto.UserPrimaryDataDto;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 
 
@@ -15,7 +15,14 @@ public class UserPrimaryDataMapper {
                 userPrimaryData.getDateOfBirth(),
                 userPrimaryData.getPersonalEmail(),
                 userPrimaryData.getDysonEmail(),
-                userPrimaryData.getPhone()
+                userPrimaryData.getPhone(),
+                userPrimaryData.getIdPhoto(),
+                userPrimaryData.getTitle(),
+                userPrimaryData.getMiddleNames(),
+                userPrimaryData.getGender(),
+                userPrimaryData.getEthnicity(),
+                userPrimaryData.getAddress(),
+                userPrimaryData.getPostcode()
         );
     }
 
@@ -29,6 +36,13 @@ public class UserPrimaryDataMapper {
                 .personalEmail(userPrimaryDataDto.getPersonalEmail())
                 .dysonEmail(userPrimaryDataDto.getDysonEmail())
                 .phone(userPrimaryDataDto.getPhone())
+                .idPhoto(userPrimaryDataDto.getIdPhoto())
+                .title(userPrimaryDataDto.getTitle())
+                .middleNames(userPrimaryDataDto.getMiddleNames())
+                .gender(userPrimaryDataDto.getGender())
+                .ethnicity(userPrimaryDataDto.getEthnicity())
+                .address(userPrimaryDataDto.getAddress())
+                .postcode(userPrimaryDataDto.getPostcode())
                 .build();
         return userPrimaryData;
 }

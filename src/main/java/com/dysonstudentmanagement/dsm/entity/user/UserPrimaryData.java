@@ -51,12 +51,21 @@ public class UserPrimaryData {
     private String dysonEmail;
     @Column(name = "Phone", length = 15)
     private String phone;
+    @Column(name = "IdPhoto",length = 256)
+    private String idPhoto;
+    @Column(name= "Title",length = 50)
+    private String title;
+    @Column(name = "MiddleNames", length=100)
+    private String middleNames;
+    @Column(name = "Gender", length = 50)
+    private String gender;
+    @Column(name= "Ethnicity", length = 50)
+    private String ethnicity;
+    @Column(name = "Address", length = 120)
+    private String address;
+    @Column(name = "Postcode", length = 8)
+    private String postcode;
 
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @ToString.Exclude
-    @PrimaryKeyJoinColumn
-    private UserSecondaryData userSecondaryData;
 
     public enum UserType{
         student,

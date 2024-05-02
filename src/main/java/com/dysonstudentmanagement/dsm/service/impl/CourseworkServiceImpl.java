@@ -35,6 +35,9 @@ public class CourseworkServiceImpl implements CourseworkService {
         ModuleDetails moduleDetails = moduleDetailsRepo.findById(coursework.getModuleID())
                 .orElseThrow(() -> new DataIntegrityViolationException("Failed... ModuleID does not exist in target table Coursework")
                 );
+        int courseworkID = courseworkRepo.findByModuleID(coursework.getModuleID()).size()+1; // manual incrementing of coursework id as hibernate does not support autoincrementing of composite keys columns
+        coursework.setCourseworkID(courseworkID);
+
         coursework.setModuleDetails(moduleDetails);
         Coursework savedData = courseworkRepo.save(coursework);
         return CourseworkMapper.mapToCourseworkDto(savedData);

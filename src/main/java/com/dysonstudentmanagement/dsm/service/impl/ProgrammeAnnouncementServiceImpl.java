@@ -39,6 +39,10 @@ public class ProgrammeAnnouncementServiceImpl implements ProgrammeAnnouncementSe
                 programmeAnnouncement.getProgrammeID(),
                 programmeAnnouncement.getAnnouncementID()
         );
+
+        int announcementID = programmeAnnouncementRepo.findByProgrammeID(programmeAnnouncement.getProgrammeID()).size()+1;
+        programmeAnnouncement.setAnnouncementID(announcementID); //manual incrementing of announcement ID as hibernate does not support autoincrementing of composite key columns
+
         Optional<ProgrammeAnnouncement> ProgrammeAnnouncementOptional = programmeAnnouncementRepo.findById(newRecordCompositeKey);
         if (ProgrammeAnnouncementOptional.isPresent()) {
             throw new DataIntegrityViolationException("Failed...Record already exists for given primary key");

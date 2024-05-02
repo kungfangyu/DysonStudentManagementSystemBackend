@@ -27,8 +27,8 @@ public class Lesson {
     @Column(name = "ModuleID", length = 12)
     private String moduleID;
     @Id
-    @Column(name = "LessonID")
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+//    @Column(name = "LessonID") // commented out as hibernate does not support autoincrementing of one column a composite key
+//    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private int lessonID;
 
     @Enumerated(EnumType.STRING)
