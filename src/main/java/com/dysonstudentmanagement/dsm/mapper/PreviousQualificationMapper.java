@@ -3,6 +3,11 @@ package com.dysonstudentmanagement.dsm.mapper;
 import com.dysonstudentmanagement.dsm.dto.PreviousQualificationDto;
 import com.dysonstudentmanagement.dsm.entity.previousqualification.PreviousQualification;
 
+/*
+    Class: PreviousQualificationMapper
+    Mapper class responsible for mapping between PreviousQualification and PreviousQualificationDto objects.
+    Original Author: Billy Peters 23/04/2024
+ */
 public class PreviousQualificationMapper {
     public static PreviousQualificationDto mapToPreviousQualificationDto(PreviousQualification previousQualification){
         return new PreviousQualificationDto(

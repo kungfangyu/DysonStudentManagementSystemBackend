@@ -10,12 +10,19 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Controller class for handling student exam grade related API endpoints.
- */
+
+
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/studentExamGrade")
+/*
+StudentExamGradeController
+
+Controller class for handling student exam grade related API endpoints.
+
+Original Author: Yijie Zhu 27/04/2024
+Modifying Author: Billy Peters 28/04/2024 Implemented exam composite keys
+ */
 public class StudentExamGradeController {
 
     private final StudentExamGradeService studentExamGradeService;

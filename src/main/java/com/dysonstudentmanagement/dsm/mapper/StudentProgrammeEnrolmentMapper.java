@@ -3,6 +3,11 @@ package com.dysonstudentmanagement.dsm.mapper;
 import com.dysonstudentmanagement.dsm.dto.StudentProgrammeEnrolmentDto;
 import com.dysonstudentmanagement.dsm.entity.studentprogrammeenrolment.StudentProgrammeEnrolment;
 
+/*
+    Class: StudentProgrammeEnrolmentMapper
+    Mapper class responsible for mapping between StudentProgrammeEnrolment and StudentProgrammeEnrolmentDto objects.
+    Original Author: Imran Matloob 24/04/2024
+ */
 public class StudentProgrammeEnrolmentMapper {
 
     public static StudentProgrammeEnrolmentDto mapToStudentProgrammeEnrolmentDto(StudentProgrammeEnrolment studentProgrammeEnrolment){

@@ -3,6 +3,11 @@ package com.dysonstudentmanagement.dsm.mapper;
 import com.dysonstudentmanagement.dsm.dto.ModuleDetailsDto;
 import com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails;
 
+/*
+    Class: ModuleDetailsMapper
+    Mapper class responsible for mapping between ModuleDetails and ModuleDetailsDto objects.
+    Original Author: Billy Peters 24/04/2024
+ */
 public class ModuleDetailsMapper {
     public static ModuleDetailsDto mapToModuleDetailsDto(ModuleDetails moduleDetails){
         return new ModuleDetailsDto(

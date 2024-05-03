@@ -10,6 +10,13 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @ToString
+/*
+UserPrimaryDataDto
+
+Defines fields/data that will be transmitted to/from the API client when requesting/sending UserPrimaryData data.
+
+Original Author: Billy Peters 23/04/2024
+ */
 public class UserPrimaryDataDto {
     private String userID;
     private UserPrimaryData.UserType userType;

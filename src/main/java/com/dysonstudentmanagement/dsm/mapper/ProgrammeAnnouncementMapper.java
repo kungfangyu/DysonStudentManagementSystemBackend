@@ -3,6 +3,11 @@ package com.dysonstudentmanagement.dsm.mapper;
 import com.dysonstudentmanagement.dsm.dto.ProgrammeAnnouncementDto;
 import com.dysonstudentmanagement.dsm.entity.programmeannouncement.ProgrammeAnnouncement;
 
+/*
+    Class: ProgrammeAnnouncementMapper
+    Mapper class responsible for mapping between ProgrammeAnnouncement and ProgrammeAnnouncementDto objects.
+    Original Author: Tianpu Li 25/04/2024
+ */
 public class ProgrammeAnnouncementMapper {
     public static ProgrammeAnnouncementDto mapToProgrammeAnnouncementDto(ProgrammeAnnouncement programmeAnnouncement) {
         return new ProgrammeAnnouncementDto(

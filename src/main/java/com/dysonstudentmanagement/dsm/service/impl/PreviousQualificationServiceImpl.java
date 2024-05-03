@@ -19,6 +19,13 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+PreviousQualificationServiceImpl
+
+Class that implements service methods that act upon PreviousQualification table in database
+
+Original Author: Billy Peters 23/04/2024
+ */
 public class PreviousQualificationServiceImpl implements PreviousQualificationService {
     private PreviousQualificationRepository previousQualificationRepo;
     private UserPrimaryDataRepository userPrimaryDataRepo;

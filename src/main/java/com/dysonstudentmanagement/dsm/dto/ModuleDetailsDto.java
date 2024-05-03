@@ -13,6 +13,13 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @ToString
+/*
+ModuleDetailsDto
+
+Defines fields/data that will be transmitted to/from the API client when requesting/sending moduleDetails data.
+
+Original Author: Billy Peters 24/04/2024
+ */
 public class ModuleDetailsDto {
     private String moduleID;
     private String moduleName;

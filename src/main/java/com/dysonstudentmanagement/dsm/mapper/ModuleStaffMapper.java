@@ -3,6 +3,11 @@ package com.dysonstudentmanagement.dsm.mapper;
 import com.dysonstudentmanagement.dsm.dto.ModuleStaffDto;
 import com.dysonstudentmanagement.dsm.entity.modulestaff.ModuleStaff;
 
+/*
+    Class: ModuleStaffMapper
+    Mapper class responsible for mapping between ModuleStaff and ModuleStaffDto objects.
+    Original Author: Tianpu Li 25/04/2024
+ */
 public class ModuleStaffMapper {
 
     public static ModuleStaffDto mapToModuleStaffDto(ModuleStaff moduleStaff) {

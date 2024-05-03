@@ -7,6 +7,13 @@ import com.dysonstudentmanagement.dsm.entity.useremergencycontact.UserEmergencyC
 import java.util.List;
 
 
+/*
+UserEmergencyContactService
+
+Interface that declares service methods that act upon UserEmergencyContact table in database
+
+Original Author: Billy Peters 24/04/2024
+ */
 public interface UserEmergencyContactService {
     UserEmergencyContactDto createUserEmergencyContact(UserEmergencyContactDto userEmergencyContactDto);
 

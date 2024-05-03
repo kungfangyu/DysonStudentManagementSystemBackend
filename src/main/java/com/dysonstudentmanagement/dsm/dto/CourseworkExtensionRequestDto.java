@@ -11,6 +11,13 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
+/*
+CourseworkExtensionRequestDto
+
+Defines fields/data that will be transmitted to/from the API client when requesting/sending courseworkExtensionRequest data.
+
+Original Author: Jack Burnett 28/04/2024
+ */
 public class CourseworkExtensionRequestDto {
     private String studentID;
     private String moduleID;

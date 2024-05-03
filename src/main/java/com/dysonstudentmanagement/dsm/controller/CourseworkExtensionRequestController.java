@@ -18,7 +18,7 @@ CourseworkExtensionRequest Controller
 
 Provides api mappings to access courseworkExtensionRequestService methods.
 
-Original Author: Jack Burnett 26/04/2024
+Original Author: Jack Burnett 28/04/2024
  */
 public class CourseworkExtensionRequestController {
     private CourseworkExtensionRequestService courseworkExtensionRequestService;

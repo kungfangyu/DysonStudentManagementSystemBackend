@@ -15,6 +15,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/userPrimaryData")
+/*
+UserPrimaryDataController
+
+Provides api mappings to access userPrimaryDataService methods.
+
+Original Author: Billy Peters 23/04/2024
+ */
 public class UserPrimaryDataController {
 
     private UserPrimaryDataService userPrimaryDataService;

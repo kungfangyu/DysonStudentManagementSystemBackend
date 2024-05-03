@@ -13,6 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/studentTutor")
+/*
+StudentTutorController
+
+Provides api mappings to access studentTutorService methods.
+
+Original Author: Billy Peters 24/04/2024
+ */
 public class StudentTutorController {
     private StudentTutorService studentTutorService;
 

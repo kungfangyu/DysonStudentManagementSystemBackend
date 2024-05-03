@@ -16,6 +16,13 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
+/*
+UserPrimaryDataServiceImpl
+
+Class that implements service methods that act upon UserPrimaryData table in database
+
+Original Author: Billy Peters 23/04/2024
+ */
 public class UserPrimaryDataServiceImpl implements UserPrimaryDataService {
 
     private UserPrimaryDataRepository userPrimaryDataRepo;

@@ -13,6 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/studentProgrammeEnrolment")
+/*
+studentProgrammeEnrolmentController
+
+Provides api mappings to access programmeService methods.
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class StudentProgrammeEnrolmentController {
 
     private StudentProgrammeEnrolmentService studentProgrammeEnrolmentService;

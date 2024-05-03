@@ -19,6 +19,13 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+UserEmergencyContactServiceImpl
+
+Class that implements service methods that act upon UserEmergencyContact table in database
+
+Original Author: Billy Peters 24/04/2024
+ */
 public class UserEmergencyContactServiceImpl implements UserEmergencyContactService {
     private UserEmergencyContactRepository userEmergencyContactRepo;
     private UserPrimaryDataRepository userPrimaryDataRepo;

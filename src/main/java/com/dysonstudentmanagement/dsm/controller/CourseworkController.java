@@ -20,7 +20,7 @@ CourseworkController
 
 Provides api mappings to access courseworkService methods.
 
-Original Author: Jack Burnett 26/04/2024
+Original Author: Jack Burnett 27/04/2024
  */
 public class CourseworkController {
     private CourseworkService courseworkService;

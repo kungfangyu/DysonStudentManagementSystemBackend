@@ -5,6 +5,13 @@ import com.dysonstudentmanagement.dsm.entity.studenttutor.StudentTutorCompositeK
 
 import java.util.List;
 
+/*
+StudentTutorService
+
+Interface that declares service methods that act upon StudentTutor table in database
+
+Original Author: Billy Peters 24/04/2024
+ */
 public interface StudentTutorService {
     StudentTutorDto createStudentTutor(StudentTutorDto studentTutorDto);
 

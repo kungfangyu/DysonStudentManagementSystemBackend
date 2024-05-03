@@ -6,6 +6,13 @@ import com.dysonstudentmanagement.dsm.entity.studentlessonallocation.StudentLess
 
 import java.util.List;
 
+/*
+StudentLessonAllocationService
+
+Interface that declares service methods that act upon StudentLessonAllocation table in database
+
+Original Author: Billy Peters 26/04/2024
+ */
 public interface StudentLessonAllocationService {
     StudentLessonAllocationDto createStudentLessonAllocation(StudentLessonAllocationDto studentLessonAllocationDto);
 

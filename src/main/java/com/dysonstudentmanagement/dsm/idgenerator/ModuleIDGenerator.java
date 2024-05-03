@@ -8,6 +8,13 @@ import org.hibernate.id.IdentifierGenerator;
 
 import java.util.Random;
 
+/*
+ModuleIDGenerator
+
+A custom Id generator used by the ModuleDetails entity
+
+Original Author: Billy Peters 23/04/2024
+ */
 public class ModuleIDGenerator implements IdentifierGenerator {
     @Override
     public Object generate(SharedSessionContractImplementor sharedSessionContractImplementor, Object o) {

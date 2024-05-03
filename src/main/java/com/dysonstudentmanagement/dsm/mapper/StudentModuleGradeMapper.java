@@ -3,6 +3,11 @@ package com.dysonstudentmanagement.dsm.mapper;
 import com.dysonstudentmanagement.dsm.dto.StudentModuleGradeDto;
 import com.dysonstudentmanagement.dsm.entity.studentmodulegrade.StudentModuleGrade;
 
+/*
+    Class: StudentModuleGradeMapper
+    Mapper class responsible for mapping between StudentModuleGrade and StudentModuleGradeDto objects.
+    Original Author: Grace Liu 25/04/2024
+ */
 public class StudentModuleGradeMapper {
     public static StudentModuleGradeDto mapToStudentModuleGradeDto(StudentModuleGrade studentModuleGrade) {
         return new StudentModuleGradeDto(

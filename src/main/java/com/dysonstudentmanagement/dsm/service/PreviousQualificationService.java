@@ -5,6 +5,13 @@ import com.dysonstudentmanagement.dsm.entity.previousqualification.PreviousQuali
 
 import java.util.List;
 
+/*
+PreviousQualificationService
+
+Interface that declares service methods that act upon PreviousQualification table in database
+
+Original Author: Billy Peters 23/04/2024
+ */
 public interface PreviousQualificationService {
     PreviousQualificationDto createPreviousQualification(PreviousQualificationDto qualificationDto);
 

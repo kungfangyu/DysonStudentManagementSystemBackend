@@ -24,6 +24,13 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 @AllArgsConstructor
 @Service
+/*
+StudentLessonAllocationServiceImpl
+
+Class that implements service methods that act upon StudentLessonAllocation table in database
+
+Original Author: Billy Peters 26/04/2024
+ */
 public class StudentLessonAllocationServiceImpl implements StudentLessonAllocationService {
     private LessonRepository lessonRepo;
     private UserPrimaryDataRepository userPrimaryDataRepo;

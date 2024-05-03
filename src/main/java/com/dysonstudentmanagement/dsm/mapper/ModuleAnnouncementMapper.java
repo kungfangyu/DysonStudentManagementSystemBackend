@@ -5,7 +5,7 @@ import com.dysonstudentmanagement.dsm.entity.moduleannouncement.ModuleAnnounceme
 
 /*
     Class: ModuleAnnouncementMapper
-    Standard data transfer object class to manage information sent in API requests.
+    Maps ModuleAnnouncement to the ModuleAnnouncement data transfer object class to manage information sent in API requests.
     Original Author: Jack Burnett, 25/04/2024
 */
 public class ModuleAnnouncementMapper {

@@ -12,6 +12,13 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
+/*
+LessonDto
+
+Defines fields/data that will be transmitted to/from the API client when requesting/sending lesson data.
+
+Original Author: Billy Peters 26/04/2024
+ */
 public class LessonDto {
     private String moduleID;
     private int lessonID;

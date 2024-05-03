@@ -5,7 +5,7 @@ import com.dysonstudentmanagement.dsm.entity.coursework.Coursework;
 
 /*
     Class: CourseworkMapper
-    Standard data transfer object class to manage information sent in API requests.
+    Maps Coursework to the Coursework data transfer object class to manage information sent in API requests.
     Original Author: Jack Burnett, 27/04/2024
 */
 public class CourseworkMapper {

@@ -13,6 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/userEmergencyContact")
+/*
+UserEmergencyContactController
+
+Provides api mappings to access userEmergencyContactService methods.
+
+Original Author: Billy Peters 24/04/2024
+ */
 public class UserEmergencyContactController {
 
     private UserEmergencyContactService userEmergencyContactService;

@@ -7,9 +7,23 @@ import com.dysonstudentmanagement.dsm.exception.InvalidUserTypeException;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 
+/*
+TutorStudentMeetingListener
+
+Acts as a 'sql trigger' detecting attempts to change a table in the database that lists the class as an entity listener.
+This entity listener is used by the TutorStudentMeeting entity.
+
+Original Author: Billy Peters 01/05/2024
+ */
 public class TutorStudentMeetingListener {
     @PrePersist
     @PreUpdate
+    /*
+    beforeCreatingOrUpdating(TutorStudentMeeting)
+    Checks the referenced 'student' UserPrimaryData record to ensure that the referenced user is a student, and
+    checks the referenced 'staff' UserPrimaryData record to ensure that the referenced user is not a student
+    Original Author: Billy Peters 01/05/2024
+     */
     private void beforeCreatingOrUpdating(TutorStudentMeeting tutorStudentMeeting) {
         UserPrimaryData referencedStudent = tutorStudentMeeting.getStudentPrimaryData();
         UserPrimaryData referencedStaff = tutorStudentMeeting.getStaffPrimaryData();

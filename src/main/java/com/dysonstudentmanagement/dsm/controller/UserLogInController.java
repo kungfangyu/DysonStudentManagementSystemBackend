@@ -17,6 +17,14 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
+/*
+UserLogInController
+
+Provides api mappings to access userLogInService methods. Also provides a method to authorise login requests, returning a JWT (JSON Web Token)
+
+Original Author: Fang-Yu Kung 28/04/2024
+Modifying Author: Billy Peters 30/04/2024: Added createUserLogin and updateUserPassword methods/mappings
+ */
 public class UserLogInController {
     private final UserLogInService userLogInService;
 

@@ -3,6 +3,11 @@ package com.dysonstudentmanagement.dsm.mapper;
 import com.dysonstudentmanagement.dsm.dto.LessonDto;
 import com.dysonstudentmanagement.dsm.entity.lesson.Lesson;
 
+/*
+    Class: LessonMapper
+    Mapper class responsible for mapping between Lesson and LessonDto objects.
+    Original Author: Billy Peters 26/04/2024
+ */
 public class LessonMapper {
     public static LessonDto mapToLessonDto(Lesson lesson){
         return new LessonDto(

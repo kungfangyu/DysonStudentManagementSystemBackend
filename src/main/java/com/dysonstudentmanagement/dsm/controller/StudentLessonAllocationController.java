@@ -14,6 +14,13 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/studentLessonAllocation")
+/*
+StudentLessonAllocationController
+
+Provides api mappings to access studentLessonAllocationService methods.
+
+Original Author: Billy Peters 26/04/2024
+ */
 public class StudentLessonAllocationController {
 
     private StudentLessonAllocationService studentLessonAllocationService;

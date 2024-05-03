@@ -10,7 +10,13 @@ import java.io.Serializable;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/*
+ProgrammeIDGenerator
 
+A custom Id generator used by the Programme entity
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class ProgrammeIDGenerator implements IdentifierGenerator {
 
     private static final AtomicInteger PROGRAMME_NUMBER = new AtomicInteger();

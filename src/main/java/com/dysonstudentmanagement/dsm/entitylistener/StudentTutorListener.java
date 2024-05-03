@@ -9,9 +9,23 @@ import jakarta.persistence.PreUpdate;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/*
+StudentTutorListener
+
+Acts as a 'sql trigger' detecting attempts to change a table in the database that lists the class as an entity listener.
+This entity listener is used by the StudentTutor entity.
+
+Original Author: Billy Peters 01/05/2024
+ */
 public class StudentTutorListener {
     @PrePersist
     @PreUpdate
+    /*
+    beforeCreatingOrUpdating(StudentTutor)
+    Checks the referenced 'student' UserPrimaryData record to ensure that the referenced user is a student, and
+    checks the referenced 'staff' UserPrimaryData record to ensure that the referenced user is not a student
+    Original Author: Billy Peters 01/05/2024
+     */
     private void beforeCreatingOrUpdating(StudentTutor studentTutor){
         UserPrimaryData referencedStudent = studentTutor.getStudentPrimaryData();
         UserPrimaryData referencedStaff = studentTutor.getStaffPrimaryData();

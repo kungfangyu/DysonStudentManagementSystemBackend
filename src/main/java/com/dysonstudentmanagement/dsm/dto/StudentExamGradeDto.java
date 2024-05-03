@@ -6,14 +6,18 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * DTO representing student exam grades.
- */
 
 @Getter
 @Setter
 @AllArgsConstructor
 @ToString
+/*
+StudentExamGradeDto
+
+DTO representing student exam grades.
+
+Original Author: Yijie Zhu 27/04/2024
+ */
 public class StudentExamGradeDto {
     private String moduleID;
 

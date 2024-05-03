@@ -9,6 +9,13 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @ToString
+/*
+ProgrammeStaffDto
+
+Defines fields/data that will be transmitted to/from the API client when requesting/sending programmeStaff data.
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class ProgrammeStaffDto {
     private String programmeID;
     private String staffID;

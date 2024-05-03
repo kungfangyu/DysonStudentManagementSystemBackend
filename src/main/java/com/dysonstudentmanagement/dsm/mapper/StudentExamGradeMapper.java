@@ -3,8 +3,10 @@ package com.dysonstudentmanagement.dsm.mapper;
 import com.dysonstudentmanagement.dsm.dto.StudentExamGradeDto;
 import com.dysonstudentmanagement.dsm.entity.studentexamgrade.StudentExamGrade;
 
-/**
- * Mapper class responsible for mapping between StudentExamGrade and StudentExamGradeDto objects.
+/*
+    Class: StudentExamGradeMapper
+    Mapper class responsible for mapping between StudentExamGrade and StudentExamGradeDto objects.
+    Original Author: Yijie Zhu 27/04/2024
  */
 public class StudentExamGradeMapper {
 

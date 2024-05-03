@@ -3,6 +3,11 @@ package com.dysonstudentmanagement.dsm.mapper;
 import com.dysonstudentmanagement.dsm.dto.UserEmergencyContactDto;
 import com.dysonstudentmanagement.dsm.entity.useremergencycontact.UserEmergencyContact;
 
+/*
+    Class: UserEmergencyContactMapper
+    Mapper class responsible for mapping between UserEmergencyContact and UserEmergencyContactDto objects.
+    Original Author: Billy Peters 24/04/2024
+ */
 public class UserEmergencyContactMapper {
 
     public static UserEmergencyContactDto mapToUserEmergencyContactDto(UserEmergencyContact userEmergencyContact){

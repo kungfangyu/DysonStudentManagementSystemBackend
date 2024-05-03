@@ -3,8 +3,11 @@ package com.dysonstudentmanagement.dsm.mapper;
 import com.dysonstudentmanagement.dsm.dto.ExamDto;
 import com.dysonstudentmanagement.dsm.entity.exam.Exam;
 
-/**
- * Mapper class responsible for mapping between Exam and ExamDto objects.
+
+/*
+    Class: ExamMapper
+    Mapper class responsible for mapping between Exam and ExamDto objects.
+    Original Author: Yijie Zhu 27/04/2024
  */
 public class ExamMapper {
 

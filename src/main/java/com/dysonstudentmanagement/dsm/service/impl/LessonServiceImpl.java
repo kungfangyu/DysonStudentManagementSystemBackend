@@ -19,6 +19,13 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+LessonServiceImpl
+
+Class that implements service methods that act upon lesson table in database
+
+Original Author: Billy Peters 26/04/2024
+ */
 public class LessonServiceImpl implements LessonService {
     private ModuleDetailsRepository moduleDetailsRepo;
     private LessonRepository lessonRepo;

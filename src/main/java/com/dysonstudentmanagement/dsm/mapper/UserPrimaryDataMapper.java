@@ -3,7 +3,11 @@ package com.dysonstudentmanagement.dsm.mapper;
 import com.dysonstudentmanagement.dsm.dto.UserPrimaryDataDto;
 import com.dysonstudentmanagement.dsm.entity.user.UserPrimaryData;
 
-
+/*
+    Class: UserPrimaryDataMapper
+    Mapper class responsible for mapping between UserPrimaryData and UserPrimaryDataDto objects.
+    Original Author: Billy Peters 23/04/2024
+ */
 public class UserPrimaryDataMapper {
 
     public static UserPrimaryDataDto mapToUserPrimaryDataDto(UserPrimaryData userPrimaryData){

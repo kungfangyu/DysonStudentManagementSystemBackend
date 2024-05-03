@@ -7,13 +7,17 @@ import lombok.ToString;
 
 import java.time.LocalDateTime;
 
-/**
- * DTO (Data Transfer Object) class representing exam-related data.
- */
 @Getter   // Generating getter methods for all fields
 @Setter   // Generating setter methods for all fields
 @AllArgsConstructor   // Generating a constructor with all fields
 @ToString  // Generating a toString method for all fields
+/*
+ExamDto
+
+DTO (Data Transfer Object) class representing exam-related data.
+
+Original Author: Yijie Zhu 27/04/2024
+ */
 public class ExamDto {
     private int examID;  // Unique identifier for the exam
     private String moduleID;  // Identifier for the module associated with the exam

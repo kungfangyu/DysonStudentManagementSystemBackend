@@ -11,6 +11,13 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
+/*
+ModuleAnnouncementDto
+
+Defines fields/data that will be transmitted to/from the API client when requesting/sending moduleAnnouncement data.
+
+Original Author: Jack Burnett 25/04/2024
+ */
 public class ModuleAnnouncementDto {
     private String moduleID;
     private int announcementID;

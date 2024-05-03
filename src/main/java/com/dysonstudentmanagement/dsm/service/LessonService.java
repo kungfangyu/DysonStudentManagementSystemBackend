@@ -5,6 +5,13 @@ import com.dysonstudentmanagement.dsm.entity.lesson.LessonCompositeKey;
 
 import java.util.List;
 
+/*
+LessonService
+
+Interface that declares service methods that act upon Lesson table in database
+
+Original Author: Billy Peters 26/04/2024
+ */
 public interface LessonService {
 
     LessonDto createLesson(LessonDto lessonDto);

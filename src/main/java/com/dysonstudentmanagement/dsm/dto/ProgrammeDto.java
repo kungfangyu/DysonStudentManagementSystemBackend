@@ -11,7 +11,13 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @ToString
+/*
+ProgrammeDto
 
+Defines fields/data that will be transmitted to/from the API client when requesting/sending programme data.
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class ProgrammeDto {
     private String programmeID;
     private String name;

@@ -18,6 +18,13 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+StudentTutorServiceImpl
+
+Class that implements service methods that act upon StudentTutor table in database
+
+Original Author: Billy Peters 24/04/2024
+ */
 public class StudentTutorServiceImpl implements StudentTutorService {
     private UserPrimaryDataRepository userPrimaryDataRepo;
     private StudentTutorRepository studentTutorRepo;

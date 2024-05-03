@@ -9,6 +9,13 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @ToString
+/*
+ModuleMaterialDto
+
+Defines fields/data that will be transmitted to/from the API client when requesting/sending moduleMaterial data.
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public class ModuleMaterialDto {
     private String moduleID;
     private int materialNumber;
