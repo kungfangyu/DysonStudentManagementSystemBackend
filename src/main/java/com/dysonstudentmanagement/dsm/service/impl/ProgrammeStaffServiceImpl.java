@@ -21,7 +21,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 @AllArgsConstructor
 @Service
-public class ProgrammeStaffServiveImpl implements ProgrammeStaffService {
+/*
+ProgrammeStaffServiceImpl
+
+Class that implements service methods that act upon ProgrammeStaff table in database
+
+Original Author: Imran Matloob 24/04/2024
+ */
+public class ProgrammeStaffServiceImpl implements ProgrammeStaffService {
 
 
     private ProgrammeStaffRepository programmeStaffRepository;

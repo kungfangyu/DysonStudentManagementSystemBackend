@@ -25,6 +25,13 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+ModuleStaffServiceImpl
+
+Class that implements service methods that act upon ModuleStaff table in database
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public class ModuleStaffServiceImpl implements ModuelStaffService {
     private ModuleDetailsRepository moduleDetailsRepository;
     private UserPrimaryDataRepository userPrimaryDataRepository;

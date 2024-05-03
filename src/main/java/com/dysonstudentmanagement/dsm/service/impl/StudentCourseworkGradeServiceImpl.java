@@ -20,6 +20,13 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+StudentCourseworkGradeServiceImpl
+
+Class that implements service methods that act upon StudentCourseworkGrade table in database
+
+Original Author: Jack Burnett 27/04/2024
+ */
 public class StudentCourseworkGradeServiceImpl implements StudentCourseworkGradeService {
     UserPrimaryDataRepository userPrimaryDataRepo;
     StudentCourseworkGradeRepository studentCourseworkGradeRepo;

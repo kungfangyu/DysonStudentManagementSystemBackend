@@ -7,6 +7,13 @@ import com.dysonstudentmanagement.dsm.entity.programmestaff.ProgrammeStaffCompos
 
 import java.util.List;
 
+/*
+ProgrammeStaffService
+
+Interface that declares service methods that act upon ProgrammeStaff table in database
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public interface ProgrammeStaffService {
 
 

@@ -15,6 +15,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+UserEmergencyContactCompositeKey
+
+Defines the UserEmergencyContact entity's composite key
+
+Original Author: Billy Peters 23/04/2024
+ */
 public class UserEmergencyContactCompositeKey implements Serializable {
 
     @Id

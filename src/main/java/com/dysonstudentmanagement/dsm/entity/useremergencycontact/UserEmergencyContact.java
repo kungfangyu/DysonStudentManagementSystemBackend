@@ -13,6 +13,13 @@ import lombok.*;
 @Entity
 @Table(name = "UserEmergencyContact")
 @IdClass(UserEmergencyContactCompositeKey.class)
+/*
+UserEmergencyContact Entity
+
+Spring representation of the database table "UserEmergencyContact"
+
+Original Author: Billy Peters 23/04/2024
+ */
 public class UserEmergencyContact {
 
     @Id

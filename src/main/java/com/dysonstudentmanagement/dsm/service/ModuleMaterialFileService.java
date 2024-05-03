@@ -5,6 +5,13 @@ import com.dysonstudentmanagement.dsm.entity.modulematerilafile.ModuleMaterialFi
 
 import java.util.List;
 
+/*
+ModuleMaterialFileService
+
+Interface that declares service methods that act upon ModuleMaterialFile table in database
+
+Original Author: Grace Liu 25/04/2024
+ */
 public interface ModuleMaterialFileService {
     ModuleMaterialFileDto createModuleMaterialFile(ModuleMaterialFileDto moduleMaterialFileDto);
 

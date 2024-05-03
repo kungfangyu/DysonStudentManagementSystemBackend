@@ -17,6 +17,14 @@ import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
+/*
+UserLogInServiceImpl
+
+Class that implements service methods that act upon UserLogIn table in database
+
+Original Author: Fang-Yu Kung 28/04/2024
+Modifying Author: Billy Peters 30/04/2024: Added createUserLogin and updateUserPassword methods
+ */
 public class UserLogInServiceImpl implements UserLogInService {
 
     private UserLogInRepository userLogInRepository;

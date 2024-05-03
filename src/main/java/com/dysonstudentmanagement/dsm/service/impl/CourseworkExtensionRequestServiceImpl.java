@@ -19,6 +19,11 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+    Class: CourseworkExtensionRequestServiceImpl
+    Implements the required API methods.
+    Original Author: Jack Burnett, 28/04/2024
+*/
 public class CourseworkExtensionRequestServiceImpl implements CourseworkExtensionRequestService {
     private CourseworkRepository courseworkRepo;
     private CourseworkExtensionRequestRepository courseworkExtensionRequestRepo;

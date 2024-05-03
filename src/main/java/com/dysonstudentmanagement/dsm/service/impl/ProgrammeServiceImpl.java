@@ -16,6 +16,13 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+ProgrammeServiceImpl
+
+Class that implements service methods that act upon Programme table in database
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class ProgrammeServiceImpl implements ProgrammeService {
     private ProgrammeRepository programmeRepository;
 

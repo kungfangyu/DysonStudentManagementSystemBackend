@@ -5,6 +5,13 @@ import com.dysonstudentmanagement.dsm.entity.tutorstudentmeeting.TutorStudentMee
 
 import java.util.List;
 
+/*
+TutorStudentMeetingService
+
+Interface that declares service methods that act upon TutorStudentMeeting table in database
+
+Original Author: Jack Burnett 30/04/2024
+ */
 public interface TutorStudentMeetingService {
     TutorStudentMeetingDto createTutorStudentMeeting(TutorStudentMeetingDto tutorStudentMeetingDto);
 

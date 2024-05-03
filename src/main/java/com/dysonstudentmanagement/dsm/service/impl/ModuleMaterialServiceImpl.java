@@ -18,6 +18,13 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+ModuleMaterialServiceImpl
+
+Class that implements service methods that act upon ModuleMaterial table in database
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public class ModuleMaterialServiceImpl implements ModuleMaterialService {
     private ModuleMaterialRepository moduleMaterialRepository;
     private ModuleDetailsRepository moduleDetailsRepository;

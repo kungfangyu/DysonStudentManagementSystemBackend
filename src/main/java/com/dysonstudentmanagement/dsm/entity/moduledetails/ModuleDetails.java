@@ -15,6 +15,13 @@ import java.time.LocalDate;
 @ToString
 @Entity
 @Table(name = "ModuleDetails")
+/*
+ModuleDetails Entity
+
+Spring representation of the database table "ModuleDetails"
+
+Original Author: Billy Peters 24/04/2024
+ */
 public class ModuleDetails {
     @Id
     @GeneratedValue(generator = "customModuleIdGenerator")

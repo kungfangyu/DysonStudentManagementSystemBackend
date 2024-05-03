@@ -6,6 +6,13 @@ import com.dysonstudentmanagement.dsm.entity.studentmodulegrade.StudentModuleGra
 
 import java.util.List;
 
+/*
+StudentModuleGradeService
+
+Interface that declares service methods that act upon StudentModuleGrade table in database
+
+Original Author: Grace Liu 25/04/2024
+ */
 public interface StudentModuleGradeService {
     StudentModuleGradeDto createStudentModuleGrade(StudentModuleGradeDto studentModuleGradeDto);
     StudentModuleGradeDto getStudentModuleGrade(StudentModuleGradeCompositeKey studentModuleGradeCompositeKey);

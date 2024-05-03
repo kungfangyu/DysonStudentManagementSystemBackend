@@ -5,6 +5,13 @@ import com.dysonstudentmanagement.dsm.dto.ProgrammeDto;
 
 import java.util.List;
 
+/*
+ProgrammeService
+
+Interface that declares service methods that act upon Programme table in database
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public interface ProgrammeService {
     ProgrammeDto createProgramme(ProgrammeDto programmeDto);
 

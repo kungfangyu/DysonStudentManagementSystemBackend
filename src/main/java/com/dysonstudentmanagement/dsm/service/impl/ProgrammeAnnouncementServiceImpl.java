@@ -21,6 +21,13 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+ProgrammeAnnouncementServiceImpl
+
+Class that implements service methods that act upon ProgrammeAnnouncement table in database
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public class ProgrammeAnnouncementServiceImpl implements ProgrammeAnnouncementService {
     private ProgrammeAnnouncementRepository programmeAnnouncementRepo;
     private ProgrammeRepository programmeRepo;

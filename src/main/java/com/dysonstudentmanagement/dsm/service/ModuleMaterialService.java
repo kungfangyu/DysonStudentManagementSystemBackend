@@ -5,6 +5,13 @@ import com.dysonstudentmanagement.dsm.entity.modulematerial.ModuleMaterialCompos
 
 import java.util.List;
 
+/*
+ModuleMaterialService
+
+Interface that declares service methods that act upon ModuleMaterial table in database
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public interface ModuleMaterialService {
     ModuleMaterialDto createModuleMaterial(ModuleMaterialDto moduleMaterialDto);
 

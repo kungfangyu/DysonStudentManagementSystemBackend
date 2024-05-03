@@ -22,6 +22,14 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+StudentExamGradeServiceImpl
+
+Class that implements service interface for managing student exam grades.
+
+Original Author: Yijie Zhu 27/04/2024
+Modifying Author: Billy Peters 28/04/2024 Implemented composite keys
+ */
 public class StudentExamGradeServiceImpl implements StudentExamGradeService {
     private StudentExamGradeRepository studentExamGradeRepository;
     private UserPrimaryDataRepository studentDataRepo;

@@ -14,6 +14,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+PreviousQualificationCompositeKey
+
+Defines the PreviousQualification entity's composite key
+
+Original Author: Billy Peters 23/04/2024
+ */
 public class PreviousQualificationCompositeKey implements Serializable {
     @Id
     @Column(name = "UserID", length = 8)

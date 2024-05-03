@@ -6,7 +6,14 @@ import com.dysonstudentmanagement.dsm.repository.UserLogInRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+/*
+UserLogInService
+
+Interface that declares service methods that act upon UserLogIn table in database
+
+Original Author: Fang-Yu Kung 28/04/2024
+Modifying Author: Billy Peters 30/04/2024: Added createUserLogin and updateUserPassword methods
+ */
 public interface UserLogInService{
     String createUserLogIn(UserLogInDto userLoginDto);
 

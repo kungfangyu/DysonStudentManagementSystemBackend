@@ -23,6 +23,13 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+StudentModuleGradeServiceImpl
+
+Class that implements service methods that act upon StudentModuleGrade table in database
+
+Original Author: Grace Liu 25/04/2024
+ */
 public class StudentModuleGradeServiceImpl implements StudentModuleGradeService {
     private ModuleDetailsRepository moduleDetailsRepository;
     private StudentModuleGradeRepository studentModuleGradeRepository;

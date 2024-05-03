@@ -8,8 +8,11 @@ import com.dysonstudentmanagement.dsm.exception.ResourceNotFoundException;
 
 import java.util.List;
 
-/**
- * Service interface for managing exams.
+/*
+    ExamService
+    Service interface for managing exams.
+    Original Author: Yijie Zhu 27/04/2024
+    Modifying Author: Imran Matloob 28/04/2024 Implemented Exam Composite Key
  */
 public interface ExamService {
 

@@ -24,8 +24,7 @@ import java.util.List;
 /*
 UserPrimaryData Entity
 
-Spring representation of the database table "UserPrimaryData" - the data required to add a new user
-to the dyson student management system.
+Spring representation of the database table "UserPrimaryData".
 
 Original Author: Billy Peters 21/04/2024
 

@@ -5,6 +5,13 @@ import com.dysonstudentmanagement.dsm.entity.programmeannouncement.ProgrammeAnno
 
 import java.util.List;
 
+/*
+ProgrammeAnnouncementService
+
+Interface that declares service methods that act upon ProgrammeAnnouncement table in database
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public interface ProgrammeAnnouncementService {
     ProgrammeAnnouncementDto createProgrammeAnnouncement(ProgrammeAnnouncementDto programmeAnnouncementDto);
     ProgrammeAnnouncementDto getProgrammeAnnouncement(ProgrammeAnnouncementCompositeKey targetKey);

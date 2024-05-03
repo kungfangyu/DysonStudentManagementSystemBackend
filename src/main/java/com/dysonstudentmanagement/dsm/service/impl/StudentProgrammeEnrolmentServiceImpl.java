@@ -21,6 +21,13 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+StudentProgrammeEnrolmentServiceImpl
+
+Class that implements service methods that act upon StudentProgrammeEnrolment table in database
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class StudentProgrammeEnrolmentServiceImpl implements StudentProgrammeEnrolmentService {
 
     private ProgrammeRepository programmeRepo;

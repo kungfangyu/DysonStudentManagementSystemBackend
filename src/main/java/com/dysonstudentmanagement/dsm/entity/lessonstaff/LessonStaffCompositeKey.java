@@ -14,6 +14,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+LessonStaffCompositeKey
+
+Defines the LessonStaff entity's composite key
+
+Original Author: Billy Peters 26/04/2024
+ */
 public class LessonStaffCompositeKey implements Serializable {
     @Id
     @Column(name = "ModuleID", length = 12)

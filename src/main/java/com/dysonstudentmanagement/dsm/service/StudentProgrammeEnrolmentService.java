@@ -6,6 +6,13 @@ import com.dysonstudentmanagement.dsm.entity.studentprogrammeenrolment.StudentPr
 
 import java.util.List;
 
+/*
+StudentProgrammeEnrolmentService
+
+Interface that declares service methods that act upon StudentProgrammeEnrolment table in database
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public interface StudentProgrammeEnrolmentService {
 
     StudentProgrammeEnrolmentDto createStudentProgrammeEnrolment(StudentProgrammeEnrolmentDto studentProgrammeEnrolmentDto);

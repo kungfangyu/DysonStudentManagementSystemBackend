@@ -15,6 +15,13 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+ModuleDetailsServiceImpl
+
+Class that implements service methods that act upon ModuleDetail table in database
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public class ModuleDetailsServiceImpl implements ModuleDetailsService {
     private ModuleDetailsRepository moduleDetailsRepository;
 

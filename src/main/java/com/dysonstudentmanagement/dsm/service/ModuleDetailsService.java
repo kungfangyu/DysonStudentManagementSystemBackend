@@ -4,6 +4,13 @@ import com.dysonstudentmanagement.dsm.dto.ModuleDetailsDto;
 
 import java.util.List;
 
+/*
+ModuleDetailsService
+
+Interface that declares service methods that act upon ModuleDetail table in database
+
+Original Author: Billy Peters 24/04/2024
+ */
 public interface ModuleDetailsService {
     ModuleDetailsDto createModuleDetails(ModuleDetailsDto moduleDetailsDto);
 

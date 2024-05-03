@@ -16,6 +16,14 @@ import lombok.*;
 @Table(name = "StudentTutor")
 @EntityListeners(StudentTutorListener.class)
 @IdClass(StudentTutorCompositeKey.class)
+/*
+StudentTutor Entity
+
+Spring representation of the database table "StudentTutor".
+
+Original Author: Billy Peters 24/04/2024
+
+ */
 public class StudentTutor{
 
     @Id

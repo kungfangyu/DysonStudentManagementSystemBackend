@@ -16,6 +16,13 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "PreviousQualification")
 @IdClass(PreviousQualificationCompositeKey.class)
+/*
+PreviousQualification Entity
+
+Spring representation of the database table "PreviousQualification"
+
+Original Author: Billy Peters 23/04/2024
+ */
 public class PreviousQualification {
 
     @Id

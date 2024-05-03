@@ -20,6 +20,12 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
+/*
+    ExamServiceImpl
+    Class that implements service interface for managing exams.
+    Original Author: Yijie Zhu 27/04/2024
+    Modifying Author: Billy Peters 28/04/2024 Implemented Exam Composite Key
+ */
 public class ExamServiceImpl implements ExamService {
     private ExamRepository examRepository;
     private ModuleDetailsRepository moduleDetailsRepo;

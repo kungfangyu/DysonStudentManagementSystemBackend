@@ -8,6 +8,13 @@ import com.dysonstudentmanagement.dsm.entity.programmemodules.ProgrammeModulesCo
 
 import java.util.List;
 
+/*
+ProgrammeModulesService
+
+Interface that declares service methods that act upon ProgrammeModules table in database
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public interface ProgrammeModulesService {
 
       ProgrammeModulesDto createProgrammeModules(ProgrammeModulesDto programmeModulesDto);

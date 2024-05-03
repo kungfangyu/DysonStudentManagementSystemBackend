@@ -5,8 +5,14 @@ import com.dysonstudentmanagement.dsm.entity.studentexamgrade.StudentExamGradeCo
 
 import java.util.List;
 
-/**
- * Service interface for managing student exam grades.
+
+/*
+StudentExamGradeService
+
+Service interface for managing student exam grades.
+
+Original Author: Yijie Zhu 27/04/2024
+Modifying Author: Imran Matloob 28/04/2024 Implemented composite keys
  */
 public interface StudentExamGradeService {
 

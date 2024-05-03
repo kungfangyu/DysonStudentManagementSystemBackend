@@ -5,6 +5,13 @@ import com.dysonstudentmanagement.dsm.entity.studentcourseworkgrade.StudentCours
 
 import java.util.List;
 
+/*
+StudentCourseworkGradeService
+
+Interface that declares service methods that act upon StudentCourseworkGrade table in database
+
+Original Author: Jack Burnett 27/04/2024
+ */
 public interface StudentCourseworkGradeService {
     StudentCourseworkGradeDto createStudentCourseworkGrade(StudentCourseworkGradeDto studentCourseworkGradeDto);
 
