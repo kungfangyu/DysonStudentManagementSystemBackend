@@ -2,6 +2,7 @@ package com.dysonstudentmanagement.dsm.service;
 
 import com.dysonstudentmanagement.dsm.dto.ModuleDetailsDto;
 import com.dysonstudentmanagement.dsm.dto.StudentModuleGradeDto;
+import com.dysonstudentmanagement.dsm.dto.StudentModuleInfoDto;
 import com.dysonstudentmanagement.dsm.entity.studentmodulegrade.StudentModuleGradeCompositeKey;
 
 import java.util.List;
@@ -14,5 +15,6 @@ public interface StudentModuleGradeService {
     List<ModuleDetailsDto> getModuleDetailsByStudentID(String studentID);
     StudentModuleGradeDto updateStudentModuleGrade(StudentModuleGradeCompositeKey studentModuleGradeCompositeKey,
                                                    StudentModuleGradeDto studentModuleGradeDto);
+    List<StudentModuleInfoDto> getStudentModuleInfoByStudentID(String studentID);
     void deleteStudentModuleGrade(StudentModuleGradeCompositeKey studentModuleGradeCompositeKey);
 }

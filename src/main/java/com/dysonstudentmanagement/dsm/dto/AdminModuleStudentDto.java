@@ -1,15 +1,15 @@
 package com.dysonstudentmanagement.dsm.dto;
-
+/*
+* A data structure send to admin module student list page
+* Original Author: Tianpu Li 04/05/2024
+* Modified By: No modify
+* */
 import com.dysonstudentmanagement.dsm.entity.studentmodulegrade.StudentModuleGrade;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Data
 @Getter
 @Setter
-//@AllArgsConstructor
 @ToString
 public class AdminModuleStudentDto {
     private String studentId;

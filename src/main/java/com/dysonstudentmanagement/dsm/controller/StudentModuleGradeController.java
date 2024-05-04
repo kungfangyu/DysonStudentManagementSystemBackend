@@ -3,6 +3,7 @@ package com.dysonstudentmanagement.dsm.controller;
 import com.dysonstudentmanagement.dsm.dto.AdminModuleStudentDto;
 import com.dysonstudentmanagement.dsm.dto.ModuleDetailsDto;
 import com.dysonstudentmanagement.dsm.dto.StudentModuleGradeDto;
+import com.dysonstudentmanagement.dsm.dto.StudentModuleInfoDto;
 import com.dysonstudentmanagement.dsm.entity.studentmodulegrade.StudentModuleGradeCompositeKey;
 import com.dysonstudentmanagement.dsm.service.StudentModuleGradeService;
 import com.dysonstudentmanagement.dsm.service.impl.AdminModuleStudentService;
@@ -52,6 +53,11 @@ public class StudentModuleGradeController {
     @GetMapping("getAdminModuleStudents/{moduleID}")
     public ResponseEntity<List<AdminModuleStudentDto>> getAdminModuleStudentsByModuleID(@PathVariable("moduleID") String moduleID) {
         return  ResponseEntity.ok(adminModuleStudentService.getStudentsByModuleId(moduleID));
+    }
+
+    @GetMapping("getStudentModuleInfo/{studentID}")
+    public ResponseEntity<List<StudentModuleInfoDto>> getStudentModuleInfo(@PathVariable("studentID") String studentID) {
+        return  ResponseEntity.ok(studentModuleGradeService.getStudentModuleInfoByStudentID(studentID));
     }
 
     @PutMapping("{studentID}/{moduleID}")

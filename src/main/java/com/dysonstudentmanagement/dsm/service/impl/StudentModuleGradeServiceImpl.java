@@ -2,6 +2,7 @@ package com.dysonstudentmanagement.dsm.service.impl;
 
 import com.dysonstudentmanagement.dsm.dto.ModuleDetailsDto;
 import com.dysonstudentmanagement.dsm.dto.StudentModuleGradeDto;
+import com.dysonstudentmanagement.dsm.dto.StudentModuleInfoDto;
 import com.dysonstudentmanagement.dsm.entity.moduledetails.ModuleDetails;
 import com.dysonstudentmanagement.dsm.entity.studentmodulegrade.StudentModuleGrade;
 import com.dysonstudentmanagement.dsm.entity.studentmodulegrade.StudentModuleGradeCompositeKey;
@@ -73,6 +74,15 @@ public class StudentModuleGradeServiceImpl implements StudentModuleGradeService 
         return moduleDetailsList.stream().map(ModuleDetailsMapper::mapToModuleDetailsDto).collect(Collectors.toList());
     }
 
+    @Override
+    public List<StudentModuleInfoDto> getStudentModuleInfoByStudentID(String studentID) {
+        List<StudentModuleGrade> studentModuleGrades = studentModuleGradeRepository.findByStudentID(studentID);
+        if(!studentModuleGrades.isEmpty()){
+            return studentModuleGrades.stream().map(this::MapperToStudentModuleInfoDto).collect(Collectors.toList());
+        }else {
+            return null;
+        }
+    }
 
     @Override
     public List<StudentModuleGradeDto> getStudentModuleGradeByStudentID(String studentID) {
@@ -97,4 +107,21 @@ public class StudentModuleGradeServiceImpl implements StudentModuleGradeService 
                 .orElseThrow(() -> new DataIntegrityViolationException("Student Module Grade Not Found"));
         studentModuleGradeRepository.deleteById(studentModuleGradeCompositeKey);
     }
+
+    private StudentModuleInfoDto MapperToStudentModuleInfoDto(StudentModuleGrade studentModuleGrade) {
+        StudentModuleInfoDto studentModuleInfoDto = new StudentModuleInfoDto();
+
+        studentModuleInfoDto.setStudentID(studentModuleGrade.getStudentID());
+        studentModuleInfoDto.setStatus(studentModuleGrade.getStatus());
+        studentModuleInfoDto.setGrade(studentModuleGrade.getGrade());
+        studentModuleInfoDto.setModuleID(studentModuleGrade.getModuleID());
+
+        ModuleDetails moduleDetails = moduleDetailsRepository.findById(studentModuleGrade.getModuleID()).orElse(null);
+        if (moduleDetails != null) {
+            studentModuleInfoDto.setModuleName(moduleDetails.getModuleName());
+        }
+        return studentModuleInfoDto;
+    }
+
+
 }
