@@ -29,6 +29,14 @@ public class StudentModuleGrade {
     @Column(name = "PercentageAttendance")
     private float percentageAttendance;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "Status")
+    private Status status;
+
+    public enum Status {
+        enrolled, suspended, withdrawn
+    }
+
     @MapsId
     @ManyToOne
     @JoinColumn(name = "StudentID", referencedColumnName = "UserID")

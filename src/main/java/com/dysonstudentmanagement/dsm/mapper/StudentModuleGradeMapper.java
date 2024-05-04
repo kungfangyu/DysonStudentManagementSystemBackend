@@ -9,7 +9,8 @@ public class StudentModuleGradeMapper {
                 studentModuleGrade.getStudentID(),
                 studentModuleGrade.getModuleID(),
                 studentModuleGrade.getGrade(),
-                studentModuleGrade.getPercentageAttendance()
+                studentModuleGrade.getPercentageAttendance(),
+                studentModuleGrade.getStatus()
         );
     }
 
@@ -19,6 +20,7 @@ public class StudentModuleGradeMapper {
                 .moduleID(studentModuleGradeDto.getModuleID())
                 .grade(studentModuleGradeDto.getGrade())
                 .percentageAttendance(studentModuleGradeDto.getPercentageAttendance())
+                .status(studentModuleGradeDto.getStatus())
                 .build();
     }
 }

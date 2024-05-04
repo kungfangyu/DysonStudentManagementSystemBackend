@@ -11,7 +11,6 @@ public interface StudentModuleGradeService {
     StudentModuleGradeDto getStudentModuleGrade(StudentModuleGradeCompositeKey studentModuleGradeCompositeKey);
     List<StudentModuleGradeDto> getStudentModuleGradeByStudentID(String studentID);
     List<StudentModuleGradeDto> getStudentModuleGradeByModuleID(String moduleID);
-
     List<ModuleDetailsDto> getModuleDetailsByStudentID(String studentID);
     StudentModuleGradeDto updateStudentModuleGrade(StudentModuleGradeCompositeKey studentModuleGradeCompositeKey,
                                                    StudentModuleGradeDto studentModuleGradeDto);
