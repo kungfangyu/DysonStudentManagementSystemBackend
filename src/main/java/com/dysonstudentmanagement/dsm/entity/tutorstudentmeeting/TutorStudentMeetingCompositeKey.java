@@ -22,21 +22,18 @@ TutorStudentMeetingCompositeKey
 Defines the TutorStudentMeeting entity's composite key fields
 
 Original Author: Jack Burnett 30/04/2024
+Modifying Author: Billy Peters 04/05/2024 Removed StudentID from composite primary key
  */
 public class TutorStudentMeetingCompositeKey implements Serializable {
     @Id
     @Column(name = "StaffID")
     private String staffID;
     @Id
-    @Column(name = "StudentID")
-    private String studentID;
-    @Id
     @Column(name = "MeetingTime")
     private LocalDateTime meetingTime;
 
-    public TutorStudentMeetingCompositeKey (String staffID, String studentID, String meetingTimeString) {
+    public TutorStudentMeetingCompositeKey (String staffID, String meetingTimeString) {
         this.staffID = staffID;
-        this.studentID = studentID;
 
         try {
             this.meetingTime = LocalDateTime.parse(meetingTimeString);
@@ -44,16 +41,17 @@ public class TutorStudentMeetingCompositeKey implements Serializable {
             System.out.println(e);
         }
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TutorStudentMeetingCompositeKey that = (TutorStudentMeetingCompositeKey) o;
-        return Objects.equals(getStaffID(), that.getStaffID()) && Objects.equals(getStudentID(), that.getStudentID()) && Objects.equals(getMeetingTime(), that.getMeetingTime());
+        return Objects.equals(getStaffID(), that.getStaffID()) && Objects.equals(getMeetingTime(), that.getMeetingTime());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getStaffID(), getStudentID(), getMeetingTime());
+        return Objects.hash(getStaffID(), getMeetingTime());
     }
 }
