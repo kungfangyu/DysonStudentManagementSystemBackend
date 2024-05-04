@@ -24,6 +24,13 @@ import java.time.LocalDateTime;
 @Table(name = "ModuleAnnouncement")
 @EntityListeners(ModuleAnnouncementListener.class)
 @IdClass(ModuleAnnouncementCompositeKey.class)
+/*
+ModuleAnnouncement Entity
+
+Spring representation of the database table "ModuleAnnouncement"
+
+Original Author: Jack Burnett 25/04/2024
+ */
 public class ModuleAnnouncement {
     @Id
     @Column(name = "ModuleID", length = 12)

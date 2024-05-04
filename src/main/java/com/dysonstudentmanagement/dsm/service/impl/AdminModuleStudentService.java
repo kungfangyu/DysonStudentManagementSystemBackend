@@ -40,7 +40,7 @@ public class AdminModuleStudentService {
             adminModuleStudentDto.setName(studentPrimaryData.getFirstName()+" "+studentPrimaryData.getLastName());
             adminModuleStudentDto.setEmail(studentPrimaryData.getPersonalEmail());
 
-            StudentTutor studentTutor = studentTutorRepository.findByStudentID(studentModuleGrade.getStudentID()).getFirst();
+            StudentTutor studentTutor = studentTutorRepository.findByStudentID(studentModuleGrade.getStudentID()).get(0);
             if (studentTutor != null) {
                 UserPrimaryData tutorPrimaryData = studentTutor.getStaffPrimaryData();
                 adminModuleStudentDto.setTutor(tutorPrimaryData.getFirstName()+" "+tutorPrimaryData.getLastName());

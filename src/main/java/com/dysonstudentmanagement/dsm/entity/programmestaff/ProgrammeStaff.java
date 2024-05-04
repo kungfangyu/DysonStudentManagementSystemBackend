@@ -16,6 +16,13 @@ import lombok.*;
 @Table(name = "programmeStaff")
 @EntityListeners(ProgrammeStaffListener.class)
 @IdClass(ProgrammeStaffCompositeKey.class)
+/*
+ProgrammeStaff Entity
+
+Spring representation of the database table "ProgrammeStaff"
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class ProgrammeStaff {
 
     @Id

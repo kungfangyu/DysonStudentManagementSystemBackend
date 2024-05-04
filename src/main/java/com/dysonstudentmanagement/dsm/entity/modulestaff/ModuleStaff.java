@@ -17,6 +17,13 @@ import lombok.*;
 @Table(name = "ModuleStaff")
 @EntityListeners(ModuleStaffListener.class)
 @IdClass(ModuleStaffCompositeKey.class)
+/*
+ModuleStaff Entity
+
+Spring representation of the database table "ModuleStaff"
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public class ModuleStaff {
 
     @Id

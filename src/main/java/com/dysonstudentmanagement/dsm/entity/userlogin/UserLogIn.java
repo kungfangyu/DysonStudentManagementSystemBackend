@@ -11,6 +11,13 @@ import lombok.*;
 @ToString
 @Entity
 @Table(name = "UserLogIn")
+/*
+UserLogIn Entity
+
+Spring representation of the database table "UserLogIn"
+
+Original Author: Fang-Yu Kung 28/04/2024
+ */
 
 public class UserLogIn {
     @Id

@@ -18,6 +18,13 @@ import java.time.LocalDateTime;
 @Table(name = "ProgrammeAnnouncement")
 @EntityListeners(ProgrammeAnnouncementListener.class)
 @IdClass(ProgrammeAnnouncementCompositeKey.class)
+/*
+ProgrammeAnnouncement Entity
+
+Spring representation of the database table "ProgrammeAnnouncement"
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public class ProgrammeAnnouncement {
 
     @Id

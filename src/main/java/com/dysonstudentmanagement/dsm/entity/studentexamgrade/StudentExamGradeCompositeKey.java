@@ -15,6 +15,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+StudentExamGradeCompositeKey
+
+Defines the StudentExamGrade entity's composite key fields
+
+Original Author: Yijie Zhu 27/04/2024
+ */
 public class StudentExamGradeCompositeKey implements Serializable {
 
     @Id

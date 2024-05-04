@@ -16,6 +16,13 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "Coursework")
 @IdClass(CourseworkCompositeKey.class)
+/*
+Coursework Entity
+
+Spring representation of the database table "Coursework"
+
+Original Author: Jack Burnett 27/04/2024
+ */
 public class Coursework {
     @Id
     @Column(name = "ModuleID")

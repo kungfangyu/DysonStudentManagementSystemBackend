@@ -14,6 +14,13 @@ import lombok.*;
 @Entity
 @Table(name = "ProgrammeModules")
 @IdClass(ProgrammeModulesCompositeKey.class)
+/*
+ProgrammeModules Entity
+
+Spring representation of the database table "ProgrammeModules"
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class ProgrammeModules {
 
     @Id

@@ -19,6 +19,14 @@ import java.time.LocalDateTime;
 @ToString
 @Table(name = "Exam")
 @IdClass(ExamCompositeKey.class)
+/*
+Exam Entity
+
+Spring representation of the database table "Exam"
+
+Original Author: Yijie Zhu 27/04/2024
+Modifying Author: Imran Matloob 28/04/2024 Implemented foreign key/referencing for moduleID
+ */
 public class Exam {
     @Id
     @Column(name="ModuleID",length=12)

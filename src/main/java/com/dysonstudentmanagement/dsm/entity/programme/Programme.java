@@ -14,6 +14,13 @@ import java.time.LocalDate;
 @ToString
 @Entity
 @Table(name = "programme")
+/*
+Programme Entity
+
+Spring representation of the database table "Programme"
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class Programme {
 
     @Id

@@ -26,6 +26,13 @@ import java.time.LocalDateTime;
 @Table(name = "TutorStudentMeeting")
 @EntityListeners(TutorStudentMeetingListener.class)
 @IdClass(TutorStudentMeetingCompositeKey.class)
+/*
+TutorStudentMeeting entity
+
+Represents TutorStudentMeeting table record in database
+
+Original Author: Jack Burnett 30/04/2024
+ */
 public class TutorStudentMeeting {
     @Id
     @Column(name = "StaffID")

@@ -16,6 +16,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+ModuleAnnouncementCompositeKey
+
+Defines the ModuleAnnouncement entity's composite key fields
+
+Original Author: Jack Burnett 25/04/2024
+ */
 public class ModuleAnnouncementCompositeKey implements Serializable {
     @Id
     @Column (name = "ModuleID", length = 12)

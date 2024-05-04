@@ -16,6 +16,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+CourseworkExtensionRequestCompositeKey
+
+Defines the CourseworkExtensionRequest entity's composite key fields
+
+Original Author: Jack Burnett 28/04/2024
+ */
 public class CourseworkExtensionRequestCompositeKey implements Serializable {
     @Id
     @Column(name = "StudentID")

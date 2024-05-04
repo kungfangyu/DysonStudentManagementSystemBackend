@@ -14,6 +14,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+ProgrammeModulesCompositeKey
+
+Defines the ProgrammeModules entity's composite key fields
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class ProgrammeModulesCompositeKey implements Serializable {
 
     @Id

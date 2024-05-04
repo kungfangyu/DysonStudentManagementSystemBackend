@@ -16,6 +16,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+TutorStudentMeetingCompositeKey
+
+Defines the TutorStudentMeeting entity's composite key fields
+
+Original Author: Jack Burnett 30/04/2024
+ */
 public class TutorStudentMeetingCompositeKey implements Serializable {
     @Id
     @Column(name = "StaffID")

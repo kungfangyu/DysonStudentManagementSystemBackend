@@ -16,6 +16,13 @@ import lombok.*;
 @Table(name = "StudentModuleGrade")
 @EntityListeners(StudentModuleGradeListener.class)
 @IdClass(StudentModuleGradeCompositeKey.class)
+/*
+StudentModuleGrade entity
+
+Represents StudentModuleGrade table record in database
+
+Original Author: Grace Liu 25/04/2024
+ */
 public class StudentModuleGrade {
     @Id
     @Column(name = "StudentID", length = 8)

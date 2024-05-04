@@ -14,6 +14,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+ModuleMaterialCompositeKey
+
+Defines the ModuleMaterial entity's composite key fields
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public class ModuleMaterialCompositeKey implements Serializable {
     @Id
     @Column(name = "ModuleID", length = 12)

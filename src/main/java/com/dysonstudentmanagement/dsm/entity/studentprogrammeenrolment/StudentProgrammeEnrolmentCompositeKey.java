@@ -14,6 +14,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+StudentProgrammeEnrolmentCompositeKey
+
+Defines the StudentProgrammeEnrolment entity's composite key fields
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class StudentProgrammeEnrolmentCompositeKey implements Serializable {
 
     @Id

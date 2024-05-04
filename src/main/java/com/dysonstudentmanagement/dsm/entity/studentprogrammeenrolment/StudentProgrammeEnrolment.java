@@ -20,6 +20,13 @@ import java.util.Date;
 @Table(name = "StudentProgrammeEnrolment")
 @EntityListeners(StudentProgrammeEnrolmentListener.class)
 @IdClass(StudentProgrammeEnrolmentCompositeKey.class)
+/*
+StudentProgrammeEnrolment entity
+
+Represents StudentProgrammeEnrolment table record in database
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class StudentProgrammeEnrolment {
 
     @Id

@@ -20,6 +20,14 @@ import lombok.*;
 @Table(name = "StudentExamGrade")
 @EntityListeners(StudentExamGradeListener.class)
 @IdClass(StudentExamGradeCompositeKey.class)
+/*
+StudentExamGrade Entity
+
+Spring representation of the database table "StudentExamGrade"
+
+Original Author: Yijie Zhu 27/04/2024
+Modifying Author: Imran Matloob 28/04/2024 Implemented foreign key/referencing for moduleID
+ */
 public class StudentExamGrade {
 
     @Id

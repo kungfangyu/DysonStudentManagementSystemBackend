@@ -14,7 +14,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+ProgrammeAnnouncementCompositeKey
 
+Defines the ProgrammeAnnouncement entity's composite key fields
+
+Original Author: Tianpu Li 25/04/2024
+ */
 public class ProgrammeAnnouncementCompositeKey implements Serializable {
     @Id
     @Column(name = "ProgrammeID", length = 12)

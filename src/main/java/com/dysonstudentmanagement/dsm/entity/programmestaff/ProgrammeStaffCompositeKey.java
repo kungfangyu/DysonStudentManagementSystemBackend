@@ -14,6 +14,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+ProgrammeStaffCompositeKey
+
+Defines the ProgrammeStaff entity's composite key fields
+
+Original Author: Imran Matloob 24/04/2024
+ */
 public class ProgrammeStaffCompositeKey implements Serializable {
     @Id
     @Column(name = "ProgrammeID", length = 12)
@@ -43,16 +50,4 @@ public class ProgrammeStaffCompositeKey implements Serializable {
 //        PRIMARY KEY(`ProgrammeID`,`StaffID`),
 //        CONSTRAINT `ProgrammeStaff_FK_ProgrammeID` FOREIGN KEY (`ProgrammeID`) REFERENCES `programme`(`ProgrammeID`) ON UPDATE CASCADE ON DELETE CASCADE,
 //        CONSTRAINT `ProgrammeStaff_FK_StaffID` FOREIGN KEY (`StaffID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE
-//        );
-
-
-//    CREATE TABLE `PreviousQualification` (
-//        `UserID` VARCHAR(8),
-//        `QualificationLevel` VARCHAR(50),
-//        `Subject` VARCHAR(50),
-//        `Grade` VARCHAR(20),
-//        `DateAchieved` DATE,
-//        `Institution` VARCHAR(100),
-//        PRIMARY KEY (`UserID`,`QualificationLevel`,`Subject`),
-//        CONSTRAINT `PreviousQualification_FK_StudentID` FOREIGN KEY (`UserID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE
 //        );

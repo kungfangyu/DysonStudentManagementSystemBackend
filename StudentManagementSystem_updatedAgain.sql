@@ -258,6 +258,21 @@ CONSTRAINT `StudentLesson_FK_StudentID` FOREIGN KEY (`StudentID`) REFERENCES `Us
 );
 
 /*
+Create AbsenceRequest table
+Stores student's absence rquests, specific to a lesson
+Original Author: Billy Peters 04/05/2024
+*/
+CREATE TABLE `AbsenceRequest` (
+`ModuleID` VARCHAR(12),
+`LessonID` INT,
+`StudentID`  VARCHAR(8),
+`RequestID` INT,
+`RequestReason` TEXT,
+`RequestStatus` ENUM('submitted', 'accepted','rejected'),
+PRIMARY KEY (`ModuleID`,`LessonID`,`StudentID`,`RequestID`),
+CONSTRAINT `AbsenceRequest_FK_StudentLessonAllocation` FOREIGN KEY (`ModuleID`,`LessonID`,`StudentID`) REFERENCES `StudentLessonAllocation`(`ModuleID`,`LessonID`,`StudentID`) ON UPDATE CASCADE ON DELETE CASCADE
+);
+/*
 Create StudentModuleGrade table
 Stores a students grade for a module, and their overall attendance of the module.
 Original Author: Billy Peters 11/03/2024

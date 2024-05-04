@@ -13,6 +13,13 @@ import lombok.*;
 @Entity
 @Table(name = "ModuleMaterialFile")
 @IdClass(ModuleMaterialFileCompositeKey.class)
+/*
+ModuleMaterialFile Entity
+
+Spring representation of the database table "ModuleMaterialFile"
+
+Original Author: Grace Liu 25/04/2024
+ */
 public class ModuleMaterialFile {
     @Id
     @Column(name = "ModuleID", length = 12)

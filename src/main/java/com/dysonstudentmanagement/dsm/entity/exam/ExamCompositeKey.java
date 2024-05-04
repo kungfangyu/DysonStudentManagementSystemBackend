@@ -14,6 +14,13 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+ExamCompositeKey
+
+Defines the Exam entity's composite key fields
+
+Original Author: Yijie Zhu 27/04/2024
+ */
 public class ExamCompositeKey implements Serializable {
     @Id
     @Column(name="ModuleID",length=12)
