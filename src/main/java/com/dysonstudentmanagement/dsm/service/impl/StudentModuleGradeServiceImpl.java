@@ -78,8 +78,8 @@ public class StudentModuleGradeServiceImpl implements StudentModuleGradeService 
         }
 
         return moduleDetailsList.stream().map(ModuleDetailsMapper::mapToModuleDetailsDto).collect(Collectors.toList());
-
     }
+
 
     @Override
     public List<StudentModuleGradeDto> getStudentModuleGradeByStudentID(String studentID) {
