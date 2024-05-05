@@ -32,7 +32,7 @@ public class TutorStudentMeetingListener {
         if (referencedStaffType == UserPrimaryData.UserType.student) {
             throw new InvalidUserTypeException("Referenced StaffID points to a student");
         }
-        if (referencedStudentType != UserPrimaryData.UserType.student) {
+        if (referencedStudentType != UserPrimaryData.UserType.student && referencedStudentType != null) {
             throw new InvalidUserTypeException("Referenced StudentID does not point to a student");
         }
 

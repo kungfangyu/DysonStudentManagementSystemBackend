@@ -18,6 +18,7 @@ TutorStudentMeetingController
 Provides api mappings to access tutorStudentMeetingService methods.
 
 Original Author: Jack Burnett 30/04/2024
+Modifying Author: Billy Peters 04/05/2024 Removed StudentID from composite primary key
  */
 public class TutorStudentMeetingController {
     private TutorStudentMeetingService tutorStudentMeetingService;
@@ -32,22 +33,21 @@ public class TutorStudentMeetingController {
     public ResponseEntity<TutorStudentMeetingDto> getStudentModuleGrade(@PathVariable("staffID") String staffID,
                                                                        @PathVariable("studentID") String studentID,
                                                                        @PathVariable("meetingTime") String meetingTime) {
-        TutorStudentMeetingCompositeKey pk = new TutorStudentMeetingCompositeKey(staffID, studentID, meetingTime);
+        TutorStudentMeetingCompositeKey pk = new TutorStudentMeetingCompositeKey(staffID, meetingTime);
         return ResponseEntity.ok(tutorStudentMeetingService.getTutorStudentMeeting(pk));
     }
 
     @GetMapping("{staffID}/{studentID}")
-    public ResponseEntity<List<TutorStudentMeetingDto>> getSTutorStudentMeetingByStaffIDandStudentID(@PathVariable("staffID") String staffID,
+    public ResponseEntity<List<TutorStudentMeetingDto>> getTutorStudentMeetingByStaffIDandStudentID(@PathVariable("staffID") String staffID,
                                                                                                      @PathVariable("studentID") String studentID) {
         return ResponseEntity.ok(tutorStudentMeetingService.getTutorStudentMeetingByStudentIDandStaffID(studentID, staffID));
     }
 
     @PostMapping("{staffID}/{studentID}/{meetingTime}")
-    public ResponseEntity<TutorStudentMeetingDto> updateStudentModuleGrade(@PathVariable("staffID") String staffID,
-                                                                          @PathVariable("studentID") String studentID,
+    public ResponseEntity<TutorStudentMeetingDto> updateTutorStudentMeeting(@PathVariable("staffID") String staffID,
                                                                           @PathVariable("meetingTime") String meetingTime,
                                                                           @RequestBody TutorStudentMeetingDto tutorStudentMeetingDto) {
-        TutorStudentMeetingCompositeKey pk = new TutorStudentMeetingCompositeKey(staffID, studentID, meetingTime);
+        TutorStudentMeetingCompositeKey pk = new TutorStudentMeetingCompositeKey(staffID, meetingTime);
         TutorStudentMeetingDto savedMeeting = tutorStudentMeetingService.updateTutorStudentMeeting(pk, tutorStudentMeetingDto);
         return ResponseEntity.ok(savedMeeting);
     }
@@ -56,7 +56,7 @@ public class TutorStudentMeetingController {
     public ResponseEntity<String> deleteTutorStudentMeeting(@PathVariable("staffID") String staffID,
                                                             @PathVariable("studentID") String studentID,
                                                             @PathVariable("meetingTime") String meetingTime) {
-        TutorStudentMeetingCompositeKey pk = new TutorStudentMeetingCompositeKey(staffID, studentID, meetingTime);
+        TutorStudentMeetingCompositeKey pk = new TutorStudentMeetingCompositeKey(staffID,meetingTime);
         tutorStudentMeetingService.deleteTutorStudentMeeting(pk);
         return new ResponseEntity<>("Tutor student meeting deleted", HttpStatus.OK);
     }

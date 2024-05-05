@@ -28,14 +28,13 @@ Original Author: Billy Peters 02/05/2024.
  */
 public class FileHandler {
 
-    private static final String workingDirectory = "/dsmFiles";
-    @PostMapping(value = "{filepath}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<String> storeFile(@RequestParam("file")MultipartFile file,@PathVariable("filepath") String filepath) throws IOException {
-        filepath = filepath.replace("%","/");
+    private static final String workingDirectory = "/src/main/dsmFiles";
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<String> storeFile(@RequestPart("file") MultipartFile file,@RequestPart String filepath) throws IOException {
 
-        File directory = new File(workingDirectory + filepath + "/");
+        File directory = new File(workingDirectory + filepath);
         if (!directory.exists()) {
-            directory.mkdirs();
+            System.out.println(directory.mkdirs());
         }
 
         File convertFile;
@@ -45,15 +44,14 @@ public class FileHandler {
         try (FileOutputStream fout = new FileOutputStream(convertFile)) {
             fout.write(file.getBytes());
         } catch (FileNotFoundException e) {
-            System.out.print(e);
+            throw new IOException("File could not be accessed");
         }
 
-        return ResponseEntity.ok((filepath+"/"+file.getOriginalFilename()).replace("/","%25"));
+        return ResponseEntity.ok(filepath+"/"+file.getOriginalFilename());
     }
 
-    @GetMapping("{filelocation}")
-    public  ResponseEntity<Resource> getFile(@PathVariable String filelocation) throws MalformedURLException {
-        filelocation = filelocation.replace("%","/");
+    @GetMapping
+    public  ResponseEntity<Resource> getFile(@RequestBody String filelocation) throws MalformedURLException {
 
         Path filepath = Paths.get(workingDirectory+filelocation);
         File file = filepath.toFile();
@@ -77,10 +75,8 @@ public class FileHandler {
         }
     }
 
-    @DeleteMapping("{filelocation}")
-    public  ResponseEntity<String> deleteFile(@PathVariable String filelocation){
-        filelocation = filelocation.replace("%", "/");
-
+    @DeleteMapping
+    public  ResponseEntity<String> deleteFile(@RequestBody String filelocation){
         Path filepath = Paths.get(workingDirectory + filelocation);
         File file = filepath.toFile();
 

@@ -24,6 +24,7 @@ TutorStudentMeetingServiceImpl
 Class that implements service methods that act upon TutorStudentMeeting table in database
 
 Original Author: Jack Burnett 30/04/2024
+Modifying Author: Billy Peters 04/05/2024 Removed StudentID from composite primary key
  */
 public class TutorStudentMeetingServiceImpl implements TutorStudentMeetingService {
     private UserPrimaryDataRepository primaryDataRepository;
@@ -33,14 +34,22 @@ public class TutorStudentMeetingServiceImpl implements TutorStudentMeetingServic
     public TutorStudentMeetingDto createTutorStudentMeeting(TutorStudentMeetingDto tutorStudentMeetingDto) {
         TutorStudentMeeting tutorStudentMeeting = TutorStudentMeetingMapper.mapToTutorStudentMeeting(tutorStudentMeetingDto);
 
-        UserPrimaryData student = primaryDataRepository.findById(tutorStudentMeetingDto.getStudentID())
-                .orElseThrow(() -> new DataIntegrityViolationException("Student Not Found"));
+        if(tutorStudentMeetingDto.getStudentID()!= null) {
+            UserPrimaryData student = primaryDataRepository.findById(tutorStudentMeetingDto.getStudentID())
+                    .orElseThrow(() -> new DataIntegrityViolationException("Student Not Found"));
+            tutorStudentMeeting.setStudentPrimaryData(student);
+        }
         UserPrimaryData staff = primaryDataRepository.findById(tutorStudentMeetingDto.getStaffID())
                 .orElseThrow(() -> new DataIntegrityViolationException("Staff Not Found"));
 
+        tutorStudentMeeting.setStaffID(tutorStudentMeetingDto.getStaffID());
+        tutorStudentMeeting.setStaffPrimaryData(staff);
+        tutorStudentMeeting.setMeetingTime(tutorStudentMeetingDto.getMeetingTime());
+        tutorStudentMeeting.setNotes(tutorStudentMeetingDto.getNotes());
+
+
         TutorStudentMeetingCompositeKey targetKey = new TutorStudentMeetingCompositeKey(
                 tutorStudentMeetingDto.getStaffID(),
-                tutorStudentMeetingDto.getStudentID(),
                 tutorStudentMeetingDto.getMeetingTime()
         );
 
@@ -48,10 +57,6 @@ public class TutorStudentMeetingServiceImpl implements TutorStudentMeetingServic
         if (tutorStudentMeetingOptional.isPresent()) {
             throw new DataIntegrityViolationException("Tutor Student Meeting Already Exists");
         } else {
-            tutorStudentMeeting.setStaffID(tutorStudentMeetingDto.getStaffID());
-            tutorStudentMeeting.setStudentID(tutorStudentMeetingDto.getStudentID());
-            tutorStudentMeeting.setMeetingTime(tutorStudentMeetingDto.getMeetingTime());
-            tutorStudentMeeting.setNotes(tutorStudentMeetingDto.getNotes());
 
             TutorStudentMeeting savedMeeting = tutorStudentMeetingRepository.save(tutorStudentMeeting);
             return TutorStudentMeetingMapper.mapToTutorStudentMeetingDto(savedMeeting);
@@ -76,7 +81,12 @@ public class TutorStudentMeetingServiceImpl implements TutorStudentMeetingServic
         TutorStudentMeeting tutorStudentMeeting = tutorStudentMeetingRepository.findById(targetKey)
                 .orElseThrow(() -> new DataIntegrityViolationException("Tutor Student Meeting Not Found"));
 
+        UserPrimaryData student = primaryDataRepository.findById(tutorStudentMeetingDto.getStudentID())
+                .orElseThrow(() -> new DataIntegrityViolationException("Student Not Found"));
+
         tutorStudentMeeting.setNotes(tutorStudentMeetingDto.getNotes());
+        tutorStudentMeeting.setStudentID(tutorStudentMeetingDto.getStudentID());
+        tutorStudentMeeting.setStudentPrimaryData(student);
         TutorStudentMeeting savedMeeting = tutorStudentMeetingRepository.save(tutorStudentMeeting);
         return TutorStudentMeetingMapper.mapToTutorStudentMeetingDto(savedMeeting);
     }
