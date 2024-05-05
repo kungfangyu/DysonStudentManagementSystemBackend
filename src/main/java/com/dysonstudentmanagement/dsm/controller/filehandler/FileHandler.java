@@ -34,7 +34,7 @@ public class FileHandler {
 
         File directory = new File(workingDirectory+ filepath);
         if (!directory.exists()) {
-            System.out.println(directory.mkdirs());
+            directory.mkdirs();
         }
 
         File convertFile;
