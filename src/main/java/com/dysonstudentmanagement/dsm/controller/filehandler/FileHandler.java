@@ -28,17 +28,17 @@ Original Author: Billy Peters 02/05/2024.
  */
 public class FileHandler {
 
-    private static final String workingDirectory = "/src/main/dsmFiles";
+    private static final String workingDirectory = "dsmFiles/";
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> storeFile(@RequestPart("file") MultipartFile file,@RequestPart String filepath) throws IOException {
 
-        File directory = new File(workingDirectory + filepath);
+        File directory = new File(workingDirectory+ filepath);
         if (!directory.exists()) {
             System.out.println(directory.mkdirs());
         }
 
         File convertFile;
-        convertFile = new File((workingDirectory + filepath + "/" + file.getOriginalFilename()));
+        convertFile = new File((workingDirectory+ filepath + "/" + file.getOriginalFilename()));
         convertFile.createNewFile();
 
         try (FileOutputStream fout = new FileOutputStream(convertFile)) {
