@@ -47,13 +47,3 @@ public class PreviousQualification {
     private UserPrimaryData userPrimaryData;
 }
 
-//    CREATE TABLE `PreviousQualification` (
-//        `UserID` VARCHAR(8),
-//        `QualificationLevel` VARCHAR(50),
-//        `Subject` VARCHAR(50),
-//        `Grade` VARCHAR(20),
-//        `DateAchieved` DATE,
-//        `Institution` VARCHAR(100),
-//        PRIMARY KEY (`UserID`,`QualificationLevel`,`Subject`),
-//        CONSTRAINT `PreviousQualification_FK_StudentID` FOREIGN KEY (`UserID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE
-//        );

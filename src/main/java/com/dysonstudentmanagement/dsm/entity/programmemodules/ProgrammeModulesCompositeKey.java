@@ -45,11 +45,3 @@ public class ProgrammeModulesCompositeKey implements Serializable {
     }
 }
 
-
-//CREATE TABLE `ProgrammeModules` (
-//`ModuleID` VARCHAR(12),
-//`ProgrammeID` VARCHAR(12),
-//PRIMARY KEY (`ModuleID`,`ProgrammeID`),
-//CONSTRAINT `ProgrammeModules_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `ModuleDetails`(`ModuleID`) ON UPDATE CASCADE ON DELETE RESTRICT,
-//CONSTRAINT `ProgrammeModules_FK_ProgrammeID` FOREIGN KEY (`ProgrammeID`) REFERENCES `Programme`(`ProgrammeID`) ON UPDATE CASCADE ON DELETE CASCADE
-//);
