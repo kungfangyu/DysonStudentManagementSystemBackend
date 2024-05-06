@@ -282,7 +282,8 @@ CREATE TABLE `StudentModuleGrade` (
 `StudentID` VARCHAR(8),
 `ModuleID` VARCHAR(12),
 `Grade` FLOAT, -- Should be calculated from module coursework/exam grades, when module is completed.
-`PercentageAttendance` FLOAT, -- Should be calculated from lesson attendances
+`PercentageAttendance` FLOAT, -- Should be calculated from lesson attendances,
+`Status` ENUM('enrolled','suspended','withdrawn'),
 PRIMARY KEY (`StudentID`,`ModuleID`),
 CONSTRAINT `StudentModuleGrade_FK_StudentID` FOREIGN KEY (`StudentID`) REFERENCES `UserPrimaryData`(`UserID`) ON UPDATE CASCADE ON DELETE CASCADE, 
 CONSTRAINT `StudentModuleGrade_FK_ModuleID` FOREIGN KEY (`ModuleID`) REFERENCES `ModuleDetails`(`ModuleID`) ON UPDATE CASCADE ON DELETE RESTRICT
