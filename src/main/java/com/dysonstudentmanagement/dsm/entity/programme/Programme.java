@@ -45,14 +45,3 @@ public class Programme {
 
 
 
-
-//    CREATE TABLE `programme` (
-//        `ProgrammeID` VARCHAR(12),
-//        `Name` VARCHAR(50),
-//        `StartDate` Date,
-//        `EndDate` Date,
-//        `Description` TEXT,
-//        `TotalCredits` INT,
-//        `isGradesReleased` BOOL,
-//        PRIMARY KEY(`ProgrammeID`)
-//        );
