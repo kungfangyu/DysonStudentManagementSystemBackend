@@ -36,22 +36,18 @@ public class ProgrammeIDGenerator implements IdentifierGenerator {
         // Generate the ProgrammeID using the modified name
         String[] nameWords = name.split(" ", 4);
 
-        int nonRandomContribution = 8;
-        float wordContributionToId = 8 / nameWords.length;
 
         Session session = (Session) sharedSessionContractImplementor.getSession();
         String proposedId = "";
-        boolean idExists = true;
-
-
 
         for (int i = 0; i < 10; i++) {
             for (String word : nameWords) {
-                int substringLength = Math.min(word.length(), 4); // Ensure substring length does not exceed word length
+                int substringLength = Math.min(word.length(), 4); // Ensure substring length doesn't exceed word length
                 proposedId = proposedId + word.substring(0, substringLength);
 
             }
 
+            //checks the actual object to see if there's anything else in the database that is the same
             String formattedProgrammeNumber = String.format("%02d", PROGRAMME_NUMBER.incrementAndGet());
             boolean objectExists = session.createQuery("SELECT COUNT(p) FROM Programme p WHERE p.name = :name AND p.startDate = :startDate AND p.endDate = :endDate AND p.description = :description AND p.totalCredits = :totalCredits AND p.isGradesReleased = :isGradesReleased", Long.class)
                     .setParameter("name", programme.getName())
@@ -62,15 +58,15 @@ public class ProgrammeIDGenerator implements IdentifierGenerator {
                     .setParameter("isGradesReleased", programme.isGradesReleased())
                     .setMaxResults(1)
                     .getSingleResult() > 0;
-
+            //checks to see if the name is already in the database
             boolean programmeExists = session.createQuery("SELECT COUNT(p) FROM Programme p WHERE p.programmeID = :programmeID", Long.class)
                     .setParameter("programmeID", proposedId.toString() + formattedProgrammeNumber)
                     .setMaxResults(1)
                     .getSingleResult() > 0;
 
-
+            //if the programme doesn't exists
             if (!programmeExists) {
-
+                //return the ID + formattedProgrammeNumber
                 return proposedId.toString() + formattedProgrammeNumber;
             } else {
 
