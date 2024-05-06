@@ -4,10 +4,12 @@ import com.dysonstudentmanagement.dsm.entity.absencerequest.AbsenceRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@ToString
 /*
 AbsenceRequestDto
 

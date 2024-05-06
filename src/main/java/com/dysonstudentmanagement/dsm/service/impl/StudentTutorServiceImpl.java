@@ -109,7 +109,8 @@ public class StudentTutorServiceImpl implements StudentTutorService {
 
     @Override
     public List<StudentTutorDto> getStudentTutorByStudentID(String studentID) {
-        List<StudentTutor> studentTutors = studentTutorRepo.findByStaffID(studentID);
+        List<StudentTutor> studentTutors = studentTutorRepo.findByStudentID(studentID);
+        System.out.println(studentTutors);
         return studentTutors.stream().map((studentTutor) -> StudentTutorMapper.mapToStudentTutorDto(studentTutor)).collect(Collectors.toList());
     }
 

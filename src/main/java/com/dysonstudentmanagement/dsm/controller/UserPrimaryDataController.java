@@ -15,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/userPrimaryData")
+@CrossOrigin(origins = "http://localhost:3000/")
 /*
 UserPrimaryDataController
 

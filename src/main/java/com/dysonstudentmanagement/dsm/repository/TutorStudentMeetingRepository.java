@@ -12,5 +12,5 @@ import java.util.List;
     Original Author: Jack Burnett, 30/04/2024
 */
 public interface TutorStudentMeetingRepository extends JpaRepository<TutorStudentMeeting, TutorStudentMeetingCompositeKey> {
-    List<TutorStudentMeeting> findByStudentIDAndStaffID(String moduleID, String courseworkID);
+    List<TutorStudentMeeting> findByStaffID(String staffID);
 }

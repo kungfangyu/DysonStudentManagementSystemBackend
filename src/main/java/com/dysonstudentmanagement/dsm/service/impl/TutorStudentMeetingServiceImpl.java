@@ -71,8 +71,8 @@ public class TutorStudentMeetingServiceImpl implements TutorStudentMeetingServic
     }
 
     @Override
-    public List<TutorStudentMeetingDto> getTutorStudentMeetingByStudentIDandStaffID(String studentID, String staffID) {
-        List<TutorStudentMeeting> studentMeetingList = tutorStudentMeetingRepository.findByStudentIDAndStaffID(studentID, staffID);
+    public List<TutorStudentMeetingDto> getTutorStudentMeetingByStaffID(String staffID) {
+        List<TutorStudentMeeting> studentMeetingList = tutorStudentMeetingRepository.findByStaffID(staffID);
         return studentMeetingList.stream().map(TutorStudentMeetingMapper::mapToTutorStudentMeetingDto).collect(Collectors.toList());
     }
 

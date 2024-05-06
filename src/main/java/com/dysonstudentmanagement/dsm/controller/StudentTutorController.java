@@ -44,6 +44,7 @@ public class StudentTutorController {
 
     @GetMapping("/by-student/{studentID}")
     public ResponseEntity<List<StudentTutorDto>> getStudentTutorByStudentID(@PathVariable("studentID") String studentID){
+        System.out.println(studentID);
         List<StudentTutorDto> studentTutorDtos = studentTutorService.getStudentTutorByStudentID(studentID);
         return ResponseEntity.ok(studentTutorDtos);
     }

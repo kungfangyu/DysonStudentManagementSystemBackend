@@ -57,3 +57,15 @@ public class AbsenceRequest {
         rejected
     }
 }
+
+
+//CREATE TABLE `AbsenceRequest` (
+//`ModuleID` VARCHAR(12),
+//`LessonID` INT,
+//`StudentID`  VARCHAR(8),
+//`RequestID` INT,
+//`RequestReason` TEXT,
+//`RequestStatus` ENUM('submitted', 'accepted','rejected'),
+//PRIMARY KEY (`ModuleID`,`LessonID`,`StudentID`,`RequestID`),
+//CONSTRAINT `AbsenceRequest_FK_StudentLessonAllocation` FOREIGN KEY (`ModuleID`,`LessonID`,`StudentID`) REFERENCES `StudentLessonAllocation`(`ModuleID`,`LessonID`,`StudentID`) ON UPDATE CASCADE ON DELETE CASCADE
+//);

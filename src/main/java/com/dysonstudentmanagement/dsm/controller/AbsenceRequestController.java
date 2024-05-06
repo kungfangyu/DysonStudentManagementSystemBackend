@@ -25,6 +25,7 @@ public class AbsenceRequestController {
 
     @PostMapping
     public ResponseEntity<AbsenceRequestDto> createAbsenceRequest(@RequestBody AbsenceRequestDto absenceRequestDto) {
+        System.out.println(absenceRequestDto);
         AbsenceRequestDto savedData = absenceRequestService.createAbsenceRequest(absenceRequestDto);
         return new ResponseEntity<>(savedData, HttpStatus.CREATED);
     }
