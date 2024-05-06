@@ -15,6 +15,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
+/*
+JwtUtils class
+
+Generate the json web token for front-end and back-end get the authorization , includes user information.
+
+Original Author: Fang-Yu Kung 28/04/2024
+ */
 public class JwtUtils {
     private static String signKey = "dysongroup9";
     private  static  Long expire =  43200000L;
