@@ -77,6 +77,13 @@ public class TutorStudentMeetingServiceImpl implements TutorStudentMeetingServic
     }
 
     @Override
+    public List<TutorStudentMeetingDto> getTutorStudentMeetingByStudentID(String studentID) {
+        List<TutorStudentMeeting> studentMeetingList = tutorStudentMeetingRepository.findByStudentID(studentID);
+        return studentMeetingList.stream().map(TutorStudentMeetingMapper::mapToTutorStudentMeetingDto).collect(Collectors.toList());
+
+    }
+
+    @Override
     public TutorStudentMeetingDto updateTutorStudentMeeting(TutorStudentMeetingCompositeKey targetKey, TutorStudentMeetingDto tutorStudentMeetingDto) {
         TutorStudentMeeting tutorStudentMeeting = tutorStudentMeetingRepository.findById(targetKey)
                 .orElseThrow(() -> new DataIntegrityViolationException("Tutor Student Meeting Not Found"));

@@ -41,6 +41,11 @@ public class TutorStudentMeetingController {
     public ResponseEntity<List<TutorStudentMeetingDto>> getTutorStudentMeetingByStaffID(@PathVariable("staffID") String staffID) {
         return ResponseEntity.ok(tutorStudentMeetingService.getTutorStudentMeetingByStaffID(staffID));
     }
+    @GetMapping("/by-studentID/{studentID}")
+    public ResponseEntity<List<TutorStudentMeetingDto>> getTutorStudentMeetingByStudentID(@PathVariable("studentID") String studentID) {
+        return ResponseEntity.ok(tutorStudentMeetingService.getTutorStudentMeetingByStudentID(studentID));
+    }
+
 
     @PostMapping("{staffID}/{studentID}/{meetingTime}")
     public ResponseEntity<TutorStudentMeetingDto> updateTutorStudentMeeting(@PathVariable("staffID") String staffID,

@@ -19,6 +19,8 @@ public interface TutorStudentMeetingService {
 
     List<TutorStudentMeetingDto> getTutorStudentMeetingByStaffID(String staffID);
 
+    List<TutorStudentMeetingDto> getTutorStudentMeetingByStudentID(String studentID);
+
     TutorStudentMeetingDto updateTutorStudentMeeting(TutorStudentMeetingCompositeKey targetKey, TutorStudentMeetingDto tutorStudentMeetingDto);
 
     void deleteTutorStudentMeeting(TutorStudentMeetingCompositeKey targetKey);

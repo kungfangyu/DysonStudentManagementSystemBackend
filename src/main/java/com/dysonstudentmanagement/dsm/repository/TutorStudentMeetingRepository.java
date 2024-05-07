@@ -13,4 +13,6 @@ import java.util.List;
 */
 public interface TutorStudentMeetingRepository extends JpaRepository<TutorStudentMeeting, TutorStudentMeetingCompositeKey> {
     List<TutorStudentMeeting> findByStaffID(String staffID);
+
+    List<TutorStudentMeeting> findByStudentID(String studentID);
 }
