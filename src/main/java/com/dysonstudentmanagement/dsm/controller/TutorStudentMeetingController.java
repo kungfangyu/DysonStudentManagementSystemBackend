@@ -47,7 +47,9 @@ public class TutorStudentMeetingController {
     }
 
 
-    @PostMapping("{staffID}/{studentID}/{meetingTime}")
+
+
+    @PutMapping("{staffID}/{meetingTime}")
     public ResponseEntity<TutorStudentMeetingDto> updateTutorStudentMeeting(@PathVariable("staffID") String staffID,
                                                                           @PathVariable("meetingTime") String meetingTime,
                                                                           @RequestBody TutorStudentMeetingDto tutorStudentMeetingDto) {
