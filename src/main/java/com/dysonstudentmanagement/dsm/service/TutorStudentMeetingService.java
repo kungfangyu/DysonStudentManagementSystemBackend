@@ -17,7 +17,7 @@ public interface TutorStudentMeetingService {
 
     TutorStudentMeetingDto getTutorStudentMeeting(TutorStudentMeetingCompositeKey targetKey);
 
-    List<TutorStudentMeetingDto> getTutorStudentMeetingByStudentIDandStaffID(String studentID, String staffID);
+    List<TutorStudentMeetingDto> getTutorStudentMeetingByStaffID(String staffID);
 
     TutorStudentMeetingDto updateTutorStudentMeeting(TutorStudentMeetingCompositeKey targetKey, TutorStudentMeetingDto tutorStudentMeetingDto);
 
